@@ -43,3 +43,6 @@ Thumbs.db
 # Temporary files
 tmp/
 temp/
+
+# taste-skill working files
+.taste-skill/

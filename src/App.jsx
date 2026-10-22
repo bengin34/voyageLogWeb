@@ -1,65 +1,21 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  BookOpenText,
-  CalendarDays,
-  Check,
-  ChevronRight,
-  Compass,
-  Download,
-  Filter,
-  Globe2,
-  Landmark,
-  Languages,
-  ListChecks,
-  LockKeyhole,
-  MapPinned,
-  Plane,
-  Search,
-  ShieldCheck,
-  Sparkles,
-  WifiOff,
-} from 'lucide-react';
-import {
   APP_STORE_URL,
   GOOGLE_PLAY_URL,
   SUPPORT_EMAIL,
   absoluteUrl,
+  appLanguages,
+  appScreen,
   getRouteAlternates,
   getRouteCanonical,
   getRouteFromPath,
-  getScreenshotPath,
-  heroScreens,
   localeKeys,
   locales,
-  screenshotFiles,
 } from './content';
 
-const featureIcons = [Plane, BookOpenText, MapPinned, Search, Filter, ShieldCheck];
-const proofIcons = [CalendarDays, LockKeyhole, Download, Languages];
-const privacyIcons = [LockKeyhole, WifiOff, ShieldCheck];
-const exportIcons = [Download, ListChecks, Compass];
-
-function useReveal(ref, options) {
-  useEffect(() => {
-    const targets = ref.current?.querySelectorAll?.('.anim') ?? [];
-    if (!targets.length) return undefined;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, ...(options ?? {}) },
-    );
-
-    targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
-  }, [ref, options]);
-}
+const OG_IMAGE = '/assets/og.png';
+const SCREEN_W = 972;
+const SCREEN_H = 2130;
 
 function upsertMeta(selector, attr, value) {
   const node = document.head.querySelector(selector);
@@ -79,9 +35,7 @@ function updateAlternates() {
   });
 }
 
-function createStructuredData(route, title, description) {
-  const canonical = getRouteCanonical(route);
-
+function createStructuredData(route, description) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -89,529 +43,414 @@ function createStructuredData(route, title, description) {
     applicationCategory: 'TravelApplication',
     operatingSystem: 'iOS, Android',
     description,
-    url: canonical,
+    url: getRouteCanonical(route),
     image: absoluteUrl('/assets/icon-512.png'),
     sameAs: [APP_STORE_URL, GOOGLE_PLAY_URL],
     installUrl: [APP_STORE_URL, GOOGLE_PLAY_URL],
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     inLanguage: localeKeys,
   };
 }
 
 function updateHead(route) {
   const content = locales[route.lang];
-  const title = content.metaTitle;
-  const description = content.metaDescription;
   const canonical = getRouteCanonical(route);
-  const ogImage = absoluteUrl(getScreenshotPath(content.assetLocale, screenshotFiles[0]));
+  const ogImage = absoluteUrl(OG_IMAGE);
 
   document.documentElement.lang = content.htmlLang;
-  document.title = title;
-  upsertMeta('meta[name="description"]', 'content', description);
+  document.title = content.metaTitle;
+  upsertMeta('meta[name="description"]', 'content', content.metaDescription);
   upsertMeta('link[rel="canonical"]', 'href', canonical);
-  upsertMeta('meta[property="og:title"]', 'content', title);
-  upsertMeta('meta[property="og:description"]', 'content', description);
+  upsertMeta('meta[property="og:title"]', 'content', content.metaTitle);
+  upsertMeta('meta[property="og:description"]', 'content', content.metaDescription);
   upsertMeta('meta[property="og:url"]', 'content', canonical);
   upsertMeta('meta[property="og:image"]', 'content', ogImage);
   upsertMeta('meta[property="og:locale"]', 'content', content.ogLocale);
-  upsertMeta('meta[name="twitter:title"]', 'content', title);
-  upsertMeta('meta[name="twitter:description"]', 'content', description);
+  upsertMeta('meta[name="twitter:title"]', 'content', content.metaTitle);
+  upsertMeta('meta[name="twitter:description"]', 'content', content.metaDescription);
   upsertMeta('meta[name="twitter:image"]', 'content', ogImage);
   updateAlternates();
 
   const sd = document.getElementById('structured-data');
-  if (sd) {
-    sd.textContent = JSON.stringify(createStructuredData(route, title, description), null, 2);
-  }
+  if (sd) sd.textContent = JSON.stringify(createStructuredData(route, content.metaDescription), null, 2);
 }
 
-function screenPath(content, screen) {
-  return getScreenshotPath(content.assetLocale, screen);
+function fold(value, lang) {
+  return value
+    .toLocaleLowerCase(lang)
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/ı/g, 'i')
+    .replace(/ß/g, 'ss');
 }
 
-function Header({ content, currentLang, onLanguageChange }) {
-  const sectionHref = (section) => `${locales[currentLang].path}#${section}`;
-
-  return (
-    <header className="site-header">
-      <div className="site-header-inner">
-        <a className="brand-link" href={locales[currentLang].path} aria-label="VoyageLog home">
-          <img className="brand-icon" src="/assets/icon-192.png" alt="" />
-          <span>VoyageLog</span>
-        </a>
-
-        <nav className="nav-links" aria-label="Primary">
-          <a href={sectionHref('features')}>{content.nav.features}</a>
-          <a href={sectionHref('screens')}>{content.nav.screens}</a>
-          <a href={sectionHref('privacy')}>{content.nav.privacy}</a>
-          <a href={sectionHref('export')}>{content.nav.export}</a>
-        </nav>
-
-        <div className="language-segment" aria-label="Language">
-          {localeKeys.map((lang) => (
-            <button
-              key={lang}
-              type="button"
-              className={currentLang === lang ? 'is-active' : ''}
-              onClick={() => onLanguageChange(lang)}
-              aria-pressed={currentLang === lang}
-            >
-              {locales[lang].shortLabel}
-            </button>
-          ))}
-        </div>
-
-        <select
-          className="language-select"
-          value={currentLang}
-          onChange={(event) => onLanguageChange(event.target.value)}
-          aria-label="Language"
-        >
-          {localeKeys.map((lang) => (
-            <option key={lang} value={lang}>
-              {locales[lang].shortLabel}
-            </option>
-          ))}
-        </select>
-      </div>
-    </header>
-  );
+function useReveal() {
+  useEffect(() => {
+    const root = document.documentElement;
+    const nodes = Array.from(document.querySelectorAll('.rv'));
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      nodes.forEach((node) => node.classList.add('in'));
+      return undefined;
+    }
+    root.classList.add('js');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: '0px 0px -4% 0px' },
+    );
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
 }
 
-function wrappedOffset(index, active, count) {
-  let distance = index - active;
-  if (distance > count / 2) distance -= count;
-  if (distance < -count / 2) distance += count;
-  return distance;
-}
-
-function heroPhoneStyle(offset) {
-  if (offset === 0) {
-    return {
-      transform: 'translate3d(0, 0, 0) rotate(-2deg) scale(1)',
-      opacity: 1,
-      zIndex: 4,
-    };
-  }
-
-  const direction = offset < 0 ? -1 : 1;
-  return {
-    transform: `translate3d(${direction * 180}px, ${Math.abs(offset) * 26}px, 0) rotate(${direction * 7}deg) scale(0.78)`,
-    opacity: 0.52,
-    zIndex: 3 - Math.abs(offset),
-  };
-}
-
-function Hero({ content }) {
-  const ref = useRef(null);
+function useActiveChapter(count) {
   const [active, setActive] = useState(0);
-  const heroItems = useMemo(
-    () => heroScreens.map((id) => screenshotFiles.find((screen) => screen.id === id)).filter(Boolean),
-    [],
-  );
-  useReveal(ref);
 
   useEffect(() => {
-    const timer = setInterval(() => setActive((current) => (current + 1) % heroItems.length), 3200);
-    return () => clearInterval(timer);
-  }, [heroItems.length]);
+    if (!('IntersectionObserver' in window)) return undefined;
+    const nodes = Array.from(document.querySelectorAll('[data-chapter]'));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(Number(entry.target.dataset.chapter));
+        });
+      },
+      { rootMargin: '-42% 0px -48% 0px' },
+    );
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [count]);
 
+  return active;
+}
+
+function Phone({ src, alt, eager = false, className = '' }) {
   return (
-    <section id="top" ref={ref} className="hero-section">
-      <div className="hero-wash" aria-hidden="true" />
-      <div className="hero-pattern" aria-hidden="true" />
-
-      <div className="hero-media" aria-hidden="true">
-        {heroItems.map((screen, index) => {
-          const offset = wrappedOffset(index, active, heroItems.length);
-          return (
-            <div
-              key={screen.id}
-              className={`hero-phone${offset === 0 ? ' is-active' : ''}`}
-              style={heroPhoneStyle(offset)}
-            >
-              <img src={screenPath(content, screen)} alt="" width="1320" height="2868" />
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="hero-content">
-        <div className="eyebrow-pill anim">
-          <span className="eyebrow-dot" aria-hidden="true" />
-          {content.hero.eyebrow}
-        </div>
-        <h1 className="anim anim-d1">VoyageLog</h1>
-        <p className="hero-lead anim anim-d2">{content.hero.lead}</p>
-
-        <div className="hero-actions anim anim-d3">
-          <a className="button-primary" href={APP_STORE_URL} target="_blank" rel="noreferrer">
-            {content.hero.primaryCta}
-            <ChevronRight aria-hidden="true" size={18} />
-          </a>
-          <a className="button-secondary" href={GOOGLE_PLAY_URL} target="_blank" rel="noreferrer">
-            {content.hero.secondaryCta}
-            <ChevronRight aria-hidden="true" size={18} />
-          </a>
-        </div>
-
-        <div className="badge-row anim anim-d4">
-          {content.hero.badges.map((badge) => (
-            <span key={badge} className="trust-badge">
-              {badge}
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
+    <img
+      className={`phone ${className}`}
+      src={src}
+      alt={alt}
+      width={SCREEN_W}
+      height={SCREEN_H}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+    />
   );
 }
 
-function ProofStrip({ content }) {
-  const ref = useRef(null);
-  useReveal(ref);
-
+function StoreLinks({ content, size = 'lg' }) {
   return (
-    <section ref={ref} className="proof-strip">
-      <div className="section-shell proof-grid">
-        {content.proof.map((item, index) => {
-          const Icon = proofIcons[index];
-          return (
-            <div key={item.label} className={`proof-item anim anim-d${index + 1}`}>
-              <span className="proof-icon">
-                <Icon aria-hidden="true" size={20} />
-              </span>
-              <span>
-                <strong>{item.value}</strong>
-                <small>{item.label}</small>
-              </span>
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-function SectionIntro({ eyebrow, title, body, align = 'left', dark = false }) {
-  return (
-    <div className={`section-intro ${align === 'center' ? 'is-centered' : ''} ${dark ? 'is-dark' : ''}`}>
-      {eyebrow ? <p className="section-eyebrow">{eyebrow}</p> : null}
-      <h2>{title}</h2>
-      {body ? <p>{body}</p> : null}
+    <div className={`actions actions-${size}`}>
+      <a className="btn" href={APP_STORE_URL} target="_blank" rel="noreferrer">
+        {content.hero.appStore}
+      </a>
+      <a className="text-link" href={GOOGLE_PLAY_URL} target="_blank" rel="noreferrer">
+        {content.hero.googlePlay}
+      </a>
     </div>
   );
 }
 
-function Features({ content }) {
-  const ref = useRef(null);
-  useReveal(ref);
-
+function Header({ content, currentLang }) {
   return (
-    <section id="features" ref={ref} className="section-band paper-band">
-      <div className="section-shell">
-        <div className="anim">
-          <SectionIntro {...content.intro} />
-        </div>
-        <div className="feature-grid">
-          {content.features.map((feature, index) => {
-            const Icon = featureIcons[index];
-            return (
-              <article key={feature.title} className={`feature-card anim anim-d${Math.min(index + 1, 5)}`}>
-                <span className="feature-icon">
-                  <Icon aria-hidden="true" size={22} />
-                </span>
-                <h3>{feature.title}</h3>
-                <p>{feature.body}</p>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Screens({ content }) {
-  const ref = useRef(null);
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const resumeTimer = useRef(null);
-  useReveal(ref);
-
-  useEffect(() => {
-    if (paused) return undefined;
-    const timer = setInterval(() => setActive((current) => (current + 1) % screenshotFiles.length), 4200);
-    return () => clearInterval(timer);
-  }, [paused]);
-
-  useEffect(() => () => clearTimeout(resumeTimer.current), []);
-
-  function goTo(index) {
-    setActive(index);
-    setPaused(true);
-    clearTimeout(resumeTimer.current);
-    resumeTimer.current = setTimeout(() => setPaused(false), 8000);
-  }
-
-  const activeScreen = content.screens[active];
-
-  return (
-    <section id="screens" ref={ref} className="screens-section">
-      <div className="section-shell">
-        <div className="anim">
-          <SectionIntro align="center" dark eyebrow={content.nav.screens} title={activeScreen.title} body={activeScreen.body} />
-        </div>
-      </div>
-
-      <div className="screens-viewport anim anim-d2">
-        <div className="screens-track" style={{ '--active': active }}>
-          {screenshotFiles.map((screen, index) => {
-            const copy = content.screens[index];
-            return (
-              <button
-                key={screen.id}
-                type="button"
-                className={`screen-slide${active === index ? ' is-active' : ''}`}
-                onClick={() => goTo(index)}
-                aria-label={copy.title}
-              >
-                <img
-                  src={screenPath(content, screen)}
-                  alt={`${copy.title}. ${copy.body}`}
-                  width="1320"
-                  height="2868"
-                  loading={index < 2 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="screen-dots" aria-label="Screens">
-        {screenshotFiles.map((screen, index) => (
-          <button
-            key={screen.id}
-            type="button"
-            className={active === index ? 'is-active' : ''}
-            onClick={() => goTo(index)}
-            aria-label={content.screens[index].title}
-          />
+    <header className="read-top">
+      <a className="brand" href={content.path} aria-label={content.nav.home}>
+        <img src="/assets/icon-192.png" alt="" width="36" height="36" />
+        <span>VoyageLog</span>
+      </a>
+      <nav className="langs" aria-label={content.nav.language}>
+        {localeKeys.map((key) => (
+          <a
+            key={key}
+            href={locales[key].path}
+            hrefLang={locales[key].htmlLang}
+            lang={locales[key].htmlLang}
+            aria-current={key === currentLang ? 'true' : undefined}
+          >
+            {locales[key].shortLabel}
+          </a>
         ))}
-      </div>
-    </section>
+      </nav>
+    </header>
   );
 }
 
-function Privacy({ content }) {
-  const ref = useRef(null);
-  useReveal(ref);
+function Search({ content, lang }) {
+  const s = content.search;
+  const [query, setQuery] = useState(s.hints[0]);
+
+  useEffect(() => setQuery(s.hints[0]), [s.hints]);
+
+  const results = useMemo(() => {
+    const tokens = fold(query, lang).split(/\s+/).filter(Boolean);
+    if (!tokens.length) return s.entries.slice(0, 5).map((entry) => ({ entry, field: 'title', text: entry.title }));
+
+    const out = [];
+    s.entries.forEach((entry) => {
+      const fields = {
+        title: fold(entry.title, lang),
+        notes: fold(entry.notes, lang),
+        tags: fold(entry.tags.join(' '), lang),
+        trip: fold(entry.trip, lang),
+      };
+      const haystack = Object.values(fields).join(' ');
+      if (!tokens.every((token) => haystack.includes(token))) return;
+      const first = tokens[0];
+      const field = ['title', 'notes', 'tags', 'trip'].find((key) => fields[key].includes(first)) ?? 'title';
+      const text = field === 'tags' ? entry.tags.join(', ') : entry[field];
+      out.push({ entry, field, text });
+    });
+    return out.slice(0, 5);
+  }, [query, lang, s.entries]);
 
   return (
-    <section id="privacy" ref={ref} className="section-band white-band">
-      <div className="section-shell split-section">
-        <div className="anim">
-          <SectionIntro {...content.privacy} />
-        </div>
-        <div className="point-grid">
-          {content.privacy.points.map((point, index) => {
-            const Icon = privacyIcons[index];
-            return (
-              <div key={point} className={`point-card anim anim-d${index + 1}`}>
-                <span>
-                  <Icon aria-hidden="true" size={22} />
-                </span>
-                <strong>{point}</strong>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
+    <section id="search" className="search" aria-labelledby="search-title">
+      <h2 id="search-title" className="search-title">
+        <span className="s-t1">{s.title[0]}</span>
+        <span className="s-t2">{s.title[1]}</span>
+      </h2>
 
-function ExportBlock({ content }) {
-  const ref = useRef(null);
-  useReveal(ref);
-  const screen = screenshotFiles.find((item) => item.id === 'bestof') ?? screenshotFiles[0];
-
-  return (
-    <section id="export" ref={ref} className="section-band export-band">
-      <div className="section-shell export-layout">
-        <div className="anim">
-          <SectionIntro dark {...content.exportBlock} />
-          <div className="export-points">
-            {content.exportBlock.points.map((point, index) => {
-              const Icon = exportIcons[index];
-              return (
-                <span key={point} className={`export-pill anim anim-d${index + 2}`}>
-                  <Icon aria-hidden="true" size={18} />
-                  {point}
-                </span>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="phone-showcase anim anim-d2">
-          <img
-            src={screenPath(content, screen)}
-            alt={content.screens[9].title}
-            width="1320"
-            height="2868"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function LanguagesBlock({ content, currentLang, onLanguageChange }) {
-  const ref = useRef(null);
-  useReveal(ref);
-
-  return (
-    <section ref={ref} className="section-band paper-band compact-band">
-      <div className="section-shell language-layout">
-        <div className="anim">
-          <p className="section-eyebrow">{content.nav.features}</p>
-          <h2>{content.languages.title}</h2>
-          <p>{content.languages.body}</p>
-        </div>
-        <div className="language-buttons anim anim-d2">
-          {localeKeys.map((lang) => (
-            <button
-              key={lang}
-              type="button"
-              className={currentLang === lang ? 'is-active' : ''}
-              onClick={() => onLanguageChange(lang)}
-            >
-              {locales[lang].label}
+      <div className="s-in">
+        <label className="s-label" htmlFor="trip-search">
+          {s.label}
+        </label>
+        <input
+          id="trip-search"
+          className="s-input"
+          type="search"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          placeholder={s.placeholder}
+          autoComplete="off"
+          spellCheck="false"
+        />
+        <p className="s-hints" aria-label={s.hintLabel}>
+          {s.hints.map((hint) => (
+            <button key={hint} type="button" className="chip" onClick={() => setQuery(hint)}>
+              {hint}
             </button>
           ))}
-        </div>
+        </p>
+      </div>
+
+      <div className="s-out" data-ui>
+        <ul className="results" aria-label={s.resultsLabel} aria-live="polite">
+          {results.length === 0 ? (
+            <li className="res res-empty">{s.empty}</li>
+          ) : (
+            results.map(({ entry, field, text }) => (
+              <li className="res" key={entry.title}>
+                <span className={`kind kind-${entry.kind}`}>
+                  {entry.kind === 'place' ? s.place : s.moment}
+                  {entry.rating ? ` ${entry.rating.toFixed(1)}` : ''}
+                </span>
+                <strong className="res-title">{entry.title}</strong>
+                <span className="res-trip">
+                  {s.inTrip} {entry.trip}
+                </span>
+                <span className="res-match">
+                  {s.matched[field]}: {text}
+                </span>
+              </li>
+            ))
+          )}
+        </ul>
+        <p className="s-note">{s.note}</p>
       </div>
     </section>
-  );
-}
-
-function DownloadBlock({ content }) {
-  const ref = useRef(null);
-  useReveal(ref);
-
-  return (
-    <section ref={ref} className="download-section">
-      <div className="section-shell download-inner">
-        <div className="anim">
-          <p className="section-eyebrow">{content.download.eyebrow}</p>
-          <h2>{content.download.title}</h2>
-          <p>{content.download.body}</p>
-        </div>
-        <div className="download-actions anim anim-d2">
-          <a className="button-primary" href={APP_STORE_URL} target="_blank" rel="noreferrer">
-            {content.download.cta}
-            <ChevronRight aria-hidden="true" size={18} />
-          </a>
-          <a className="button-secondary" href={GOOGLE_PLAY_URL} target="_blank" rel="noreferrer">
-            Google Play
-            <ChevronRight aria-hidden="true" size={18} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Footer({ content }) {
-  const year = new Date().getFullYear();
-  const showGermanLegal = content.htmlLang === 'de';
-
-  return (
-    <footer className="site-footer">
-      <div className="section-shell footer-grid">
-        <div>
-          <div className="footer-brand">
-            <img src="/assets/icon-192.png" alt="" />
-            <span>
-              <strong>VoyageLog</strong>
-              <small>{content.footer.tagline}</small>
-            </span>
-          </div>
-          <p>
-            &copy; {year} VoyageLog
-            {showGermanLegal ? (
-              <>
-                <br />
-                Mendi Tekstilwaren / Dilara Demir Caglar
-              </>
-            ) : null}
-          </p>
-        </div>
-
-        <div>
-          <strong>App</strong>
-          <a href={APP_STORE_URL} target="_blank" rel="noreferrer">App Store</a>
-          <a href={GOOGLE_PLAY_URL} target="_blank" rel="noreferrer">Google Play</a>
-          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">{content.footer.eula}</a>
-        </div>
-
-        <div>
-          <strong>Legal</strong>
-          <a href="/privacy/index.html">Privacy Policy</a>
-          <a href="/terms/index.html">Terms of Use</a>
-          <a href="/support/index.html">Support</a>
-          {showGermanLegal ? <a href="/impressum/index.html">Impressum</a> : null}
-          <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
-        </div>
-      </div>
-    </footer>
   );
 }
 
 export default function App() {
-  const [route, setRoute] = useState(() => getRouteFromPath(window.location.pathname));
-  const content = useMemo(() => locales[route.lang], [route.lang]);
+  const route = useMemo(() => getRouteFromPath(window.location.pathname), []);
+  const currentLang = route.lang;
+  const content = locales[currentLang];
+  const assetLocale = content.assetLocale;
+  const active = useActiveChapter(content.chapters.length);
 
-  useEffect(() => {
-    const onPop = () => setRoute(getRouteFromPath(window.location.pathname));
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
-  }, []);
+  useEffect(() => updateHead(route), [route]);
+  useReveal();
 
-  useEffect(() => {
-    updateHead(route);
-  }, [route]);
-
-  function handleLanguageChange(nextLang) {
-    const nextPath = locales[nextLang].path;
-    window.history.pushState({}, '', nextPath);
-    setRoute(getRouteFromPath(nextPath));
-    window.scrollTo({ top: 0 });
-  }
+  const showGermanLegal = currentLang === 'de';
 
   return (
     <>
-      <Header content={content} currentLang={route.lang} onLanguageChange={handleLanguageChange} />
-      <main>
-        <Hero content={content} />
-        <ProofStrip content={content} />
-        <Features content={content} />
-        <Screens content={content} />
-        <Privacy content={content} />
-        <ExportBlock content={content} />
-        <LanguagesBlock content={content} currentLang={route.lang} onLanguageChange={handleLanguageChange} />
-        <DownloadBlock content={content} />
-      </main>
-      <Footer content={content} />
+      <div className="shell">
+        <main className="read">
+          <Header content={content} currentLang={currentLang} />
+
+          <section id="top" className="hero" data-chapter="0">
+            <h1 className="rv">{content.hero.title}</h1>
+            <p className="lead rv">{content.hero.lead}</p>
+            <div className="rv">
+              <StoreLinks content={content} />
+            </div>
+          </section>
+
+          <div id="features">
+            {content.chapters.map((chapter, index) => (
+              <article className="chapter" key={chapter.id} data-chapter={index} id={chapter.id}>
+                <figure className="chapter-fig rv">
+                  <Phone src={appScreen(assetLocale, chapter.screen)} alt={chapter.alt} eager={index === 0} />
+                </figure>
+                <h2 className="rv">{chapter.title}</h2>
+                {chapter.body.map((paragraph) => (
+                  <p className="rv" key={paragraph}>
+                    {paragraph}
+                  </p>
+                ))}
+              </article>
+            ))}
+
+            <section className="more">
+              <h2 className="rv">{content.more.title}</h2>
+              <dl>
+                {content.more.items.map((item) => (
+                  <div className="more-row rv" key={item.t}>
+                    <dt>{item.t}</dt>
+                    <dd>{item.b}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          </div>
+        </main>
+
+        <aside className="stage" aria-label="VoyageLog screens">
+          <div className="stage-phones">
+            {content.chapters.map((chapter, index) => (
+              <Phone
+                key={chapter.id}
+                className={index === active ? 'is-on' : ''}
+                src={appScreen(assetLocale, chapter.screen)}
+                alt={index === active ? chapter.alt : ''}
+                eager={index === 0}
+              />
+            ))}
+          </div>
+          <div className="stage-bar">
+            <span>{content.footer.tagline}</span>
+            <span className="stage-links">
+              <a href={APP_STORE_URL} target="_blank" rel="noreferrer">
+                App Store
+              </a>
+              <a href={GOOGLE_PLAY_URL} target="_blank" rel="noreferrer">
+                Google Play
+              </a>
+            </span>
+          </div>
+        </aside>
+      </div>
+
+      <Search content={content} lang={currentLang} />
+
+      <section className="panel insights" aria-labelledby="insights-title">
+        <div className="insights-copy">
+          <h2 id="insights-title" className="rv">
+            {content.stats.title}
+          </h2>
+          {content.stats.body.map((paragraph) => (
+            <p className="rv" key={paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <div className="insights-phones">
+          <Phone src={appScreen(assetLocale, 'bestof')} alt={content.stats.alt} />
+          <Phone src={appScreen(assetLocale, 'places')} alt={content.stats.alt2} />
+        </div>
+      </section>
+
+      <section id="privacy" className="panel privacy" aria-labelledby="privacy-title">
+        <div className="privacy-copy">
+          <h2 id="privacy-title" className="rv">
+            {content.privacy.title}
+          </h2>
+          {content.privacy.body.map((paragraph) => (
+            <p className="rv" key={paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <dl className="formats">
+          {content.privacy.formats.map((format) => (
+            <div className="format rv" key={format.t}>
+              <dt>{format.t}</dt>
+              <dd>{format.b}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="panel plans" aria-labelledby="plans-title">
+        <div className="plans-col">
+          <h2 id="plans-title" className="rv">
+            {content.plans.title}
+          </h2>
+          {content.plans.body.map((paragraph) => (
+            <p className="rv" key={paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <div className="plans-col">
+          <h2 className="rv">{content.languages.title}</h2>
+          <p className="rv">{content.languages.body}</p>
+          <p className="lang-list rv" dir="ltr">
+            {appLanguages.split(' · ').map((name, index) => (
+              <span key={name} dir="auto">
+                {index > 0 ? ' · ' : ''}
+                {name}
+              </span>
+            ))}
+          </p>
+        </div>
+      </section>
+
+      <section id="faq" className="panel faq" aria-labelledby="faq-title">
+        <h2 id="faq-title" className="rv">
+          {content.faq.title}
+        </h2>
+        <div className="faq-text">
+          {content.faq.items.map((item) => (
+            <p key={item.q}>
+              <strong>{item.q}</strong> {item.a}{' '}
+              {item.q === content.faq.items[content.faq.items.length - 1].q ? (
+                <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
+              ) : null}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="panel cta" aria-label="VoyageLog">
+        <p className="cta-sentence rv">{content.cta.sentence}</p>
+        <div className="rv">
+          <StoreLinks content={content} size="sm" />
+        </div>
+      </section>
+
+      <footer className="foot">
+        <span>{content.footer.tagline}</span>
+        <nav aria-label="Footer">
+          <a href="/privacy/index.html">{content.footer.privacy}</a>
+          <a href="/terms/index.html">{content.footer.terms}</a>
+          <a href="/support/index.html">{content.footer.support}</a>
+          {showGermanLegal ? <a href="/impressum/index.html">{content.footer.impressum}</a> : null}
+          <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">{content.footer.eula}</a>
+        </nav>
+        <span className="foot-end">
+          <a href={`mailto:${SUPPORT_EMAIL}`}>{content.footer.contact}</a>
+          <span>© {new Date().getFullYear()}</span>
+        </span>
+      </footer>
     </>
   );
 }

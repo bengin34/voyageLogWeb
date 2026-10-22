@@ -4,7 +4,6 @@ import {
   APP_STORE_URL,
   DOMAIN,
   GOOGLE_PLAY_URL,
-  SUPPORT_EMAIL,
   absoluteUrl,
   getRouteAlternates,
   getRouteCanonical,
@@ -140,7 +139,7 @@ function localizeHtml(html, route) {
   const meta = getRouteMeta(route);
   const canonical = getRouteCanonical(route);
   const jsonLd = JSON.stringify(createStructuredData(route, meta, canonical), null, 8);
-  const ogImage = absoluteUrl('/assets/screenshots/en-US/01_01-timeline.png');
+  const ogImage = absoluteUrl('/assets/og.png');
 
   let next = html;
   next = setTag(next, /<html lang="[^"]*">/, `<html lang="${meta.htmlLang}">`);
@@ -207,8 +206,3 @@ await Promise.all(
 if (DOMAIN) {
   await writeFile(join(distDir, 'sitemap.xml'), renderSitemap([rootRoute, ...homeRoutes]));
 }
-
-await writeFile(
-  join(distDir, 'domain-todo.txt'),
-  `Set DOMAIN in src/content.js when the final VoyageLog domain is ready.\nSupport email currently points to ${SUPPORT_EMAIL}.\n`,
-);
