@@ -15,7 +15,8 @@ export const locales = {
     htmlLang: 'en',
     assetLocale: 'en-US',
     ogLocale: 'en_US',
-    path: '/en/',
+    stage: { photoAlt: 'Sunlight through the stained glass inside the Sagrada Família in Barcelona.' },
+    path: '/',
     metaTitle: 'VoyageLog - Private travel journal and trip timeline',
     metaDescription:
       'VoyageLog is a private, offline-first travel journal. Keep trips, places, moments, photos and notes in one searchable timeline. No account needed.',
@@ -49,7 +50,7 @@ export const locales = {
       },
       {
         id: 'cities',
-        screen: 'entries',
+        screen: 'cities',
         alt: 'A two-city trip split into Prague and Vienna with entry counts and share buttons.',
         title: 'Long trips, city by city.',
         body: [
@@ -162,7 +163,22 @@ export const locales = {
       ],
     },
     cta: { sentence: 'Start your first trip in under a minute. It is free to try, and it stays on your phone.', button: 'Download on the App Store', secondary: 'Google Play' },
-    footer: { tagline: 'A private travel journal', terms: 'Terms', privacy: 'Privacy', support: 'Support', eula: 'Apple EULA', impressum: 'Impressum', contact: 'Email us' },
+    footer: { tagline: 'A private travel journal', terms: 'Terms', privacy: 'Privacy', support: 'Support', eula: 'Apple EULA', impressum: 'Impressum', contact: 'Email us', credit: 'Photograph: Light inside Sagrada Família by Mrohlewis, CC0, via Wikimedia Commons' },
+    blog: {
+      label: 'Blog',
+      title: 'VoyageLog blog',
+      metaTitle: 'VoyageLog blog - Travel journaling, apps and city lists',
+      description: 'Practical writing about keeping a travel journal, choosing the right app, and the places worth ticking off.',
+      updated: 'Updated',
+      readTime: 'min read',
+      contents: 'Contents',
+      faq: 'Questions',
+      more: 'More from the blog',
+      allPosts: 'All articles',
+      ctaTitle: 'Keep your own trips like this.',
+      ctaBody: 'VoyageLog is a private travel journal for iPhone and Android. No account, works offline, your data stays on your phone.',
+      byline: 'Written by the people who make VoyageLog',
+    },
   },
 
   de: {
@@ -171,6 +187,7 @@ export const locales = {
     htmlLang: 'de',
     assetLocale: 'de-DE',
     ogLocale: 'de_DE',
+    stage: { photoAlt: 'Sonnenlicht durch die Buntglasfenster in der Sagrada Família in Barcelona.' },
     path: '/de/',
     metaTitle: 'VoyageLog - Privates Reisetagebuch und Reise-Timeline',
     metaDescription:
@@ -205,7 +222,7 @@ export const locales = {
       },
       {
         id: 'cities',
-        screen: 'entries',
+        screen: 'cities',
         alt: 'Eine Reise nach Städten gegliedert: Prag und Wien mit Anzahl der Einträge und Teilen-Buttons.',
         title: 'Lange Reisen, Stadt für Stadt.',
         body: [
@@ -318,7 +335,22 @@ export const locales = {
       ],
     },
     cta: { sentence: 'Starte deine erste Reise in unter einer Minute. Kostenlos zum Ausprobieren, und alles bleibt auf deinem Handy.', button: 'Im App Store laden', secondary: 'Google Play' },
-    footer: { tagline: 'Ein privates Reisetagebuch', terms: 'Nutzungsbedingungen', privacy: 'Datenschutz', support: 'Support', eula: 'Apple EULA', impressum: 'Impressum', contact: 'E-Mail schreiben' },
+    footer: { tagline: 'Ein privates Reisetagebuch', terms: 'Nutzungsbedingungen', privacy: 'Datenschutz', support: 'Support', eula: 'Apple EULA', impressum: 'Impressum', contact: 'E-Mail schreiben', credit: 'Foto: Light inside Sagrada Família von Mrohlewis, CC0, via Wikimedia Commons' },
+    blog: {
+      label: 'Blog',
+      title: 'VoyageLog Blog',
+      metaTitle: 'VoyageLog Blog - Reisetagebuch, Apps und Städtelisten',
+      description: 'Praktische Texte zum Reisetagebuch führen, zur Wahl der richtigen App und zu Orten, die man abhaken sollte.',
+      updated: 'Aktualisiert',
+      readTime: 'Min. Lesezeit',
+      contents: 'Inhalt',
+      faq: 'Fragen',
+      more: 'Mehr aus dem Blog',
+      allPosts: 'Alle Artikel',
+      ctaTitle: 'Halte deine Reisen genau so fest.',
+      ctaBody: 'VoyageLog ist ein privates Reisetagebuch für iPhone und Android. Kein Konto, funktioniert offline, deine Daten bleiben auf dem Handy.',
+      byline: 'Geschrieben von den Leuten, die VoyageLog bauen',
+    },
   },
 
   tr: {
@@ -327,6 +359,7 @@ export const locales = {
     htmlLang: 'tr',
     assetLocale: 'tr',
     ogLocale: 'tr_TR',
+    stage: { photoAlt: 'Barselona’daki Sagrada Família’nın vitraylarından süzülen gün ışığı.' },
     path: '/tr/',
     metaTitle: 'VoyageLog - Özel seyahat günlüğü ve gezi zaman çizelgesi',
     metaDescription:
@@ -361,7 +394,7 @@ export const locales = {
       },
       {
         id: 'cities',
-        screen: 'entries',
+        screen: 'cities',
         alt: 'Şehirlere bölünmüş bir gezi: Prag ve Viyana, kayıt sayıları ve paylaş düğmeleriyle.',
         title: 'Uzun geziler, şehir şehir.',
         body: [
@@ -474,7 +507,22 @@ export const locales = {
       ],
     },
     cta: { sentence: 'İlk gezinizi bir dakikadan kısa sürede başlatın. Denemek ücretsiz ve her şey telefonunuzda kalır.', button: "App Store'dan indir", secondary: 'Google Play' },
-    footer: { tagline: 'Özel bir seyahat günlüğü', terms: 'Kullanım Şartları', privacy: 'Gizlilik', support: 'Destek', eula: 'Apple EULA', impressum: 'Impressum', contact: 'E-posta gönder' },
+    footer: { tagline: 'Özel bir seyahat günlüğü', terms: 'Kullanım Şartları', privacy: 'Gizlilik', support: 'Destek', eula: 'Apple EULA', impressum: 'Impressum', contact: 'E-posta gönder', credit: 'Fotoğraf: Light inside Sagrada Família, Mrohlewis, CC0, Wikimedia Commons' },
+    blog: {
+      label: 'Blog',
+      title: 'VoyageLog blog',
+      metaTitle: 'VoyageLog blog - Seyahat günlüğü, uygulamalar ve şehir listeleri',
+      description: 'Seyahat günlüğü tutma, doğru uygulamayı seçme ve tik atmaya değer yerler üzerine pratik yazılar.',
+      updated: 'Güncelleme',
+      readTime: 'dk okuma',
+      contents: 'İçindekiler',
+      faq: 'Sorular',
+      more: 'Blogdan daha fazlası',
+      allPosts: 'Tüm yazılar',
+      ctaTitle: 'Kendi gezilerinizi de böyle saklayın.',
+      ctaBody: 'VoyageLog, iPhone ve Android için özel bir seyahat günlüğü. Hesap yok, çevrimdışı çalışır, verileriniz telefonunuzda kalır.',
+      byline: 'VoyageLog’u yapan ekip tarafından yazıldı',
+    },
   },
 };
 
@@ -493,7 +541,45 @@ export function getRouteFromPath(pathname) {
 }
 
 export function getRouteCanonical(route) {
-  return absoluteUrl(route.isRoot ? '/' : locales[route.lang].path);
+  return absoluteUrl(locales[route.lang].path);
+}
+
+export function blogIndexPath(lang) {
+  return `/${lang}/blog/`;
+}
+
+export function createHomeStructuredData(route) {
+  const content = locales[route.lang];
+  const canonical = getRouteCanonical(route);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'SoftwareApplication',
+        '@id': `${canonical}#app`,
+        name: 'VoyageLog',
+        applicationCategory: 'TravelApplication',
+        operatingSystem: 'iOS, Android',
+        description: content.metaDescription,
+        url: canonical,
+        image: absoluteUrl('/assets/icon-512.png'),
+        sameAs: [APP_STORE_URL, GOOGLE_PLAY_URL],
+        installUrl: [APP_STORE_URL, GOOGLE_PLAY_URL],
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+        inLanguage: localeKeys,
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${canonical}#faq`,
+        inLanguage: content.htmlLang,
+        mainEntity: content.faq.items.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
+      },
+    ],
+  };
 }
 
 export function getRouteAlternates() {
@@ -510,5 +596,5 @@ export function getRouteAlternates() {
 }
 
 export function appScreen(assetLocale, name) {
-  return `/assets/app/${assetLocale}/${name}.jpg`;
+  return `/assets/app/${assetLocale}/${name}.webp`;
 }

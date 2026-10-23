@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   APP_STORE_URL,
   GOOGLE_PLAY_URL,
@@ -6,6 +6,8 @@ import {
   absoluteUrl,
   appLanguages,
   appScreen,
+  blogIndexPath,
+  createHomeStructuredData,
   getRouteAlternates,
   getRouteCanonical,
   getRouteFromPath,
@@ -14,8 +16,8 @@ import {
 } from './content';
 
 const OG_IMAGE = '/assets/og.png';
-const SCREEN_W = 972;
-const SCREEN_H = 2130;
+const SCREEN_W = 1206;
+const SCREEN_H = 2622;
 
 function upsertMeta(selector, attr, value) {
   const node = document.head.querySelector(selector);
@@ -33,23 +35,6 @@ function updateAlternates() {
     link.href = alternate.href;
     document.head.insertBefore(link, icon);
   });
-}
-
-function createStructuredData(route, description) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'VoyageLog',
-    applicationCategory: 'TravelApplication',
-    operatingSystem: 'iOS, Android',
-    description,
-    url: getRouteCanonical(route),
-    image: absoluteUrl('/assets/icon-512.png'),
-    sameAs: [APP_STORE_URL, GOOGLE_PLAY_URL],
-    installUrl: [APP_STORE_URL, GOOGLE_PLAY_URL],
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    inLanguage: localeKeys,
-  };
 }
 
 function updateHead(route) {
@@ -72,7 +57,7 @@ function updateHead(route) {
   updateAlternates();
 
   const sd = document.getElementById('structured-data');
-  if (sd) sd.textContent = JSON.stringify(createStructuredData(route, content.metaDescription), null, 2);
+  if (sd) sd.textContent = JSON.stringify(createHomeStructuredData(route), null, 2);
 }
 
 function fold(value, lang) {
@@ -132,16 +117,40 @@ function useActiveChapter(count) {
 }
 
 function Phone({ src, alt, eager = false, className = '' }) {
+  const src1x = src.replace(/\.webp$/, '@1x.webp');
   return (
-    <img
-      className={`phone ${className}`}
-      src={src}
-      alt={alt}
-      width={SCREEN_W}
-      height={SCREEN_H}
-      loading={eager ? 'eager' : 'lazy'}
-      decoding="async"
-    />
+    <div className={`device ${className}`} data-ui>
+      <div className="device-body">
+        <img
+          className="device-screen"
+          src={src1x}
+          srcSet={`${src1x} 603w, ${src} 1206w`}
+          sizes="(max-width: 900px) 280px, 360px"
+          alt={alt}
+          width={SCREEN_W}
+          height={SCREEN_H}
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+      </div>
+    </div>
+  );
+}
+
+function StagePhoto({ alt }) {
+  return (
+    <picture className="stage-photo">
+      <source media="(min-width: 1400px)" srcSet="/assets/stage/sagrada.webp" />
+      <img
+        src="/assets/stage/sagrada@1x.webp"
+        srcSet="/assets/stage/sagrada@1x.webp 720w, /assets/stage/sagrada.webp 1440w"
+        sizes="50vw"
+        alt={alt}
+        width="1440"
+        height="1920"
+        decoding="async"
+      />
+    </picture>
   );
 }
 
@@ -165,8 +174,12 @@ function Header({ content, currentLang }) {
         <img src="/assets/icon-192.png" alt="" width="36" height="36" />
         <span>VoyageLog</span>
       </a>
-      <nav className="langs" aria-label={content.nav.language}>
-        {localeKeys.map((key) => (
+      <div className="top-right">
+        <a className="top-link" href={blogIndexPath(currentLang)}>
+          {content.blog.label}
+        </a>
+        <nav className="langs" aria-label={content.nav.language}>
+          {localeKeys.map((key) => (
           <a
             key={key}
             href={locales[key].path}
@@ -177,7 +190,8 @@ function Header({ content, currentLang }) {
             {locales[key].shortLabel}
           </a>
         ))}
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 }
@@ -297,7 +311,7 @@ export default function App() {
           <div id="features">
             {content.chapters.map((chapter, index) => (
               <article className="chapter" key={chapter.id} data-chapter={index} id={chapter.id}>
-                <figure className="chapter-fig rv">
+                <figure className="tile chapter-fig rv">
                   <Phone src={appScreen(assetLocale, chapter.screen)} alt={chapter.alt} eager={index === 0} />
                 </figure>
                 <h2 className="rv">{chapter.title}</h2>
@@ -324,6 +338,7 @@ export default function App() {
         </main>
 
         <aside className="stage" aria-label="VoyageLog screens">
+          <StagePhoto alt={content.stage?.photoAlt ?? ''} />
           <div className="stage-phones">
             {content.chapters.map((chapter, index) => (
               <Phone
@@ -363,8 +378,8 @@ export default function App() {
           ))}
         </div>
         <div className="insights-phones">
-          <Phone src={appScreen(assetLocale, 'bestof')} alt={content.stats.alt} />
-          <Phone src={appScreen(assetLocale, 'places')} alt={content.stats.alt2} />
+          <Phone src={appScreen(assetLocale, 'insights')} alt={content.stats.alt} />
+          <Phone src={appScreen(assetLocale, 'bestof')} alt={content.stats.alt2} />
         </div>
       </section>
 
@@ -431,15 +446,21 @@ export default function App() {
       </section>
 
       <section className="panel cta" aria-label="VoyageLog">
-        <p className="cta-sentence rv">{content.cta.sentence}</p>
-        <div className="rv">
-          <StoreLinks content={content} size="sm" />
+        <div className="cta-copy">
+          <p className="cta-sentence rv">{content.cta.sentence}</p>
+          <div className="rv">
+            <StoreLinks content={content} size="sm" />
+          </div>
         </div>
+        <figure className="tile cta-fig">
+          <Phone src={appScreen(assetLocale, 'journal')} alt={content.chapters[1].alt} />
+        </figure>
       </section>
 
       <footer className="foot">
         <span>{content.footer.tagline}</span>
         <nav aria-label="Footer">
+          <a href={blogIndexPath(currentLang)}>{content.blog.label}</a>
           <a href="/privacy/index.html">{content.footer.privacy}</a>
           <a href="/terms/index.html">{content.footer.terms}</a>
           <a href="/support/index.html">{content.footer.support}</a>
@@ -449,6 +470,9 @@ export default function App() {
         <span className="foot-end">
           <a href={`mailto:${SUPPORT_EMAIL}`}>{content.footer.contact}</a>
           <span>© {new Date().getFullYear()}</span>
+        </span>
+        <span className="foot-credit">
+          <a href="https://commons.wikimedia.org/wiki/File:Light_inside_Sagrada_Fam%C3%ADlia.jpg">{content.footer.credit}</a>
         </span>
       </footer>
     </>

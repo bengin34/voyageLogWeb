@@ -1,15 +1,30 @@
+import { execSync } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import {
-  APP_STORE_URL,
   DOMAIN,
-  GOOGLE_PLAY_URL,
   absoluteUrl,
+  blogIndexPath,
+  createHomeStructuredData,
   getRouteAlternates,
   getRouteCanonical,
   localeKeys,
   locales,
 } from '../src/content.js';
+import { buildBlog } from './blog.mjs';
+
+function gitDate(paths) {
+  try {
+    const out = execSync(`git log -1 --format=%cs -- ${paths.join(' ')}`, { encoding: 'utf8' }).trim();
+    if (out) return out;
+  } catch {
+    // not a git checkout, fall through
+  }
+  return new Date().toISOString().slice(0, 10);
+}
+
+const homeLastmod = gitDate(['src', 'index.html', 'public/assets']);
+const legalLastmod = (path) => gitDate([`public${path}`]);
 
 const distDir = 'dist';
 const baseHtml = await readFile(join(distDir, 'index.html'), 'utf8');
@@ -38,27 +53,6 @@ function getRouteMeta(route) {
     ogLocale: content.ogLocale,
     title: content.metaTitle,
     description: content.metaDescription,
-  };
-}
-
-function createStructuredData(route, meta, canonical) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'VoyageLog',
-    applicationCategory: 'TravelApplication',
-    operatingSystem: 'iOS, Android',
-    description: meta.description,
-    url: canonical,
-    image: absoluteUrl('/assets/icon-512.png'),
-    sameAs: [APP_STORE_URL, GOOGLE_PLAY_URL],
-    installUrl: [APP_STORE_URL, GOOGLE_PLAY_URL],
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    inLanguage: localeKeys,
   };
 }
 
@@ -125,11 +119,13 @@ function renderFallbackLinks(route) {
     href: locales[locale].path,
     label: locales[locale].label,
   }));
+  const blogLinks = [{ href: blogIndexPath(lang), label: content.blog.label }];
 
   return `
     <nav class="seo-fallback" aria-label="VoyageLog internal links">
       <h1>${escapeHtml(content.metaTitle)}</h1>
 ${renderFallbackSection(labels.homes, homeLinks)}
+${renderFallbackSection(content.blog.label, blogLinks)}
 ${renderFallbackSection(labels.legal, legalLinks[lang] ?? legalLinks.en)}
     </nav>
   `;
@@ -138,7 +134,7 @@ ${renderFallbackSection(labels.legal, legalLinks[lang] ?? legalLinks.en)}
 function localizeHtml(html, route) {
   const meta = getRouteMeta(route);
   const canonical = getRouteCanonical(route);
-  const jsonLd = JSON.stringify(createStructuredData(route, meta, canonical), null, 8);
+  const jsonLd = JSON.stringify(createHomeStructuredData(route), null, 8);
   const ogImage = absoluteUrl('/assets/og.png');
 
   let next = html;
@@ -161,31 +157,29 @@ function localizeHtml(html, route) {
   return next;
 }
 
-function renderSitemap(routes) {
-  const lastmod = new Date().toISOString().slice(0, 10);
-  const urls = routes.map((route) => {
-    const alternates = getRouteAlternates()
-      .map((alternate) => `    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.lang)}" href="${escapeXml(alternate.href)}" />`)
-      .join('\n');
-
-    return `  <url>
-    <loc>${escapeXml(getRouteCanonical(route))}</loc>
-    <lastmod>${lastmod}</lastmod>
-${alternates}
-  </url>`;
-  });
-
-  const staticUrls = ['/privacy/', '/terms/', '/support/', '/impressum/']
-    .map((path) => `  <url>
-    <loc>${escapeXml(absoluteUrl(path))}</loc>
-    <lastmod>${lastmod}</lastmod>
-  </url>`)
+function renderUrl({ loc, lastmod, alternates = [] }) {
+  const links = alternates
+    .map((alternate) => `    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.lang)}" href="${escapeXml(alternate.href)}" />`)
     .join('\n');
+  return `  <url>
+    <loc>${escapeXml(loc)}</loc>
+    <lastmod>${lastmod}</lastmod>
+${links}${links ? '\n' : ''}  </url>`;
+}
+
+function renderSitemap(routes, blogEntries) {
+  const seen = new Set();
+  const homeEntries = routes
+    .map((route) => ({ loc: getRouteCanonical(route), lastmod: homeLastmod, alternates: getRouteAlternates() }))
+    .filter((entry) => (seen.has(entry.loc) ? false : seen.add(entry.loc)));
+  const staticEntries = ['/privacy/', '/terms/', '/support/', '/impressum/'].map((path) => ({
+    loc: absoluteUrl(path),
+    lastmod: legalLastmod(path),
+  }));
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls.join('\n')}
-${staticUrls ? `\n${staticUrls}` : ''}
+${[...homeEntries, ...blogEntries, ...staticEntries].map(renderUrl).join('\n')}
 </urlset>
 `;
 }
@@ -203,6 +197,8 @@ await Promise.all(
   }),
 );
 
+const blogEntries = await buildBlog({ distDir, baseHtml });
+
 if (DOMAIN) {
-  await writeFile(join(distDir, 'sitemap.xml'), renderSitemap([rootRoute, ...homeRoutes]));
+  await writeFile(join(distDir, 'sitemap.xml'), renderSitemap([rootRoute, ...homeRoutes], blogEntries));
 }
