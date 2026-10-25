@@ -2,7 +2,7 @@
 title: "Travel journal ideas: sort every note into place or moment"
 description: "The best travel journal ideas start with one sorting rule: a place gets a rating, a moment does not. A 12-entry Prague and Vienna example shows why it works."
 date: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-24
 lang: en
 key: places-vs-moments
 faq:
@@ -15,7 +15,7 @@ faq:
   - q: "How can I remember trips I never wrote down?"
     a: "Open your camera roll for one evening and work trip by trip. For each trip, add the cities, then three to five places with a rating and one line, plus one or two moments the photos remind you of. You will not recover the detail of a note written on the spot, but you will recover the shape of the trip, which is enough to search and count."
   - q: "Which travel notes app keeps places and moments separate?"
-    a: "VoyageLog has the two types built in: every entry is created as a place or a moment, places take a location and a rating out of five, and search can filter by type, rating and tags. In a general notes app you can mimic this with a prefix such as P or M on each note and a tag for the city, which works but needs discipline."
+    a: "VoyageLog has the two types built in: every entry is created as a place or a moment, either can carry a location, tags and an optional rating out of five, and search can filter by type, rating and tags. In a general notes app you can mimic this with a prefix such as P or M on each note and a tag for the city, which works but needs discipline."
 ---
 
 Most travel journal ideas fail at the same point: six months later you cannot find anything, and the notes you do find are oddly useless. The fix is one sorting rule applied to every note before you write a word of it. Is this a place, somewhere a person could go back to, or a moment, something that happened once? Places get a rating. Moments do not. That single decision is what turns a pile of travel notes into two things you will actually use: a list of recommendations and a record of what the trip was like.
@@ -43,7 +43,7 @@ A few edge cases that trip people up:
 - **A meal with a story.** The restaurant is a place. The waiter who turned out to support your football team is a moment. Two entries, thirty seconds each.
 - **Bad experiences.** A disappointing famous café is a place with a 2. A missed train is a moment. Both are worth keeping; the 2 saves you from going back and the missed train becomes a good story faster than you expect.
 
-If you want the full one-minute capture routine, the title-rating-tag-line format, we laid it out in [how to keep a travel journal](/en/blog/how-to-keep-a-travel-journal/). This article is about what happens after you adopt the two types: how the notes behave, and what you can build on top of them.
+If you want the full one-minute capture routine, the title-rating-tag-line format, we laid it out in [how to keep a travel journal](/en/blog/how-to-keep-a-travel-journal/). What follows is about what happens after you adopt the two types: how the notes behave and what you can build on top of them.
 
 ## A worked example: four days in Prague and Vienna
 
@@ -52,8 +52,8 @@ Here is an imagined winter trip, two nights in Prague, a train, two nights in Vi
 | Day | Type | Entry | Rating | Tag | Note |
 |---|---|---|---|---|---|
 | 1 | Place | Café Savoy, Prague | 4 | coffee | Order the eggs, skip the pastries, arrive before nine |
-| 1 | Place | Prague Castle and St Vitus | 4 | landmark | Basic circuit ticket is enough, the cathedral is the point |
-| 1 | Moment | Tram 22 driver held the door | | tram | Saw us running from fifty meters away and waited |
+| 1 | Place | Prague Castle and St Vitus | 4 | landmark | Main circuit ticket is enough, the cathedral is the point |
+| 1 | Moment | Tram 22 driver held the door | | tram | Saw us running from 50 metres away and waited |
 | 2 | Moment | Sunrise on Charles Bridge | | sunrise | Minus four, almost empty, worth the alarm |
 | 2 | Place | Lokál Dlouhá | 5 | beer | Tank Pilsner and svíčková, arrive by half eleven or wait |
 | 2 | Place | Trdelník stand, Old Town Square | 2 | snack | Pretty, not Czech, skip it |
@@ -61,7 +61,7 @@ Here is an imagined winter trip, two nights in Prague, a train, two nights in Vi
 | 3 | Place | Café Central, Vienna | 4 | coffee | Melange and strudel, the queue moves faster than it looks |
 | 3 | Place | Belvedere | 5 | museum | Klimt room busy by eleven, go at opening |
 | 4 | Place | Naschmarkt breakfast stall | 3 | food | Fine, touristy, Saturday flea market is the better reason |
-| 4 | Moment | Snow starting on the Graben | | snow | Bells going, everyone under the arcades, nobody talking |
+| 4 | Moment | Snow starting on the Graben | | snow | Bells going, everyone in doorways, nobody talking |
 | 4 | Place | Figlmüller | 3 | food | Huge, famous, fine, not worth forty minutes in line |
 
 Read down the Type column and you can already see the two uses. The eight places are a recommendation list: two 5s to tell everyone about, three 4s, two honest 3s and a 2 to warn people off. The four moments are the trip itself: a kind driver, a cold sunrise, a snowy train, a hushed square. Nobody wants a rating on any of those, and nobody wants the trdelník stand in the story.
@@ -82,7 +82,7 @@ The city is a tag too, unless your tool handles it. In the example, "prague" and
 
 ### Best-of lists from the 5s
 
-A best-of list is just the places you rated highly, in the order you choose. Best pizza in Italy. Best coffee in Vienna. Best viewpoint this year. Because moments never carry a rating, they never pollute these lists, which is the whole point of keeping them apart. Making a list after a trip takes ten minutes and is the thing people actually send to friends.
+A best-of list is just the places you rated highly, in the order you choose. Best pizza in Italy. Best coffee in Vienna. Best viewpoint this year. Because moments carry no rating in this system, they never pollute these lists, which is the whole point of keeping them apart. Making a list after a trip takes ten minutes and is the thing people actually send to friends.
 
 ### Search by craving
 
@@ -106,7 +106,7 @@ The two-type system does not need special software, but the tool decides how muc
 | | Paper notebook | General notes app | VoyageLog |
 |---|---|---|---|
 | Mark type | Letter in margin: P or M | Prefix in title: P or M | Choose place or moment on creation |
-| Rating | Write it next to the name | Write it in the title | Built in, 1 to 5, places only |
+| Rating | Write it next to the name | Write it in the title | Built in, out of five, optional |
 | Tags | Index at the back, by hand | Hashtags or folders | Built in, searchable |
 | Location | Address written out | Paste a maps link in the note | Paste an Apple or Google Maps link, fills in |
 | Best-of lists | Rewrite a page after the trip | Make a new note, copy names | Built in, reorder, share as image or PDF |
@@ -117,17 +117,17 @@ The two-type system does not need special software, but the tool decides how muc
 
 **A general notes app**, Apple Notes or Google Keep or similar, is where most travel notes already live, usually as one long note per trip. The upgrade is small: one note per entry instead of one per trip, a P or M at the front of the title, the rating in the title for places, a hashtag for the city. It works. Its weakness shows up after a few trips, when "every museum I rated 4 or more" is a question the app cannot answer and your lists live in a separate note you have to maintain by hand.
 
-**Google Maps saved lists** deserve a mention because many people use them as a travel memories app without calling it that. Lists hold places, you can add a note to each, and they can be shared, per [Google's own help page](https://support.google.com/maps/answer/7280933). But they only hold places. There is no moment in Google Maps, no private rating that is yours rather than a public review, and no way to say "this was day two of the Vienna trip." It is a good place for the recommendation half and no place at all for the story half.
+**Google Maps saved lists** deserve a mention because many people use them as a travel memories app without calling it that. Lists hold places, each place can carry a note, and lists can be shared. But they only hold places. There is no moment in Google Maps, no private rating that is yours rather than a public review, and no way to say "this was day two of the Vienna trip." It is a good place for the recommendation half and no place at all for the story half.
 
-**VoyageLog** is the app we make, and it has the two types natively: every new entry is created as a place or a moment, places take a location and a rating out of five, moments take neither. Tags, best-of lists, search with filters for type, rating and tags, a trip split by city, and a map of everywhere you have been all follow from that. There is no account and everything stays on the phone, which matters when you are writing an entry in a metro tunnel in Vienna with roaming turned off. If you want to see how it sits against the alternatives, we compared the [best travel journal apps](/en/blog/best-travel-journal-apps/) on accounts, offline use and exports.
+**[VoyageLog](/)** is the app we make, and it has the two types natively: every new entry is created as a place or a moment. Both can take a location and a rating out of five, and because the rating is optional, moments can stay unrated. Tags, best-of lists, search with filters for type, rating and tags, a trip split by city, and a map of everywhere you have been all follow from that. There is no account and everything stays on the phone, which matters when you are writing an entry in a metro tunnel in Vienna with roaming turned off. If you want to see how it sits against the alternatives, we compared the [best travel journal apps](/en/blog/best-travel-journal-apps/) on accounts, offline use and exports.
 
 ## When a route tracker is the better tool
 
 The two-type system records what you chose to notice. It does not record where you were. For some trips that is exactly the wrong trade.
 
-If you are cycling across a country, driving a long road trip, or on a months-long backpacking trip where the route itself is the story, you want a tracker. Polarsteps draws the route automatically while your phone is in your pocket, keeps tracking without a connection, and its site puts battery use at typically under four percent a day while tracking. FindPenguins does something similar and detects flights. Google Maps Timeline, if you already have location history on, keeps a visit-and-route log on your device with an optional encrypted backup to your account; [Google's help page](https://support.google.com/maps/answer/6258979) notes it is no longer available on a computer, only in the app.
+If you are cycling across a country, driving a long road trip, or on a months-long backpacking trip where the route itself is the story, you want a tracker. Polarsteps draws the route automatically while your phone is in your pocket, keeps tracking without a connection, and Polarsteps says a full day of tracking uses about 4% of the battery. FindPenguins does something similar and detects flights. Google Maps Timeline, if you already have location history on, keeps a visit-and-route log on your device with an optional encrypted backup to your account. It is no longer available on a computer, only in the phone app.
 
-None of these are journals in the sense this article means. They will tell you that you were in Brno at 14:10. They will not tell you the tea was good or that the driver held the door. Many people run both: a tracker for the line on the map, a place-and-moment journal for the things worth saying about it. VoyageLog does no GPS tracking at all, by design, so if the line is what you want, start with a tracker and read our notes on [Polarsteps alternatives](/en/blog/polarsteps-alternatives/) only if its account and sharing model bothers you.
+None of these are journals in the sense this article means. They will tell you that you were in Brno at 2.10pm. They will not tell you the tea was good or that the driver held the door. Many people run both: a tracker for the line on the map, a place-and-moment journal for the things worth saying about it. VoyageLog does no GPS tracking at all, by design, so if the line is what you want, start with a tracker and read our notes on [Polarsteps alternatives](/en/blog/polarsteps-alternatives/) only if its account and sharing model bothers you.
 
 ## The rule, one more time
 

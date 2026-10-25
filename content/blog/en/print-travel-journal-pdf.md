@@ -2,20 +2,20 @@
 title: "How to print a travel journal: PDF, photo book, export"
 description: "How to print a travel journal from your phone: app-made photo books, PDF export, and raw data export, plus what survives on paper and which route fits you."
 date: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-25
 lang: en
 key: print-pdf
 faq:
   - q: "Can I turn my travel journal into a PDF?"
-    a: "Yes, if your app can export one. VoyageLog exports a PDF for a whole trip or for a single city, so a ten-day Italy trip can become one file for Rome and another for Amalfi. Once you have a PDF you can print it at home, take it to a print shop, or upload it to a photo book service."
+    a: "Yes, if your app can export one. VoyageLog exports a PDF of a trip, a single city or a best-of list, so a ten-day Italy trip can become one file for Rome and another for Amalfi. The PDF runs as long as its content. Once you have it you can print it at home, take it to a print shop or upload it to a photo book service."
   - q: "What is the easiest way to get a printed travel photo book?"
-    a: "Use an app that builds the book for you. Polarsteps, Journi Print and FindPenguins all generate a photo book from content you already saved and ship it to your door. You trade control over the layout for speed. If you want full control, export a PDF or your photos and design the pages yourself."
+    a: "Use an app that builds the book for you. Polarsteps and FindPenguins generate a book from the trip you already logged, and Journi Print makes one from the photos on your phone. All three print it and send it to you. You trade control over the layout for speed. If you want full control, export a PDF or your photos and design the pages yourself."
   - q: "What size should I print a travel journal PDF?"
     a: "A4 is the default for home and print-shop printing, and A5 works well for a small bound booklet. Letter size is the equivalent in North America. Pick the size before you export or lay out the pages, because rescaling a finished PDF can crop photos or leave odd margins."
   - q: "Does a printed travel journal need high-resolution photos?"
-    a: "For a full page, aim for the original photo, not a screenshot or a messaging-app copy. Chat apps compress images heavily. Photos straight from your phone camera are fine for A4 or A5. Small thumbnails look soft on paper, so export the ZIP with media if you plan to print big."
+    a: "For a full page, aim for the original photo, not a screenshot or a messaging-app copy. Chat apps compress images heavily. Photos straight from your phone camera are fine for A4 or A5. Small thumbnails look soft on paper, so use the ZIP export with media (VoyageLog Pro) if you plan to print big."
   - q: "How do I export a travel journal from VoyageLog?"
-    a: "Open a trip or a city and share it as a PDF or an image card. For the whole journal, export JSON, Excel, or a ZIP that bundles your photos and videos. Exports of everything you saved are part of VoyageLog Pro. JSON and ZIP can be imported again on a new phone."
+    a: "Open a trip or a city and share it as a PDF or an image card, which is free. For the whole journal, VoyageLog Pro exports JSON, Excel, or a ZIP that bundles your photos and videos. JSON and ZIP can be imported again on a new phone."
 ---
 
 The way to print a travel journal is to pick one of three routes: let an app build and ship a photo book, export a PDF and print it yourself or at a print shop, or export your raw data and lay it out in a template you control. The first is fastest, the second is cheapest and most flexible, the third is for people who want every page to look exactly right. This guide covers all three, what actually survives the move from screen to paper, and the small decisions (paper size, photo resolution, page order) that make the printed result worth keeping.
@@ -26,7 +26,7 @@ A phone journal is easy to search and impossible to lose track of while you trav
 
 There is also a plain safety reason. A printout is a backup that does not depend on a phone, an account or a cloud service surviving for ten more years. Anyone who has lost a phone mid-trip knows the feeling.
 
-Printing is something you do once, after the trip, not during it. During the trip, keep the entries short (our guide on [how to keep a travel journal](/en/blog/how-to-keep-a-travel-journal/) covers the one-minute system). Printing is just the last step.
+Printing is something you do once, after the trip, not during it. During the trip, keep the entries short (our guide on [how to keep a travel journal](/en/blog/how-to-keep-a-travel-journal/) covers the one-minute system). Printing comes last.
 
 ## Three routes from phone to paper
 
@@ -40,17 +40,17 @@ Pick based on how much you care about layout and how much time you have after ge
 
 ## Route 1: app-native printed books (Polarsteps, Journi Print, FindPenguins)
 
-Some travel apps are built around this. You keep your trip in the app, press a button, and a printed book arrives. We checked each one today.
+Some travel apps are built around this. You keep your trip in the app, press a button, and a printed book arrives. We checked each one's own pages in October 2026.
 
-**Polarsteps.** Polarsteps generates a Travel Book from a trip you have logged. According to its [help center](https://support.polarsteps.com/hc/en-us/articles/24267055732114-How-do-I-create-a-Travel-Book-of-my-trip), the trip needs at least five photos and its steps must be published. You preview the book in the app under "My Travel Books" or on the website, and the layout is assembled for you from your photos, stories, route and statistics. Printing and shipping are handled by an outside print partner. Prices differ between sources and may have changed, so check the current figure in the app before ordering.
+**Polarsteps.** Polarsteps generates a Travel Book from a trip you have logged. The trip needs at least five photos, and only published steps go into the book; drafts stay out. Books run from 24 to 400 pages, and Polarsteps lays them out for you from the trip. Prices change, so check the current figure in the app before ordering.
 
-**Journi Print.** Journi Print is a free app for making photo books on your phone. You tap "New Photo Book", choose photos, and it suggests designs. Its [App Store listing](https://apps.apple.com/app/id1359161090) describes digital print on 170 g/m2 paper. Journi also advertises FSC-certified paper and designer travel covers. We could not verify current prices, so we are not quoting any.
+**Journi Print.** Journi Print is Journi's free app for making photo books on your phone. You choose photos and a theme and order the book from the app. Journi says it prints digitally on 170 g/m2 art paper with FSC certification. Prices change, so we are not quoting any.
 
-**FindPenguins.** FindPenguins offers a travel book too. Its [travel book page](https://www.findpenguins.com/travelbook) says the book is generated from your FindPenguins travel profile, with texts, dates, maps, photos and stats, and that nothing needs dragging or formatting. Formats listed there are a hardcover and a lay-flat edition, each in two square sizes, 21 x 21 cm and 30 x 30 cm. Prices are on the site and change, so we leave them out.
+**FindPenguins.** FindPenguins offers a travel book too. It is generated from your FindPenguins travel profile, with your texts, dates, maps, photos and stats. It comes as a hardcover or a lay-flat edition, each in two square sizes, 21 x 21 cm and 30 x 30 cm. Prices are on the site and change, so we leave them out.
 
 ### The honest comparison
 
-If you want a glossy book generated with almost no effort, these three are built for it, and VoyageLog is not. VoyageLog does not print books and does not track your route, so there is no route map to drop into a layout. If a printed book with a drawn route line is what you want, use one of the apps above. Our comparison of [the best travel journal apps](/en/blog/best-travel-journal-apps/) and the list of [Polarsteps alternatives](/en/blog/polarsteps-alternatives/) cover how they differ day to day.
+If you want a glossy book generated with almost no effort, these three are built for it, and VoyageLog, the app we make, is not. VoyageLog does not print books and does not track your route, so there is no route map to drop into a layout. If a printed book with a drawn route line is what you want, use one of the apps above. Our comparison of [the best travel journal apps](/en/blog/best-travel-journal-apps/) and the list of [Polarsteps alternatives](/en/blog/polarsteps-alternatives/) cover how they differ day to day.
 
 The trade-off is that those apps work by keeping your trip on their service so the book can be built from it. If you chose a private, offline journal on purpose, the next two routes fit better.
 
@@ -60,7 +60,7 @@ This is the cheapest and most flexible route, and it works with any journal that
 
 ### What VoyageLog exports
 
-VoyageLog exports a **PDF per trip or per city**. For a long trip, such as Rome, Naples and Amalfi in one go, split the trip into cities and export each as its own PDF. Short files are easier to print, easier to proofread and easier to give away one chapter at a time. You can also export a trip, a city or a best-of list as an **image card**, which suits a single sheet on a fridge or a wall.
+VoyageLog exports a **PDF per trip, per city or per best-of list**. The file is as long as its content: a short best-of list fits on one page as a card, and a trip with many entries runs to several pages. It is a clean record of your entries, not a designed photo-book layout. For a long trip, such as Rome, Naples and Amalfi in one go, split the trip into cities and export each as its own PDF. Short files are easier to print, easier to proofread and easier to give away one chapter at a time. You can also export a trip, a city or a best-of list as an **image card**, which suits a single sheet on a fridge or a wall.
 
 {{cta}}
 
@@ -94,7 +94,7 @@ A practical workflow: sort the Excel sheet by date, drop each entry into a templ
 
 ## What survives printing, and what does not
 
-Not everything on a phone screen translates to paper. The journal format we recommend, where an entry is a title, a rating, one line and one photo, happens to print very well.
+Not everything on a phone screen translates to paper. The journal format we recommend, where an entry is a title, a rating, one line and one photo, happens to print well.
 
 **Survives well:**
 
@@ -107,7 +107,7 @@ Not everything on a phone screen translates to paper. The journal format we reco
 
 - **Tags.** Useful for searching, mostly noise on paper. Keep two or three, or drop them.
 - **Video.** It cannot print. Pick a still frame or leave a note that it exists.
-- **Maps with live pins.** A map link does not print. If the location matters, write the neighborhood or street under the title.
+- **Maps with live pins.** A map link does not print. If the location matters, write the neighbourhood or street under the title.
 - **Entries with no photo.** Group them on a single "notes" page rather than giving each a blank half page.
 
 Separating **places** (rated, revisitable) from **moments** (happened once, no rating) helps here too. Places become a recommendation list at the back of the book. Moments become the narrative in the middle. Our piece on [places versus moments](/en/blog/places-vs-moments-travel-notes/) explains the split.
@@ -140,4 +140,4 @@ Print a single page, hold it at arm's length and read the smallest text. Fix mar
 - You want a cheap, tidy booklet: export PDFs per city and print them at a print shop.
 - You want a designed book: export the ZIP and Excel, and lay it out yourself.
 
-Whichever you pick, the printed book is only as good as the entries behind it. A rating, a line and a photo per place make a book that reads well. If you are starting a journal for your next trip, [VoyageLog](/en/) keeps everything on your phone and exports it when you are ready to print.
+Whichever you pick, the printed book is only as good as the entries behind it. A rating, a line and a photo per place make a book that reads well. If you are starting a journal for your next trip, [VoyageLog](/) keeps everything on your phone and exports it when you are ready to print.

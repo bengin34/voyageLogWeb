@@ -12,13 +12,15 @@ import { join } from 'node:path';
 import matter from 'gray-matter';
 import sharp from 'sharp';
 import { localeKeys, locales } from '../src/content.js';
+import { CJK_LANGS, readingMinutes } from './text.mjs';
 
 const W = 1200;
 const H = 630;
 const force = process.argv.includes('--force');
 const contentDir = 'content/blog';
 const outRoot = join('public', 'assets', 'blog', 'og');
-const FONT = "'Work Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+const FONT =
+  "'Work Sans', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans', 'PingFang SC', 'Apple SD Gothic Neo', 'Noto Sans CJK JP', 'Noto Sans CJK KR', 'Noto Sans CJK SC', 'Geeza Pro', sans-serif";
 
 const icon = await readFile(join('public', 'assets', 'icon-512.png'));
 const iconUri = `data:image/png;base64,${icon.toString('base64')}`;
@@ -27,8 +29,17 @@ function esc(s) {
   return String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 }
 
+// CJK has no spaces and full-width glyphs: wrap by character count (1em each).
+function wrapCjk(text, fontSize, maxWidth) {
+  const max = Math.floor(maxWidth / fontSize);
+  const lines = [];
+  for (let i = 0; i < text.length; i += max) lines.push(text.slice(i, i + max));
+  return lines;
+}
+
 // Greedy wrap by estimated glyph width (0.52em average for a humanist sans).
-function wrap(text, fontSize, maxWidth) {
+function wrap(text, fontSize, maxWidth, lang) {
+  if (CJK_LANGS.has(lang)) return wrapCjk(text, fontSize, maxWidth);
   const perChar = fontSize * 0.52;
   const max = Math.floor(maxWidth / perChar);
   const words = text.split(/\s+/);
@@ -47,22 +58,25 @@ function wrap(text, fontSize, maxWidth) {
   return lines;
 }
 
-function fit(title) {
+function fit(title, lang) {
   for (const size of [64, 58, 52, 46, 42]) {
-    const lines = wrap(title, size, W - 2 * 88);
+    const lines = wrap(title, size, W - 2 * 88, lang);
     if (lines.length <= 4) return { size, lines };
   }
-  const lines = wrap(title, 40, W - 2 * 88).slice(0, 4);
+  const lines = wrap(title, 40, W - 2 * 88, lang).slice(0, 4);
   return { size: 40, lines };
 }
 
 function svg({ title, lang, minutes }) {
-  const { size, lines } = fit(title);
+  const { size, lines } = fit(title, lang);
+  const rtl = locales[lang].dir === 'rtl';
+  const x = rtl ? W - 88 : 88;
+  const anchor = rtl ? 'end' : 'start';
   const lineHeight = size * 1.08;
   const blockHeight = lines.length * lineHeight;
   const top = (H - blockHeight) / 2 + size * 0.1 + 20;
   const tspans = lines
-    .map((line, i) => `<tspan x="88" y="${(top + i * lineHeight).toFixed(1)}">${esc(line)}</tspan>`)
+    .map((line, i) => `<tspan x="${x}" y="${(top + i * lineHeight).toFixed(1)}">${esc(line)}</tspan>`)
     .join('');
   const label = `${locales[lang].blog.label} · ${minutes} ${locales[lang].blog.readTime}`;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
@@ -71,15 +85,10 @@ function svg({ title, lang, minutes }) {
   <rect x="88" y="${(top - size * 0.95 - 34).toFixed(1)}" width="72" height="6" rx="3" fill="#ff6848"/>
   <image href="${iconUri}" x="88" y="64" width="56" height="56"/>
   <text x="160" y="104" font-family="${FONT}" font-size="30" font-weight="500" fill="#172331">VoyageLog</text>
-  <text font-family="${FONT}" font-size="${size}" font-weight="300" letter-spacing="-1.5" fill="#172331">${tspans}</text>
+  <text text-anchor="${anchor}" font-family="${FONT}" font-size="${size}" font-weight="300" letter-spacing="${CJK_LANGS.has(lang) ? 0 : -1.5}" fill="#172331">${tspans}</text>
   <text x="88" y="${H - 72}" font-family="${FONT}" font-size="24" fill="#465362">${esc(label)}</text>
   <text x="${W - 88}" y="${H - 72}" text-anchor="end" font-family="${FONT}" font-size="24" fill="#465362">getvoyagelog.app</text>
 </svg>`;
-}
-
-function minutesOf(markdown) {
-  const words = markdown.replace(/[#*_`>|\-]/g, ' ').split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / 220));
 }
 
 let made = 0;
@@ -93,7 +102,7 @@ for (const lang of localeKeys) {
     const out = join(outRoot, lang, `${slug}.png`);
     if (existsSync(out) && !force) continue;
     const { data, content } = matter(await readFile(join(dir, file), 'utf8'));
-    const image = svg({ title: data.title, lang, minutes: minutesOf(content) });
+    const image = svg({ title: data.title, lang, minutes: readingMinutes(content, lang) });
     await sharp(Buffer.from(image), { density: 144 }).resize(W, H).png({ compressionLevel: 9, palette: true }).toFile(out);
     made += 1;
     console.log('og', out);

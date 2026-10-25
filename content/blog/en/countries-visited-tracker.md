@@ -2,7 +2,7 @@
 title: "Countries visited tracker: how to count, and what to use"
 description: "A countries visited tracker is only as good as its counting rules. Layovers, cruise ports, 193 vs 195 vs 330, and the apps, sheets and journals that keep a tally."
 date: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-25
 lang: en
 key: countries-visited
 faq:
@@ -18,7 +18,7 @@ faq:
     a: "Most people do, since they have clearly been there. The more useful question is whether to count a country you only transited by train or coach without stopping. The usual compromise is that an overnight stay, or at least a meal and a walk outside the station, is the minimum to colour a country in."
 ---
 
-A countries visited tracker does two jobs: it keeps a running count, and it keeps you honest about what that count means. The second job is the hard one. Thirty-two countries sounds precise until someone asks whether the two hours you spent in Doha airport are one of them, or whether Sicily counts separately from Italy. So this guide starts with the counting rules, then compares the ways to keep the tally: scratch-map apps such as Been, Visited and Countries Been, a plain spreadsheet, and a travel journal where the count is a by-product of the trips you have actually written down.
+A countries visited tracker does two jobs: it keeps a running count, and it keeps you honest about what that count means. The second job is the hard one. Thirty-two countries sounds precise until someone asks whether the two hours you spent in Doha airport are one of them, or whether Sicily counts separately from Italy. So this guide starts with the counting rules, then compares the ways to keep the tally: scratch-map apps such as Been, Visited and Countries Been, a plain spreadsheet, and a travel journal where the count is a by-product of the trips you have actually written down. We make VoyageLog, one of the journals in that last group, so read that section with that in mind.
 
 ## How many countries have I visited? Decide the rules first
 
@@ -28,9 +28,9 @@ Before you install anything, settle three questions. Your answers decide the num
 
 There is no single official list of countries, and the three most common ones give very different totals.
 
-- **193** is the number of [United Nations member states](https://www.un.org/en/about-us/member-states). This is the strict list. Kosovo and Taiwan are not on it.
-- **195** is the figure most trackers show. It is the 193 members plus the two non-member observer states the UN recognises, the Holy See and the State of Palestine.
-- **330** is the [Travelers' Century Club list](https://travelerscenturyclub.org/countries-and-territories), which counts territories separately from their parent countries when they are geographically removed from them. Hawaii, Alaska, the Canary Islands, Sicily, Sardinia, the Azores and Greenland each count as their own entry. The club admits anyone who has been to 100 of the 330, and its figure was last restated as of January 2022.
+- **193** is the number of United Nations member states. This is the strict list. Kosovo and Taiwan are not on it.
+- **195** is the figure most trackers show. It is the 193 members plus the UN's two non-member observer states, the Holy See and the State of Palestine.
+- **330** is the Travelers' Century Club list, which counts territories separately from their parent countries when they are geographically removed from them. Hawaii, Alaska, the Canary Islands, Sicily, Sardinia, the Azores and Greenland each count as their own entry. The club admits anyone who has been to 100 of the 330, and the current list is dated January 2022.
 
 Pick one. The 195 list is the sensible default because it matches what most apps display and what most people mean. Use the TCC list if you want a project rather than a number; it rewards the islands and outposts that a 195-count treats as invisible.
 
@@ -56,12 +56,12 @@ A count with no dates is just a number. A count with a year next to each country
 
 ## Countries visited map apps compared
 
-Scratch-map apps do one thing well. You tap a country, it fills in, the counter goes up, and you get a shareable image of the world with your corner of it coloured. Three that are current and maintained as of this writing, all free to start with paid extras. Prices are the US App Store figures on the day we checked; other stores vary.
+Scratch-map apps do one thing well. You tap a country, it fills in, the counter goes up, and you get a shareable image of the world with your corner of it coloured. Three that are current and maintained as of this writing, all free to start with paid extras. Prices are the US App Store figures on 24 October 2026; other stores vary, and prices change.
 
 | App | What it tracks | Dates | Account | Paid tier |
 |---|---|---|---|---|
-| Been (Vinci Apps) | Countries and US states; premium adds regions in 25+ countries, cities, airports | Optional per visit | Listing does not require one | Premium features $2.29 one-off, or weekly and yearly subscriptions ($4.99 / $19.99) |
-| Visited (Arriving In High Heels) | Countries, states, regions and cities; lists, itineraries, journal notes | Yes | Has logins; release notes mention passwords | Pro $59.99 one-off, $9.99 monthly, $34.99 yearly, plus single purchases |
+| Been (Vinci Apps) | Countries and US states; premium adds regions in 25+ countries, cities, airports | Optional per visit | Not stated in the listing | Premium features $2.29, or $4.99 weekly, $19.99 yearly |
+| Visited (Arriving In High Heels) | Countries, states, regions and cities; lists, itineraries, journal notes | Yes | Accounts with passwords exist; listing does not say one is required | Pro $59.99, or $9.99 monthly, $34.99 yearly |
 | Countries Been (Daniel Knoblauch) | Countries, states in 25+ countries, cities; Been, Lived, Want | No dates in the listing | Sign in with Apple, Google, Facebook, email, or continue as a guest | Remove ads $1.99 |
 
 ### Been
@@ -84,7 +84,7 @@ They are good at the picture and weak on the past. None of them is a journal. If
 
 ## The spreadsheet as a travel counter app
 
-Before any of these apps existed, the countries-visited list was a spreadsheet, and it is still the most flexible option. One row per trip: start date, end date, country, cities, a note. Then `COUNTUNIQUE` on the country column gives you the number, a pivot table gives you the most visited country and the trips per year, and nothing is behind a paywall.
+Before any of these apps existed, the countries-visited list was a spreadsheet, and it is still the most flexible option. One row per trip: start date, end date, country, cities, a note. In Google Sheets, `COUNTUNIQUE` on the country column gives you the number (Excel needs a different formula for the same count), a pivot table gives you the most visited country and the trips per year, and nothing is behind a paywall.
 
 A minimal layout that works:
 
@@ -100,19 +100,19 @@ The Rule column is the trick. Keep the layovers in the sheet so you are not temp
 
 The third approach is to stop maintaining a count at all and let it fall out of something you are already keeping. If you write down trips as they happen, the number of countries is just a query over the entries, and so is everything the scratch map cannot answer.
 
-This is how VoyageLog handles it, and we build VoyageLog, so weigh this section accordingly. Each trip is a card on one timeline with its dates, duration and countries. Longer trips split into cities, so ten days through Milan, Rome and Amalfi is one trip, one country and three cities. Within each city you save entries: places you can rate out of five, and moments that just happened. Every entry with a location lands on the trip's map and on one map of everywhere you have been.
+This is how VoyageLog handles it. Each trip is a card on one timeline with its dates, duration and countries. Longer trips split into cities, so ten days through Milan, Rome and Amalfi is one trip, one country and three cities. Within each city you save entries: places you can rate out of five, and moments that just happened. Every entry with a location lands on the trip's map and on one map of everywhere you have been.
 
-The counting then happens in the Insights tab, which totals trips, cities, countries, photos, days away, your most visited country and your average rating. None of those is typed in. The country count is the set of countries on your trips, the days-away figure is the sum of trip lengths, and the most visited country is the one that keeps showing up. Add a trip and the numbers move. Delete one and they move back.
+The counting then happens in the Insights tab, which counts trips, cities, countries, photos and days away, along with your most visited country and your average rating. You do not keep a separate tally next to the journal. Add a trip and the numbers move with it.
 
 Two honest limits. First, VoyageLog does not track your route by GPS. The map is made of the places you chose to save, so a country you drove through without stopping will not appear on it unless you add an entry, which is the common rule from the table above enforced by design. If you want the automatic line across the map, Polarsteps draws it; we compare the options in [Polarsteps alternatives](/en/blog/polarsteps-alternatives/). Second, the count is only as complete as your backlog. If you have twenty years of trips in your head and nothing written down, the first evening is spent creating cards with a year and a country, which is the same work the spreadsheet asks for.
 
 ### Why a count attached to entries beats a bare number
 
 - **It answers the follow-up question.** "How many countries" is almost always followed by "which was your favourite" or "when were you last in Italy". A scratch map shrugs. A journal opens the trip.
-- **It cannot be inflated by accident.** You only get a country by having a trip there with dates. There is no tap-to-fill, so the Doha layover stays a layover unless you deliberately make a trip card for it.
+- **It cannot be inflated by accident.** A country shows up because you saved a trip there, not because you tapped a map, so the Doha layover stays out unless you deliberately make a trip card for it.
 - **It survives the second visit.** Prague in 2009 and Prague in 2024 are two trips, two sets of entries, one country. The map colours it once; the timeline keeps both.
-- **It keeps counting when you stop caring about the count.** Most people lose interest in the number somewhere in the thirties. The entries stay useful, and the Year in Travel look-back at the end of December still reports how many countries the year held.
-- **The data is yours to take.** Export to Excel and you have the spreadsheet from the previous section, generated rather than typed. JSON and ZIP backups move everything to a new phone.
+- **It keeps counting when you stop caring about the count.** Most people lose interest in the number somewhere in the thirties. The entries stay useful, and the Year in Travel look-back still lays the year out month by month.
+- **The data is yours to take.** With Pro, export to Excel and you have the spreadsheet from the previous section, generated rather than typed. A free data backup moves your trips and entries to a new phone, and the Pro ZIP export brings the photos and videos too.
 
 If what you want is a prettier version of the Been map with no writing at all, this is the wrong tool and Been is the right one. If you were already going to write things down, the count comes free.
 
@@ -120,8 +120,8 @@ If what you want is a prettier version of the Been map with no writing at all, t
 
 Whatever tracker you pick, the first job is the same: reconstructing where you have actually been. A workable order.
 
-1. **Passports, old and current.** Stamps give you countries and often exact dates. Schengen stamps only mark entry and exit to the zone, so you will need another source for the countries inside it.
-2. **Photo library by place.** Both Apple Photos and Google Photos group pictures by location. Scroll the Places view year by year; a cluster of photos is a trip, and the first and last photo give you its dates.
+1. **Passports, old and current.** Stamps give you countries and often exact dates. Schengen stamps only ever marked entry to and exit from the zone, and since April 2026 the EU's digital Entry/Exit System has replaced stamping for non-EU visitors, so for the countries inside the zone and for recent trips you will need another source.
+2. **Photo library by place.** Both Apple Photos and Google Photos can show your pictures on a map. Work through it year by year; a cluster of photos is a trip, and the first and last photo give you its dates.
 3. **Email.** Search for boarding passes, hotel confirmations and rental agreements. Short trips you had forgotten tend to turn up here.
 4. **Saved places in your maps app.** Starred restaurants are often the only record of a weekend.
 5. **Ask whoever travelled with you.** Someone else remembers the night in Girona that you have filed under Barcelona.
@@ -130,12 +130,12 @@ As each trip surfaces, write it down with a year and a country before moving on,
 
 ## Been app alternative: picking the tool for the job
 
-To put it plainly, matching the tool to what you actually want from the number:
+Match the tool to what you want from the number:
 
 - **You want the map image and a counter, nothing else.** Been. Countries Been if you prefer a globe and guest mode.
 - **You care about disputed territories and want control over the counting rule.** Visited, which lets you set sovereignty handling, at a higher price.
 - **You want the TCC 330 list.** A spreadsheet, or an app that explicitly supports TCC territories; the three above are built around the 195 list.
-- **You want the count to come with the trips behind it, offline, without an account.** VoyageLog. The count lives in the Insights tab and the trips live on the timeline. Our roundup of the [best travel journal apps](/en/blog/best-travel-journal-apps/) covers how it compares with Day One, Polarsteps and others if you want the wider field.
+- **You want the count to come with the trips behind it, offline, without an account.** [VoyageLog](/). The count lives in the Insights tab and the trips live on the timeline. Our roundup of the [best travel journal apps](/en/blog/best-travel-journal-apps/) covers how it compares with Day One, Polarsteps and others if you want the wider field.
 - **You want to see how you got there, drawn automatically.** Polarsteps, with its account and cloud, and accept that it is a tracker rather than a journal.
 
 Whichever you choose, write the rule down. "195 list, must have cleared immigration and done something on purpose, overnight not required" is a sentence that settles every future argument about the Doha airport. If you also decide to keep the trips themselves, start with the next one rather than the backlog; the habit is small and we describe it in [how to keep a travel journal](/en/blog/how-to-keep-a-travel-journal/). The backlog can be filled in on a rainy Sunday with a passport and a photo library, and the count will take care of itself.

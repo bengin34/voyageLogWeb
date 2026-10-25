@@ -2,7 +2,7 @@
 title: "50 travel journal prompts you can answer in under a minute"
 description: "Travel journal prompts that take under a minute each: 50 questions for before, during and after a trip, grouped so you can find the right one on the spot."
 date: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-24
 lang: en
 key: prompts
 faq:
@@ -13,20 +13,20 @@ faq:
   - q: "How do I use travel journal prompts with kids?"
     a: "Let the child own the answer, not the writing. Ask the question out loud at dinner, write the answer down word for word, and let them pick a photo or draw the thing. Keep it to one or two questions a day, always the same ones, so the comparison across the trip becomes the fun part."
   - q: "Should I answer travel journal prompts on paper or in an app?"
-    a: "Either works for the writing. The difference shows up later: an app can search every answer to the food prompts across five countries in a second, and attach the photo of the plate. Paper is slower to find things in but pleasant to hold. Many people answer on the phone during the trip and copy favourites into a notebook afterward."
+    a: "Either works for the writing. The difference shows up later: an app can search every answer to the food prompts across five countries in a second, and attach the photo of the plate. Paper is slower to find things in but pleasant to hold. Many people answer on the phone during the trip and copy favourites into a notebook afterwards."
   - q: "How many travel journal prompts should I answer per day?"
     a: "Two to four, chosen from different sections, is plenty. The point of a list of fifty is choice on the spot, not completion. If you answer every prompt every day you will stop by day three. Pick the ones that match what just happened, and let the rest sit until a day when they fit."
 ---
 
-Good travel journal prompts are questions you can answer standing outside the place, before you walk on. Not "describe the museum" but "which room would you send a friend to?" Not "how was dinner" but "name, dish, rating out of five." Below are 50 prompts built that way, grouped by when on a trip you will need them: before you leave, the first day, places, moments, people, mistakes, the last day, after you are home, and a short set for travelling with kids. Most produce a number or one sentence. That is deliberate: a short answer written on the spot is worth more in five years than a paragraph written from memory at the hotel.
+Good travel journal prompts are questions you can answer standing outside the place, before you walk on. Not "describe the museum" but "which room would you send a friend to?" Not "how was dinner" but "name, dish, rating out of five." Below are 50 prompts built that way, grouped by when on a trip you will need them: before you leave, the first day, places, moments, people, mistakes, the last day, after you are home and a short set for travelling with kids. Most produce a number or one sentence. That is deliberate: a short answer written on the spot is worth more in five years than a paragraph written from memory at the hotel.
 
 ## What to write in a travel journal: how to use these prompts
 
-Every prompt here fits into one of two kinds of entry. A **place** is somewhere you could go back to: a café, a viewpoint, a museum. Places get a rating out of five. A **moment** is something that happened once and cannot be revisited: a sudden downpour, a conversation on a tram, the minute you got lost. Moments get no rating, because they were not a service you consumed. If this split is new to you, our guide on [how to keep a travel journal](/en/blog/how-to-keep-a-travel-journal/) explains the whole one-minute system; this list is the question bank that goes with it.
+Every prompt here fits into one of two kinds of entry. A **place** is somewhere you could go back to: a café, a viewpoint, a museum. Places get a rating out of five. A **moment** is something that happened once and cannot be revisited: a sudden downpour, a conversation on a tram, the minute you got lost. We leave moments unrated, because they were not a service you consumed. If this split is new to you, our guide on [how to keep a travel journal](/en/blog/how-to-keep-a-travel-journal/) explains the whole one-minute system; this list is the question bank that goes with it.
 
 Practically: answers to the "places" prompts become place entries. Answers to the "moments" and "people" prompts become moment entries. Logistics answers go into the notes of the place they belong to, or into a moment tagged "tip". Do not try to answer all 50 on one trip. Two to four a day, chosen because they match what just happened, is the whole method.
 
-The prompts work in a paper notebook, a notes app or a journal app. VoyageLog is built around the place-and-moment split, so each answer is a title, a rating and one line of notes, but nothing below needs it.
+The prompts work in a paper notebook, a notes app or a journal app. [VoyageLog](/), the app we make, is built around the place-and-moment split, so each answer is a title, a rating and one line of notes, but nothing below needs it.
 
 ## Before you leave and the first day
 
@@ -48,7 +48,7 @@ Expectations are the one thing you cannot write down after the fact, because the
 9. The first thing that looked different from home. One object, not a feeling.
 10. Rate the first evening walk out of 5 and name the street.
 
-The first day is when everything is still strange, and that strangeness fades within 48 hours. A note that the tram in Prague had wooden seats, or that the walk from Barcelona Sants took 35 minutes with bags, is a detail you will not notice again on day three. These prompts catch it while you can still see it.
+The first day is when everything is still strange, and that strangeness fades within 48 hours. A note that the Prague tram was quieter than the bus at home, or that the walk from Barcelona Sants took 35 minutes with bags, is a detail you will not notice again on day three. These prompts catch it while you can still see it.
 
 ## Travel journal ideas for places: food, views, museums, neighbourhoods
 
@@ -63,7 +63,7 @@ The first day is when everything is still strange, and that strangeness fades wi
 19. The famous place that was still worth it: rating out of 5 and the time of day you went.
 20. The famous place that was not worth it: rating, and what you would do instead.
 
-Place prompts age well because they turn into recommendations. Three years on, a 5 next to Pizzarium in Rome with the note "worth the queue every time" is something you can send to a friend without rereading anything else. Prompt 16 is the one people skip and later regret: knowing that the Pantheon now [charges admission and is free only on the first Sunday of the month](https://www.pantheonroma.com/) is exactly the kind of line your next trip wants. Rate honestly and be stingy with 5s, or the numbers stop meaning anything.
+Place prompts age well because they turn into recommendations. Three years on, a 5 next to Pizzarium in Rome with the note "worth the queue every time" is something you can send to a friend without rereading anything else. Prompt 16 is the one people skip and later regret: knowing that the Pantheon now charges admission, except on the first Sunday of the month, is the kind of line your next trip wants. Rate honestly and be stingy with 5s, or the numbers stop meaning anything.
 
 {{cta}}
 
@@ -89,7 +89,7 @@ Moments are the actual story of a trip, and they are the entries that get lost w
 31. The stranger you talked to longest: where, how long, what about.
 32. One phrase in the local language that worked, and one that did not land.
 
-Names disappear first. You will remember the waiter in Vienna who brought a second strudel for years, but his name is gone by the flight home unless you wrote it. Prompt 30 is for couples and friends: the thing your companion loved and you did not is a funnier and kinder record than a shared verdict. Keep these as moment entries, no rating, and let the photo do the describing.
+Names disappear first. You will remember the waiter in Vienna who brought a second strudel for years, but his name will be gone by the flight home unless you wrote it down. Prompt 30 is for couples and friends: the thing your companion loved and you did not is a funnier and kinder record than a shared verdict. Keep these as moment entries, no rating, and let the photo do the describing.
 
 ## Mistakes and logistics worth remembering
 
@@ -129,7 +129,7 @@ A journal nobody rereads is storage. These four force one rereading, which is us
 49. How many steps, stairs, boats or trains today? The child chooses what to count.
 50. Rate today out of five stars and say who gets the gold medal for the day.
 
-With children the rule is that they own the answer and you own the pen. Ask the same one or two questions every evening so the comparison becomes the game: day one's strangest thing was a pigeon on a statue, day five's was a man selling roast chestnuts from a bicycle. Ratings and gold medals work at any age because they are a verdict, not an essay. For a longer trip, a shared family journal split by city makes a good souvenir to share with grandparents at the end, as a PDF or a card.
+With children the rule is that they own the answer and you own the pen. Ask the same one or two questions every evening so the comparison becomes the game: day one's strangest thing was a pigeon on a statue, day five's was a man selling roast chestnuts from a bicycle. Ratings and gold medals work at any age because they are a verdict, not an essay. On a longer trip, a family journal split by city makes a good thing to send the grandparents at the end, as a PDF or a card.
 
 ## Journal prompts for a vacation: picking the right one on the spot
 

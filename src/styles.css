@@ -230,32 +230,80 @@ button {
   text-underline-offset: 0.3em;
   text-decoration-color: var(--coral);
 }
-.langs {
-  display: flex;
-  gap: 4px;
+.lang-menu {
+  position: relative;
   font-size: var(--step-small);
   font-weight: 500;
 }
 
-.langs a {
+.lang-menu summary {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   min-height: 36px;
+  padding: 0 12px;
+  border-radius: var(--r);
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 180ms var(--ease);
+}
+
+.lang-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.lang-menu summary:hover,
+.lang-menu[open] summary {
+  background: var(--paper-2);
+}
+
+.lang-menu ul {
+  position: absolute;
+  inset-block-start: calc(100% + 6px);
+  inset-inline-end: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(8.5rem, 1fr));
+  gap: 2px;
+  min-width: 18rem;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--paper);
+  border: 1px solid var(--paper-2);
+  border-radius: var(--r);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 14%);
+}
+
+.lang-menu a {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
   padding: 0 12px;
   border-radius: var(--r);
   color: var(--muted);
   text-decoration: none;
-  transition: background-color 180ms var(--ease), color 180ms var(--ease);
+  white-space: nowrap;
 }
 
-.langs a:hover {
+.lang-menu a:hover {
   background: var(--paper-2);
   color: var(--ink);
 }
 
-.langs a[aria-current='true'] {
+.lang-menu a[aria-current='true'] {
   background: var(--ink);
   color: var(--paper);
+}
+
+@media (max-width: 420px) {
+  .lang-menu ul {
+    grid-template-columns: 1fr;
+    min-width: 11rem;
+    max-height: 70svh;
+    overflow-y: auto;
+  }
 }
 
 .hero {
@@ -325,7 +373,7 @@ button {
 
 .more-row dt {
   display: inline;
-  margin-right: 0.35em;
+  margin-inline-end: 0.35em;
   font-weight: 500;
 }
 
@@ -825,6 +873,18 @@ button {
   text-decoration-thickness: 2px;
   text-underline-offset: 0.3em;
   text-decoration-color: var(--coral);
+}
+
+/* reads: home page links into the blog, laid out like the faq */
+
+.reads {
+  background: var(--paper);
+}
+
+.reads .faq-text a {
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 
 /* a tile: the stage photograph with a device standing on it, cut at the foot */

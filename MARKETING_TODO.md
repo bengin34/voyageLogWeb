@@ -4,8 +4,8 @@
 > Start: 2026-10-26. All tasks are manual agent-assisted reviews; this PR does **not** schedule automatic jobs or publish changes.
 
 ## Setup (once, before first audit)
-- [ ] Review upstream skills and license; install relevant skills in the repository using `npx skills add coreyhaines31/marketingskills` and select only applicable skills. Confirm actual installed skill identifiers using the upstream catalog; names below describe capabilities, not guaranteed package IDs.
-- [ ] Verify agent (Codex/Claude/Copilot) detects the installed SKILL.md files. Commit any vendored skill files only after reviewing upstream content.
+- [x] Review upstream skills and license; install relevant skills in the repository using `npx skills add coreyhaines31/marketingskills` and select only applicable skills. (Done 2026-10-24: 13 skills vendored into .agents/skills, see .agents/skills/UPSTREAM.md.) Confirm actual installed skill identifiers using the upstream catalog; names below describe capabilities, not guaranteed package IDs.
+- [x] Verify agent (Codex/Claude/Copilot) detects the installed SKILL.md files. Commit any vendored skill files only after reviewing upstream content.
 - [ ] Establish 28-day baseline: organic clicks, app-store outbound clicks. Record sources, dates and measurement definitions; never invent figures.
 - [ ] Confirm analytics access, consent/privacy requirements and current business claims.
 
@@ -17,7 +17,7 @@
 - [ ] **Every 4 weeks:** Experiment retrospective: capture hypothesis, control/variant, start/end dates, sample size, guardrails, outcome and decision (ship/retest/stop).
 
 ## Project-specific first experiments
-- [ ] Review travel journal keyword clusters and CTA.
+- [x] Review travel journal keyword clusters and CTA.
 - [ ] Pick ONE high-intent search/store-listing opportunity and write a change proposal with target audience, target query, baseline and success metric.
 - [ ] Pick ONE conversion bottleneck and draft an A/B test; do not deploy until reviewed.
 
@@ -30,4 +30,4 @@
 ## Run log
 | Date | Skill / workflow | Baseline and evidence | Decision | Owner | Next review |
 |---|---|---|---|---|---|
-| 2026-10-26 (planned) | Initial audit | Pending | Pending | TBD | 2026-11-02 |
+| 2026-10-24 | Initial audit (seo-audit, schema, site-architecture, ai-seo, content-strategy, programmatic-seo, competitors, free-tools, cro, aso, link-building, directory-submissions) | No analytics yet; evidence from repo, dist build, live site and public store pages. See docs/marketing/audit-2026-10-24.md | Fix week-0 leaks (HTTPS, store developer URL, store subtitle/titles), add store campaign tokens, staged launch of 11 locales | Owner + Claude | 2026-11-02 |

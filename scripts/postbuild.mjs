@@ -8,10 +8,11 @@ import {
   createHomeStructuredData,
   getRouteAlternates,
   getRouteCanonical,
+  hasBlog,
   localeKeys,
   locales,
 } from '../src/content.js';
-import { buildBlog } from './blog.mjs';
+import { buildBlog, loadPosts } from './blog.mjs';
 
 function gitDate(paths) {
   try {
@@ -50,6 +51,7 @@ function getRouteMeta(route) {
 
   return {
     htmlLang: content.htmlLang,
+    dir: content.dir ?? 'ltr',
     ogLocale: content.ogLocale,
     title: content.metaTitle,
     description: content.metaDescription,
@@ -111,6 +113,8 @@ ${items}
         </section>`;
 }
 
+const allPosts = await loadPosts();
+
 function renderFallbackLinks(route) {
   const lang = route.lang ?? 'en';
   const content = locales[lang] ?? locales.en;
@@ -119,7 +123,12 @@ function renderFallbackLinks(route) {
     href: locales[locale].path,
     label: locales[locale].label,
   }));
-  const blogLinks = [{ href: blogIndexPath(lang), label: content.blog.label }];
+  const blogLinks = hasBlog(lang)
+    ? [
+        { href: blogIndexPath(lang), label: content.blog.allPosts },
+        ...allPosts.filter((post) => post.lang === lang).map((post) => ({ href: post.path, label: post.title })),
+      ]
+    : [];
 
   return `
     <nav class="seo-fallback" aria-label="VoyageLog internal links">
@@ -138,7 +147,7 @@ function localizeHtml(html, route) {
   const ogImage = absoluteUrl('/assets/og.png');
 
   let next = html;
-  next = setTag(next, /<html lang="[^"]*">/, `<html lang="${meta.htmlLang}">`);
+  next = setTag(next, /<html lang="[^"]*"[^>]*>/, `<html lang="${meta.htmlLang}" dir="${meta.dir}">`);
   next = setTag(next, /<title>.*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
   next = setTag(next, /<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${escapeAttribute(meta.description)}" />`);
   next = setTag(next, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${escapeAttribute(canonical)}" />`);

@@ -1,4 +1,19 @@
+# Search engines and AI search/answer crawlers are welcome.
 User-agent: *
 Allow: /
+
+# AI model-training crawlers are not allowed (owner decision 2026-10-24).
+# Search and user-initiated fetchers (OAI-SearchBot, ChatGPT-User, Claude-SearchBot,
+# Claude-User, PerplexityBot, Googlebot, Bingbot, Baiduspider...) stay allowed above.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: cohere-training-data-crawler
+Disallow: /
 
 Sitemap: https://getvoyagelog.app/sitemap.xml

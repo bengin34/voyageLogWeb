@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { Globe } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   APP_STORE_URL,
   GOOGLE_PLAY_URL,
@@ -11,9 +12,12 @@ import {
   getRouteAlternates,
   getRouteCanonical,
   getRouteFromPath,
+  hasBlog,
   localeKeys,
   locales,
 } from './content';
+import featuredPosts from 'virtual:blog-featured';
+import { rememberLang } from './lang';
 
 const OG_IMAGE = '/assets/og.png';
 const SCREEN_W = 1206;
@@ -43,6 +47,7 @@ function updateHead(route) {
   const ogImage = absoluteUrl(OG_IMAGE);
 
   document.documentElement.lang = content.htmlLang;
+  document.documentElement.dir = content.dir ?? 'ltr';
   document.title = content.metaTitle;
   upsertMeta('meta[name="description"]', 'content', content.metaDescription);
   upsertMeta('link[rel="canonical"]', 'href', canonical);
@@ -167,6 +172,48 @@ function StoreLinks({ content, size = 'lg' }) {
   );
 }
 
+function LangMenu({ content, currentLang }) {
+  const menu = useRef(null);
+
+  useEffect(() => {
+    const close = (event) => {
+      const node = menu.current;
+      if (!node?.open) return;
+      if (event.type === 'keydown' ? event.key === 'Escape' : !node.contains(event.target)) node.open = false;
+    };
+    document.addEventListener('click', close);
+    document.addEventListener('keydown', close);
+    return () => {
+      document.removeEventListener('click', close);
+      document.removeEventListener('keydown', close);
+    };
+  }, []);
+
+  return (
+    <details className="lang-menu" ref={menu}>
+      <summary aria-label={content.nav.language}>
+        <Globe size={16} strokeWidth={1.75} aria-hidden="true" />
+        <span>{content.shortLabel}</span>
+      </summary>
+      <ul>
+        {localeKeys.map((key) => (
+          <li key={key}>
+            <a
+              href={locales[key].path}
+              hrefLang={locales[key].htmlLang}
+              lang={locales[key].htmlLang}
+              aria-current={key === currentLang ? 'true' : undefined}
+              onClick={() => rememberLang(key)}
+            >
+              {locales[key].label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  );
+}
+
 function Header({ content, currentLang }) {
   return (
     <header className="read-top">
@@ -175,22 +222,12 @@ function Header({ content, currentLang }) {
         <span>VoyageLog</span>
       </a>
       <div className="top-right">
-        <a className="top-link" href={blogIndexPath(currentLang)}>
-          {content.blog.label}
-        </a>
-        <nav className="langs" aria-label={content.nav.language}>
-          {localeKeys.map((key) => (
-          <a
-            key={key}
-            href={locales[key].path}
-            hrefLang={locales[key].htmlLang}
-            lang={locales[key].htmlLang}
-            aria-current={key === currentLang ? 'true' : undefined}
-          >
-            {locales[key].shortLabel}
+        {hasBlog(currentLang) ? (
+          <a className="top-link" href={blogIndexPath(currentLang)}>
+            {content.blog.label}
           </a>
-        ))}
-        </nav>
+        ) : null}
+        <LangMenu content={content} currentLang={currentLang} />
       </div>
     </header>
   );
@@ -445,6 +482,26 @@ export default function App() {
         </div>
       </section>
 
+      {featuredPosts[currentLang]?.length ? (
+        <section className="panel faq reads" aria-labelledby="reads-title">
+          <h2 id="reads-title" className="rv">
+            {content.blog.more}
+          </h2>
+          <div className="faq-text">
+            {featuredPosts[currentLang].map((post) => (
+              <p key={post.path}>
+                <a href={post.path}>{post.title}</a>
+                <br />
+                {post.description}
+              </p>
+            ))}
+            <p>
+              <a href={blogIndexPath(currentLang)}>{content.blog.allPosts}</a>
+            </p>
+          </div>
+        </section>
+      ) : null}
+
       <section className="panel cta" aria-label="VoyageLog">
         <div className="cta-copy">
           <p className="cta-sentence rv">{content.cta.sentence}</p>
@@ -460,11 +517,11 @@ export default function App() {
       <footer className="foot">
         <span>{content.footer.tagline}</span>
         <nav aria-label="Footer">
-          <a href={blogIndexPath(currentLang)}>{content.blog.label}</a>
-          <a href="/privacy/index.html">{content.footer.privacy}</a>
-          <a href="/terms/index.html">{content.footer.terms}</a>
-          <a href="/support/index.html">{content.footer.support}</a>
-          {showGermanLegal ? <a href="/impressum/index.html">{content.footer.impressum}</a> : null}
+          {hasBlog(currentLang) ? <a href={blogIndexPath(currentLang)}>{content.blog.label}</a> : null}
+          <a href="/privacy/">{content.footer.privacy}</a>
+          <a href="/terms/">{content.footer.terms}</a>
+          <a href="/support/">{content.footer.support}</a>
+          {showGermanLegal ? <a href="/impressum/">{content.footer.impressum}</a> : null}
           <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">{content.footer.eula}</a>
         </nav>
         <span className="foot-end">

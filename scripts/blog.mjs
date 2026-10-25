@@ -7,12 +7,15 @@ import {
   APP_STORE_URL,
   DOMAIN,
   GOOGLE_PLAY_URL,
+  LANG_STORAGE_KEY,
   SUPPORT_EMAIL,
   absoluteUrl,
   blogIndexPath,
+  blogLocaleKeys,
   localeKeys,
   locales,
 } from '../src/content.js';
+import { readingMinutes } from './text.mjs';
 
 const contentDir = 'content/blog';
 const DEFAULT_OG = '/assets/og.png';
@@ -50,11 +53,6 @@ function isoDate(value) {
   return new Date(value).toISOString().slice(0, 10);
 }
 
-function readingMinutes(markdown) {
-  const words = markdown.replace(/[#*_`>|\-]/g, ' ').split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / 220));
-}
-
 function createMarked(headings) {
   const marked = new Marked({ gfm: true });
   const seen = new Map();
@@ -82,7 +80,7 @@ function createMarked(headings) {
   return marked;
 }
 
-async function loadPosts() {
+export async function loadPosts() {
   const posts = [];
   for (const lang of localeKeys) {
     const dir = join(contentDir, lang);
@@ -99,7 +97,7 @@ async function loadPosts() {
       if (!data.title || !data.description) throw new Error(`Missing title/description in ${lang}/${file}`);
       const headings = [];
       const marked = createMarked(headings);
-      const body = marked.parse(content.replace(/^#\s+.*\n/, '')).trim();
+      const body = marked.parse(content.replace(/^\s*#\s+.*\n/, '')).trim();
       posts.push({
         lang,
         slug,
@@ -113,7 +111,7 @@ async function loadPosts() {
         path: `/${lang}/blog/${slug}/`,
         headings,
         html: body,
-        minutes: readingMinutes(content),
+        minutes: readingMinutes(content, lang),
       });
     }
   }
@@ -122,7 +120,7 @@ async function loadPosts() {
 
 function alternatesFor(post, posts) {
   const siblings = posts.filter((other) => other.key === post.key);
-  const links = siblings.map((other) => ({ lang: other.lang, href: absoluteUrl(other.path) }));
+  const links = siblings.map((other) => ({ lang: locales[other.lang].htmlLang, href: absoluteUrl(other.path) }));
   const fallback = siblings.find((other) => other.lang === 'en') ?? post;
   links.push({ lang: 'x-default', href: absoluteUrl(fallback.path) });
   return links;
@@ -148,21 +146,21 @@ const blogCss = `
 .post h3 { font-size: 1.1em; font-weight: 600; margin: 1.75rem 0 0.5rem; }
 .post p, .post li { max-width: 40rem; }
 .post p { margin: 0 0 1rem; }
-.post ul, .post ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+.post ul, .post ol { margin: 0 0 1rem; padding-inline-start: 1.4rem; }
 .post li { margin-bottom: 0.4rem; }
 .post li > p { margin: 0; }
 .post a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.25em; text-decoration-color: var(--coral); }
 .post strong { font-weight: 600; }
 .post hr { border: 0; border-top: 1px solid var(--paper-2); margin: 2rem 0; }
-.post blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--coral); color: var(--muted); }
+.post blockquote { margin: 1rem 0; padding-inline-start: 1rem; border-inline-start: 3px solid var(--coral); color: var(--muted); }
 .table-wrap { overflow-x: auto; margin: 1.25rem 0 1.5rem; }
 .post table { border-collapse: collapse; width: 100%; font-size: 0.82rem; line-height: 1.4; }
-.post th, .post td { text-align: left; padding: 0.5rem 0.55rem; border-bottom: 1px solid var(--paper-2); vertical-align: top; min-width: 6.5rem; }
+.post th, .post td { text-align: start; padding: 0.5rem 0.55rem; border-bottom: 1px solid var(--paper-2); vertical-align: top; min-width: 6.5rem; }
 .post td:first-child, .post th:first-child { font-weight: 600; min-width: 5.5rem; }
 .post th { font-weight: 600; background: var(--paper-2); }
 .toc { background: var(--paper-2); border-radius: 14px; padding: 1rem 1.25rem; margin: 0 0 2rem; font-size: var(--step-small); }
 .toc strong { display: block; margin-bottom: 0.4rem; }
-.toc ul { margin: 0; padding-left: 1.1rem; }
+.toc ul { margin: 0; padding-inline-start: 1.1rem; }
 .toc li { margin-bottom: 0.2rem; }
 .cta { background: var(--ink); color: var(--paper); border-radius: 16px; padding: 1.5rem 1.5rem 1.6rem; margin: 2.25rem 0; }
 .cta p { color: inherit; margin: 0 0 0.6rem; }
@@ -189,11 +187,11 @@ const blogCss = `
 
 function renderHeader(lang, langLinks) {
   const content = locales[lang];
-  const langs = localeKeys
+  const items = localeKeys
     .map((key) => {
       const href = langLinks[key] ?? locales[key].path;
       const current = key === lang ? ' aria-current="true"' : '';
-      return `<a href="${escapeHtml(href)}" hreflang="${locales[key].htmlLang}" lang="${locales[key].htmlLang}"${current}>${locales[key].shortLabel}</a>`;
+      return `<li><a href="${escapeHtml(href)}" hreflang="${locales[key].htmlLang}" lang="${locales[key].htmlLang}"${current}>${escapeHtml(locales[key].label)}</a></li>`;
     })
     .join('');
   return `<header class="read-top">
@@ -203,7 +201,11 @@ function renderHeader(lang, langLinks) {
       </a>
       <div class="top-right">
         <a class="top-link" href="${blogIndexPath(lang)}">${escapeHtml(content.blog.label)}</a>
-        <nav class="langs" aria-label="${escapeHtml(content.nav.language)}">${langs}</nav>
+        <details class="lang-menu">
+          <summary aria-label="${escapeHtml(content.nav.language)}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span>${escapeHtml(content.shortLabel)}</span></summary>
+          <ul>${items}</ul>
+        </details>
+        <script>document.querySelectorAll('.lang-menu a').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('${LANG_STORAGE_KEY}',a.lang)}catch(e){}})});document.addEventListener('click',function(e){var m=document.querySelector('.lang-menu');if(m&&m.open&&!m.contains(e.target))m.open=false})</script>
       </div>
     </header>`;
 }
@@ -212,10 +214,10 @@ function renderFooter(lang) {
   const content = locales[lang];
   const legal = [
     [blogIndexPath(lang), content.blog.label],
-    ['/privacy/index.html', content.footer.privacy],
-    ['/terms/index.html', content.footer.terms],
-    ['/support/index.html', content.footer.support],
-    ...(lang === 'de' ? [['/impressum/index.html', content.footer.impressum]] : []),
+    ['/privacy/', content.footer.privacy],
+    ['/terms/', content.footer.terms],
+    ['/support/', content.footer.support],
+    ...(lang === 'de' ? [['/impressum/', content.footer.impressum]] : []),
   ]
     .map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a>`)
     .join('');
@@ -268,9 +270,10 @@ function structuredData(post, posts) {
       dateModified: post.updated,
       mainEntityOfPage: url,
       image: absoluteUrl(post.cover),
-      author: { '@type': 'Organization', name: 'VoyageLog', url: absoluteUrl('/') },
+      author: { '@type': 'Organization', name: 'VoyageLog Team', url: absoluteUrl('/') },
       publisher: {
         '@type': 'Organization',
+        '@id': absoluteUrl('/#organization'),
         name: 'VoyageLog',
         url: absoluteUrl('/'),
         logo: { '@type': 'ImageObject', url: absoluteUrl('/assets/icon-512.png') },
@@ -312,7 +315,7 @@ function renderHead({ lang, title, description, canonical, alternates, image, st
     <meta property="article:modified_time" content="${modified}" />`
       : '';
   return `<!doctype html>
-<html lang="${content.htmlLang}">
+<html lang="${content.htmlLang}" dir="${content.dir ?? 'ltr'}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -345,6 +348,33 @@ function renderHead({ lang, title, description, canonical, alternates, image, st
   </head>`;
 }
 
+// "More from the blog": topic neighbours first, then the newest posts in the same language.
+const RELATED = {
+  'best-apps': ['polarsteps-alternative', 'offline-private', 'journi-vs-polarsteps', 'how-to-journal'],
+  'polarsteps-alternative': ['best-apps', 'journi-vs-polarsteps', 'offline-private', 'google-timeline'],
+  'journi-vs-polarsteps': ['polarsteps-alternative', 'best-apps', 'print-pdf', 'offline-private'],
+  'offline-private': ['best-apps', 'polarsteps-alternative', 'google-timeline', 'how-to-journal'],
+  'google-timeline': ['countries-visited', 'offline-private', 'polarsteps-alternative', 'best-apps'],
+  'how-to-journal': ['places-vs-moments', 'prompts', 'print-pdf', 'best-apps'],
+  'places-vs-moments': ['how-to-journal', 'prompts', 'countries-visited', 'print-pdf'],
+  prompts: ['how-to-journal', 'places-vs-moments', 'print-pdf', 'seasonal'],
+  'print-pdf': ['how-to-journal', 'journi-vs-polarsteps', 'places-vs-moments', 'best-apps'],
+  'countries-visited': ['google-timeline', 'places-vs-moments', 'christmas-markets', 'seasonal'],
+  'christmas-markets': ['countries-visited', 'places-vs-moments', 'how-to-journal', 'print-pdf'],
+  seasonal: ['places-vs-moments', 'countries-visited', 'prompts', 'how-to-journal'],
+};
+const RELATED_COUNT = 4;
+
+function relatedPosts(post, posts) {
+  const pool = posts.filter((other) => other.lang === post.lang && other.slug !== post.slug);
+  const picked = (RELATED[post.key] ?? []).map((key) => pool.find((other) => other.key === key)).filter(Boolean);
+  for (const other of pool) {
+    if (picked.length >= RELATED_COUNT) break;
+    if (!picked.includes(other)) picked.push(other);
+  }
+  return picked.slice(0, RELATED_COUNT);
+}
+
 function renderPost(post, posts, stylesheet) {
   const content = locales[post.lang];
   const alternates = alternatesFor(post, posts);
@@ -354,9 +384,7 @@ function renderPost(post, posts, stylesheet) {
   const cta = renderCta(post.lang, post.slug);
   let body = post.html;
   body = body.includes('{{cta}}') ? body.replace(/<p>\{\{cta\}\}<\/p>|\{\{cta\}\}/, cta) : body.replace('</h2>', `</h2>${cta}`);
-  const more = posts
-    .filter((other) => other.lang === post.lang && other.slug !== post.slug)
-    .slice(0, 4)
+  const more = relatedPosts(post, posts)
     .map((other) => `<li><a href="${other.path}">${escapeHtml(other.title)}</a><p>${escapeHtml(other.description)}</p></li>`)
     .join('');
 
@@ -400,9 +428,9 @@ function renderIndex(lang, posts, stylesheet) {
   const content = locales[lang];
   const mine = posts.filter((post) => post.lang === lang);
   const alternates = [
-    ...localeKeys
+    ...blogLocaleKeys
       .filter((key) => posts.some((post) => post.lang === key))
-      .map((key) => ({ lang: key, href: absoluteUrl(blogIndexPath(key)) })),
+      .map((key) => ({ lang: locales[key].htmlLang, href: absoluteUrl(blogIndexPath(key)) })),
     { lang: 'x-default', href: absoluteUrl(blogIndexPath('en')) },
   ];
   const items = mine
@@ -419,7 +447,7 @@ function renderIndex(lang, posts, stylesheet) {
     description: content.blog.description,
     url: absoluteUrl(blogIndexPath(lang)),
     inLanguage: content.htmlLang,
-    publisher: { '@type': 'Organization', name: 'VoyageLog', url: absoluteUrl('/') },
+    publisher: { '@type': 'Organization', '@id': absoluteUrl('/#organization'), name: 'VoyageLog', url: absoluteUrl('/') },
     blogPost: mine.map((post) => ({ '@type': 'BlogPosting', headline: post.title, url: absoluteUrl(post.path), datePublished: post.date })),
   };
   const head = renderHead({
@@ -436,7 +464,7 @@ function renderIndex(lang, posts, stylesheet) {
   return `${head}
   <body>
     <div class="blog-shell">
-    ${renderHeader(lang, Object.fromEntries(localeKeys.map((key) => [key, blogIndexPath(key)])))}
+    ${renderHeader(lang, Object.fromEntries(blogLocaleKeys.map((key) => [key, blogIndexPath(key)])))}
     <main>
       <section class="blog-head">
         <h1>${escapeHtml(content.blog.title)}</h1>

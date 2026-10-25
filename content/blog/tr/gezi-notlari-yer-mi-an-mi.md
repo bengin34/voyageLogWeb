@@ -2,12 +2,12 @@
 title: "Gezi notları nasıl tutulur: her notu yer ya da an yapın"
 description: "Gezi notları nasıl tutulur? Her notu yer ya da an diye ayırın: yere puan verilir, ana verilmez. Roma ve Floransa örneğiyle 12 kayıtlık çalışan bir tablo."
 date: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-24
 lang: tr
 key: places-vs-moments
 faq:
   - q: "Gezi notlarında yer ile an arasındaki fark nedir?"
-    a: "Yer, sizin ya da bir arkadaşınızın tekrar gidebileceği bir nokta: kafe, müze, seyir tepesi, restoran. Konumu vardır ve beş üzerinden puan alır. An ise bir kez olan ve tekrar yaşanamayan şey: gün doğumu, bir sohbet, ansızın başlayan yağmur. Not ve fotoğraf alır ama puan almaz, çünkü kimse gidip onu yeniden yaşayamaz."
+    a: "Yer, sizin ya da bir arkadaşınızın tekrar gidebileceği bir nokta: kafe, müze, seyir tepesi, restoran. Konumu vardır ve beş üzerinden puan alır. An ise bir kez olan ve tekrar yaşanamayan şey: gün doğumu, bir sohbet, ansızın başlayan yağmur. Not ve fotoğraf alır; ona puan vermeyin, çünkü kimse gidip onu yeniden yaşayamaz."
   - q: "Gezi notlarını sonradan bulabilmek için nasıl düzenlerim?"
     a: "Her nota bir tür, bir iki tekrar kullanılan etiket ve yerse bir puan verin. Etiketleri sade tutun: kahve, müze, manzara, plaj. Birkaç geziden sonra tek bir etiketi aramak ya da puana göre süzmek, Roma'daki o dondurmacının adından yılın en iyi üç yemeğine kadar aklınıza gelen hemen her soruyu cevaplar."
   - q: "Gezi günlüğündeki her şeye puan vermeli miyim?"
@@ -15,18 +15,18 @@ faq:
   - q: "Not almadığım gezileri nasıl hatırlarım?"
     a: "Bir akşam galerinizi açın ve gezi gezi ilerleyin. Her gezi için şehirleri, üç beş yeri puan ve tek satırla, bir de fotoğrafların hatırlattığı bir iki anı ekleyin. Anında yazılmış notun ayrıntısına ulaşamazsınız ama gezinin şeklini geri alırsınız; arama ve sayım için bu yeter."
   - q: "Yerleri ve anları ayrı tutan bir seyahat notları uygulaması var mı?"
-    a: "VoyageLog'da iki tür yerleşik: her kayıt yer ya da an olarak açılır, yerler konum ve beş üzerinden puan alır, arama tür, puan ve etikete göre süzülür. Notlar uygulamasında bunu başa P ya da M koyarak ve şehir için etiket kullanarak taklit edebilirsiniz; işler ama disiplin ister."
+    a: "Evet. VoyageLog'da (uygulamayı biz yapıyoruz) iki tür yerleşik: her kayıt yer ya da an olarak açılır, arama tür, puan ve etikete göre süzülür; anları puansız bırakmak sizin elinizde. Notlar uygulamasında bunu başlığa Y ya da A koyarak ve şehir için etiket kullanarak taklit edebilirsiniz; işler ama disiplin ister."
 ---
 
 Gezi notları nasıl tutulur sorusunun kısa cevabı şu: yazmadan önce her notu bir türe koyun. Burası tekrar gidilebilecek bir yer mi, yoksa bir kez olmuş bir an mı? Yere puan verilir, ana verilmez. Bu tek karar, dağınık bir not yığınını iki işe yarar şeye çevirir: arkadaşlara verebileceğiniz bir tavsiye listesi ve gezinin nasıl olduğunu anlatan bir kayıt.
 
 ## Yer ile anı karıştırmak neden ikisini de bozar?
 
-Yarıda kalmış her gezi defterinde kayıtlar şuna benzer: "Köprüde muhteşem gün batımı, sonra köprünün yanındaki lokantada akşam yemeği, 4/5, biraz gürültülü." Tek cümle, birbirinden tamamen farklı iki bilgi.
+Yarıda kalmış her gezi defterinde kayıtlar şuna benzer: “Köprüde muhteşem gün batımı, sonra köprünün yanındaki lokantada akşam yemeği, 4/5, biraz gürültülü.” Tek cümle, birbirinden tamamen farklı iki bilgi.
 
 Gün batımı bir andır. Size, belli bir saatte, belli bir ışıkta oldu. Kimse onu rezerve edemez. Lokanta ise bir yerdir. Adresi var, haftaya salı da açık olacak ve verdiğiniz puan, kapısının önünde girip girmemeyi tartan bir sonraki kişiye yarar.
 
-Aynı satırı paylaştıklarında ikisi de kaybeder. An, yorum diline çekilir ve gün batımı için "atmosfer güzeldi" yazarsınız, bu hiçbir şey demek değildir. Yer ise hikâyenin içinde kaybolur: bir arkadaşınız Roma için restoran tavsiyesi istediğinde altı isim çıkarmak için dört günlük düzyazıyı baştan okumanız gerekir. İki yıl sonra ikisini de yapmazsınız. Düzyazıyı okumazsınız, tavsiyeyi göndermezsiniz.
+Aynı satırı paylaştıklarında ikisi de kaybeder. An, yorum diline çekilir ve gün batımı için “atmosfer güzeldi” yazarsınız, bu hiçbir şey demek değildir. Yer ise hikâyenin içinde kaybolur: bir arkadaşınız Roma için restoran tavsiyesi istediğinde altı isim çıkarmak için dört günlük düzyazıyı baştan okumanız gerekir. İki yıl sonra ikisini de yapmazsınız. Düzyazıyı okumazsınız, tavsiyeyi göndermezsiniz.
 
 Ayırınca ikisi de düzelir. Yerler temiz, süzülebilir bir liste olur: puanladığınız her kafe, puana göre, şehre göre, etikete göre. Anlar ise puandan ve adresten arınmış hikâye olur, eve dönerken okunacak kadar kısa.
 
@@ -39,7 +39,7 @@ Her kayıttan önce şunu sorun: başka biri gidip bunu yaşayabilir mi?
 
 Kafa karıştıran birkaç sınır durum:
 
-- **Meşhur bir yapı, özel bir saatte.** Colosseo bir yerdir. Colosseo'da sabah yedide, neredeyse kimse yokken durmak bir andır. Anı kaydedin. Yapıyı gezilecek yer olarak puanlamak isterseniz ayrı bir yer kaydı açın; çoğu kişi açmaz, o da olur.
+- **Meşhur bir yapı, özel bir saatte.** Colosseo bir yerdir. Colosseo'nun önünde sabah yedide, neredeyse kimse yokken durmak bir andır. Anı kaydedin. Yapıyı gezilecek yer olarak puanlamak isterseniz ayrı bir yer kaydı açın; açmasanız da olur.
 - **Hikâyesi olan bir yemek.** Lokanta yerdir. Garsonun sizin takımı tutan biri çıkması andır. İki kayıt, her biri otuz saniye.
 - **Kötü deneyimler.** Hayal kırıklığı yaratan meşhur bir kafe, 2 puanlık bir yerdir. Kaçırılan tren bir andır. İkisi de saklanmaya değer: 2 puan sizi oraya bir daha gitmekten kurtarır, kaçırılan tren düşündüğünüzden hızlı bir şekilde iyi bir hikâyeye dönüşür.
 
@@ -51,16 +51,16 @@ Hayali bir bahar gezisi: İstanbul'dan uçuş, Roma'da iki gece, trenle Floransa
 
 | Gün | Tür | Kayıt | Puan | Etiket | Not |
 |---|---|---|---|---|---|
-| 1 | Yer | Sant'Eustachio il Caffè, Roma | 4 | kahve | Gran Caffè'yi sade için, kalabalık olmadan sabah gidin |
+| 1 | Yer | Sant'Eustachio il Caffè, Roma | 4 | kahve | Gran Caffè şekerli gelir, sade istiyorsanız söyleyin; sabah gidin |
 | 1 | Yer | Pantheon | 5 | müze | Kubbenin altında birkaç dakika durun, öğleden önce daha sakin |
 | 1 | An | Taksi şoförü Trastevere'de bagajı taşıdı | | taksi | Merdivenleri görünce kendisi indirdi, bahşişi almadı |
-| 2 | An | Colosseo'da sabah yedi | | gündoğumu | Neredeyse boş, ışık sarıydı, alarma değdi |
-| 2 | Yer | Da Enzo al 29, Roma | 5 | yemek | Cacio e pepe, kapanıştan önce kuyruğa girin yoksa bekleyin |
+| 2 | An | Colosseo'nun önünde sabah yedi | | gün doğumu | Neredeyse boş, ışık sarıydı, alarma değdi |
+| 2 | Yer | Da Enzo al 29, Roma | 5 | yemek | Cacio e pepe, açılıştan önce kuyruğa girin, yoksa uzun beklersiniz |
 | 2 | Yer | Trevi Çeşmesi | 2 | manzara | Güzel ama kalabalık, sabaha bırakın ya da atlayın |
 | 3 | An | Roma'dan Floransa'ya tren | | tren | Toskana tarlaları, tren barından sıcak çay |
 | 3 | Yer | Mercato Centrale, Floransa | 4 | yemek | Öğle arası kalabalık, erken gidin, bir tabak paylaşmak yeter |
-| 3 | Yer | Uffizi | 5 | müze | Önceden bilet şart, Botticelli salonu öğleye doğru dolar |
-| 4 | Yer | Gelateria dei Neri | 4 | dondurma | Fıstık ve çikolata, tezgâhı geç kalmadan görün |
+| 3 | Yer | Uffizi | 5 | müze | Bileti önceden alın, Botticelli salonu öğleye doğru dolar |
+| 4 | Yer | Gelateria dei Neri | 4 | dondurma | Fıstık ve çikolata, iki top yeter |
 | 4 | An | Ponte Vecchio'da ani yağmur | | yağmur | Herkes saçak altında, kimse konuşmuyordu |
 | 4 | Yer | Meşhur biftek lokantası | 3 | yemek | Büyük, ünlü, fena değil, kuyrukta bekleyecek kadar değil |
 
@@ -76,9 +76,9 @@ Her not yer ya da an olunca, yığından üç yapı neredeyse kendiliğinden do�
 
 ### Gezileri aşan etiketler
 
-Etiketleri kısa tutun ve her yerde aynısını kullanın: kahve, müze, manzara, plaj, gündoğumu, tren. Kazanç tek gezide değil, gezilerin arasındadır; tek gezide zaten kaydırıp bakabilirsiniz. Beş geziden sonra "kahve" etiketi Avrupa'da puanladığınız her kafedir, puanlarıyla, tek listede. "Şu garip fırın" gibi tek seferlik bir etiket boşa gider; kırk kez kullandığınız etiket ise yazdığınızı bilmediğiniz bir listedir.
+Etiketleri kısa tutun ve her yerde aynısını kullanın: kahve, müze, manzara, plaj, gün doğumu, tren. Kazanç tek gezide değil, gezilerin arasındadır; tek gezide zaten kaydırıp bakabilirsiniz. Beş geziden sonra “kahve” etiketi Avrupa'da puanladığınız her kafedir, puanlarıyla, tek listede. “Şu garip fırın” gibi tek seferlik bir etiket boşa gider; kırk kez kullandığınız etiket ise yazdığınızı bilmediğiniz bir listedir.
 
-Şehir de bir etikettir, aracınız bunu ayrıca yapmıyorsa. Örnekte "roma" ve "floransa" etiketleri listeyi şehre göre anında keser.
+Şehir de bir etikettir, aracınız bunu ayrıca yapmıyorsa. Örnekte “roma” ve “floransa” etiketleri listeyi şehre göre anında keser.
 
 ### Beşlerden çıkan en iyiler listeleri
 
@@ -86,17 +86,17 @@ En iyiler listesi, yüksek puan verdiğiniz yerlerin sizin seçtiğiniz sırayla
 
 ### Canınızın çektiğine göre arama
 
-Sonradan aradığınız kayıt neredeyse hiçbir zaman "ikinci gün" değildir. "Roma'daki o makarna lokantası" ya da "Floransa'daki dondurma"dır. Başlık, not ve etiketlerde arama bunu doğrudan cevaplar, türe göre süzmek de keskinleştirir: tavsiye verirken yalnızca yerler, eski günleri anarken yalnızca anlar, bir daha gitmeyi planlarken 4 ve üzeri puan.
+Sonradan aradığınız kayıt neredeyse hiçbir zaman “ikinci gün” değildir. “Roma'daki o makarna lokantası” ya da “Floransa'daki dondurma”dır. Başlık, not ve etiketlerde arama bunu doğrudan cevaplar, türe göre süzmek de keskinleştirir: tavsiye verirken yalnızca yerler, eski günleri anarken yalnızca anlar, bir daha gitmeyi planlarken 4 ve üzeri puan.
 
 ## Notlar ve Google Haritalar kaydedilen yerler yeter mi?
 
-Türkiye'de çoğu kişi gezi notlarını zaten iki yerde tutuyor: telefondaki Notlar uygulamasında ve Google Haritalar'daki kaydedilen yerler listelerinde. Bu alışkanlığa karşı çıkmıyoruz; iki aracı da doğru işe koşmak mümkün.
+Çoğumuz gezi notlarını zaten iki yerde tutuyoruz: telefondaki Notlar uygulamasında ve Google Haritalar'daki kaydedilen yerler listelerinde. Bu alışkanlığa karşı çıkmıyoruz; iki aracı da doğru işe koşmak mümkün.
 
-**Notlar uygulaması** çoğu zaman gezi başına tek uzun bir nottur. Küçük bir yükseltme yeter: gezi başına değil kayıt başına bir not açın, başlığın başına P ya da M koyun, yerler için puanı başlığa yazın, şehir için bir hashtag ekleyin. Çalışır. Zayıflığı birkaç gezi sonra görünür: "4 ve üzeri verdiğim tüm müzeler" sorusunu uygulama cevaplayamaz, listeleriniz de elle bakmanız gereken ayrı bir nota kalır.
+**Notlar uygulaması** çoğu zaman gezi başına tek uzun bir nottur. Küçük bir yükseltme yeter: gezi başına değil kayıt başına bir not açın, başlığın başına Y (yer) ya da A (an) koyun, yerler için puanı başlığa yazın, şehir için bir hashtag ekleyin. Çalışır. Zayıflığı birkaç gezi sonra görünür: “4 ve üzeri verdiğim tüm müzeler” sorusunu uygulama cevaplayamaz, listeleriniz de elle bakmanız gereken ayrı bir nota kalır.
 
-**Google Haritalar'da kaydedilen yerler** çoğu kişi için ne olduğunu söylemeden bir gezilen yerleri kaydetme aracıdır. Listeler yerleri tutar, her birine not ekleyebilirsiniz ve liste paylaşılabilir; ayrıntılar [Google'ın yardım sayfasında](https://support.google.com/maps/answer/7280933) var. Ama yalnızca yerleri tutar. Haritalarda an diye bir şey yok, herkese açık yorum yerine yalnızca size ait bir puan yok ve "bu Floransa gezisinin ikinci günüydü" demenin yolu yok. Tavsiye yarısı için iyi bir yer, hikâye yarısı için hiçbir yer değil.
+**Google Haritalar'da kaydedilen yerler** çoğu kişi için adı konmamış bir gezi defteridir. Listeler yerleri tutar, yerlere not ekleyebilirsiniz, listeyi gizli tutabilir ya da bağlantıyla paylaşabilirsiniz. Ama yalnızca yerleri tutar. Haritalar'da an diye bir şey yok, herkese açık yorum yerine yalnızca size ait bir puan yok ve “bu Floransa gezisinin ikinci günüydü” demenin yolu yok. Tavsiye yarısı için iyi bir yer, hikâye yarısı için hiçbir yer değil.
 
-Türkiye'den giden biri için bir pratik ayrıntı daha var: yurt dışı dolaşım çoğu zaman kapalı, açıksa pahalı ve kur kaygısı yüzünden çoğumuz telefonu uçak modunda tutup yalnızca otel Wi-Fi'ında açıyoruz. Bulut senkronu isteyen ya da hesap açtıran bir uygulamada kayıt tam o anda, metroda ya da tren tünelinde ihtiyacınız olduğunda çalışmayabilir. Notlar uygulaması bu açıdan sağlam; Google Haritalar'ın harita ve liste verisi ise internet olmadan her zaman beklediğiniz gibi davranmayabilir, bu yüzden kritik adresleri kayıtta ayrıca tutmakta fayda var.
+Türkiye'den giden biri için bir pratik ayrıntı daha var: yurt dışı dolaşım çoğu zaman kapalı, açıksa pahalı ve kur kaygısı yüzünden çoğumuz telefonu uçak modunda tutup yalnızca otel Wi-Fi'ında açıyoruz. Bulut senkronu isteyen ya da hesap açtıran bir uygulamada kayıt tam o anda, metroda ya da tren tünelinde ihtiyacınız olduğunda çalışmayabilir. Notlar uygulaması bu açıdan sağlam. Google Haritalar'ı internetsiz kullanmak içinse bölgeyi önceden çevrimdışı harita olarak indirmeniz gerekir ve çevrimdışıyken toplu taşıma ve yaya yol tarifi çalışmaz; kritik adresleri kayıtta ayrıca tutun.
 
 ## Defter, notlar uygulaması ya da seyahat notları uygulaması
 
@@ -104,17 +104,17 @@ Türkiye'den giden biri için bir pratik ayrıntı daha var: yurt dışı dolaş
 
 | | Kâğıt defter | Notlar uygulaması | VoyageLog |
 |---|---|---|---|
-| Tür işareti | Kenara P ya da M | Başlığa P ya da M | Açarken yer ya da an seçilir |
-| Puan | İsmin yanına yazılır | Başlığa yazılır | Yerleşik, 1-5, yalnızca yerlere |
+| Tür işareti | Kenara Y ya da A | Başlığa Y ya da A | Açarken yer ya da an seçilir |
+| Puan | İsmin yanına yazılır | Başlığa yazılır | Yerleşik, beş üzerinden; anları puansız bırakırsınız |
 | Etiket | Arkada elle indeks | Hashtag ya da klasör | Yerleşik, aranabilir |
 | Konum | Adres elle yazılır | Notta harita bağlantısı | Apple ya da Google Haritalar bağlantısı yapıştırılır, otomatik dolar |
 | En iyiler listesi | Gezi sonrası bir sayfa yeniden yazılır | Yeni not, isimler kopyalanır | Yerleşik, sıralanır, görsel ya da PDF olarak paylaşılır |
 | Gezileri aşan arama | Yok | Metin arama, tür ve puan süzgeci yok | Başlık, not, etiket, gezi; süzgeçlerle |
 | Çevrimdışı | Her zaman | Genelde | Evet, her şey telefonda kalır |
 
-**Kâğıt** tür kuralını iyi taşır. Kenarda bir P ya da M ve her yerin yanında bir sayı hiçbir şeye mal olmaz. Yapamadığı şey gezileri aşmaktır: en iyi kahve listesi her defteri baştan okumanızı gerektirir. Kâğıdı sevenlerin çoğu gezide hızlı kayıtları telefona girer, düşünceli sayfaları sonradan deftere yazar.
+**Kâğıt** tür kuralını iyi taşır. Kenarda bir Y ya da A ve her yerin yanında bir sayı hiçbir şeye mal olmaz. Yapamadığı şey gezileri aşmaktır: en iyi kahve listesi her defteri baştan okumanızı gerektirir. Kâğıdı seviyorsanız gezide hızlı kayıtları telefona girip düşünceli sayfaları sonradan deftere yazabilirsiniz.
 
-**VoyageLog** bizim yaptığımız uygulama ve iki tür yerleşik: her yeni kayıt yer ya da an olarak açılır, yerler konum ve beş üzerinden puan alır, anlar ikisini de almaz. Etiketler, en iyiler listeleri, tür, puan ve etiket süzgeçli arama, şehirlere bölünmüş gezi ve gittiğiniz her yeri gösteren harita bundan doğar. Hesap yok ve her şey telefonda kalır; yurt dışında dolaşım kapalıyken kayıt girmeniz gereken an için önemli olan da bu. Alternatiflerin yanında nasıl durduğunu merak ederseniz, hesap, çevrimdışı kullanım ve dışa aktarma açısından [en iyi seyahat günlüğü uygulamalarını](/tr/blog/en-iyi-seyahat-gunlugu-uygulamalari/) karşılaştırdık. Seyahat notları uygulaması ya da gezi anıları uygulaması ararken ilk soru her zaman aynı: yerleri ve anları ayırıyor mu, internet olmadan çalışıyor mu?
+**[VoyageLog](/tr/)** bizim yaptığımız uygulama ve iki tür yerleşik: her yeni kayıt yer ya da an olarak açılır; ikisine de fotoğraf, not, etiket ve beş üzerinden puan eklenebilir, anları puansız bırakmak sizin elinizde. Etiketler, en iyiler listeleri, tür, puan ve etiket süzgeçli arama, şehirlere bölünmüş gezi ve gittiğiniz her yeri gösteren harita bundan doğar. Hesap yok ve her şey telefonda kalır; yurt dışında dolaşım kapalıyken kayıt girmeniz gereken an için önemli olan da bu. Gezi haritası da internetsiz açılır, ama yalnızca kaydettiğiniz yerleri gösterir; sokak haritası ve yol tarifi için Google Haritalar'ın yerini tutmaz. Alternatiflerin yanında nasıl durduğunu merak ederseniz, hesap, çevrimdışı kullanım ve dışa aktarma açısından [en iyi seyahat günlüğü uygulamalarını](/tr/blog/en-iyi-seyahat-gunlugu-uygulamalari/) karşılaştırdık. Seyahat notları uygulaması ya da gezi anıları uygulaması ararken ilk soru her zaman aynı: yerleri ve anları ayırıyor mu, internet olmadan çalışıyor mu?
 
 Yazı sistemine örnek isterseniz, aynı mantıkla yazılmış gezi günlüğü örnekleri için yukarıdaki tablo kendi başına bir şablondur: tür, kayıt, puan, etiket, tek satır. Kendi gezinize uyarlayıp ilk üç kaydı bugün girin.
 
@@ -133,10 +133,10 @@ Kaldırımda yazılmış notun ayrıntısını geri getiremezsiniz. Geri getirdi
 
 İki türlü sistem sizin fark etmeyi seçtiğiniz şeyi kaydeder. Nerede olduğunuzu kaydetmez. Bazı geziler için bu tam tersi bir takas.
 
-Bir ülkeyi bisikletle geçiyorsanız, uzun bir yol gezisindeyseniz ya da rotanın kendisinin hikâye olduğu aylık bir sırt çantası gezisindeyseniz, bir izleyici istersiniz. Polarsteps telefon cebinizdeyken rotayı kendisi çizer; kendi tanıtımına göre internet olmadan da izlemeye devam eder. Google Haritalar Zaman Çizelgesi ise konum geçmişi açıksa ziyaretleri ve rotayı cihazınızda tutar; ayrıntılar [Google'ın yardım sayfasında](https://support.google.com/maps/answer/6258979) yer alıyor.
+Bir ülkeyi bisikletle geçiyorsanız, uzun bir yol gezisindeyseniz ya da rotanın kendisinin hikâye olduğu aylık bir sırt çantası gezisindeyseniz, bir izleyici istersiniz. Polarsteps telefon cebinizdeyken rotayı kendisi çizer ve internet olmadan da izlemeye devam ettiğini söyler. Google Haritalar'ın Zaman Çizelgesi ise açtıysanız ziyaretleri ve rotayı cihazınızda tutar.
 
-Bunların hiçbiri bu yazının kastettiği anlamda günlük değil. Bologna'de saat 14.10'da olduğunuzu söylerler. Çayın güzel olduğunu ya da şoförün kapıyı tuttuğunu söylemezler. Çoğu kişi ikisini birlikte kullanır: haritadaki çizgi için bir izleyici, o çizgi hakkında söylenecek şeyler için bir yer ve an günlüğü. VoyageLog hiçbir GPS izleme yapmaz, bilerek; çizgi istiyorsanız izleyiciyle başlayın ve yalnızca hesap ve paylaşım modeli sizi rahatsız ediyorsa [Polarsteps alternatifleri](/tr/blog/polarsteps-alternatifi/) yazımıza bakın.
+Bunların hiçbiri bu yazının kastettiği anlamda günlük değil. Bologna'da saat 14.10'da olduğunuzu söylerler. Çayın güzel olduğunu ya da şoförün kapıyı tuttuğunu söylemezler. İkisini birlikte kullanmak da bir yol: haritadaki çizgi için bir izleyici, o çizgi hakkında söylenecek şeyler için bir yer ve an günlüğü. VoyageLog hiçbir GPS izleme yapmaz, bilerek; çizgi istiyorsanız izleyiciyle başlayın ve yalnızca hesap ve paylaşım modeli sizi rahatsız ediyorsa [Polarsteps alternatifleri](/tr/blog/polarsteps-alternatifi/) yazımıza bakın.
 
-## Kural, bir kez daha
+## Bir sonraki gezide tek soru
 
-Bir gezide bir şey yazmadan önce, başka birinin gidip bunu yaşayıp yaşayamayacağını sorun. Yaşayabiliyorsa bu bir yerdir: puan, etiket, tek satır. Yaşayamıyorsa bu bir andır: puan yok, tek satır, bir fotoğraf. İkisini ayrı tutarsanız karşılığında, arkadaşlarınıza verebileceğiniz bir tavsiye listesi ve şubat ayında karanlık bir akşam yeniden okuyabileceğiniz bir hikâye kazanırsınız. Dört günlük bir geziden on iki kayıt, sekiz dakikalık yazı ve bir gezi günlüğünün işe yaradığı iki yarının ikisi de.
+Bir gezide bir şey yazmadan önce, başka birinin gidip bunu yaşayıp yaşayamayacağını sorun. Yaşayabiliyorsa bu bir yerdir: puan, etiket, tek satır. Yaşayamıyorsa bu bir andır: puan yok, tek satır, bir fotoğraf. İkisini ayrı tutarsanız karşılığında arkadaşlarınıza verebileceğiniz bir tavsiye listesi ve şubatta karanlık bir akşam yeniden okuyabileceğiniz bir hikâye kazanırsınız. Başlamak için büyük bir karar gerekmiyor: bir sonraki gezinin ilk kahvesini yer olarak, ilk tuhaf anını an olarak kaydedin.

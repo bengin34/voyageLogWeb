@@ -2,23 +2,23 @@
 title: "Reisetagebuch drucken: PDF, Fotobuch, Export im Vergleich"
 description: "Reisetagebuch drucken, ohne Stunden am Layout zu sitzen: drei Wege vom Handy aufs Papier, was gedruckt gut aussieht und welcher Weg zu dir passt."
 date: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-24
 lang: de
 key: print-pdf
 faq:
   - q: "Kann ich mein Reisetagebuch als PDF speichern?"
-    a: "Ja, wenn deine App einen PDF-Export hat. VoyageLog exportiert ein PDF pro Reise oder pro Stadt, sodass aus zehn Tagen Italien eine Datei für Rom und eine für Amalfi werden kann. Das PDF kannst du zu Hause ausdrucken, im Copyshop drucken lassen oder bei einem Fotobuch-Dienst hochladen."
+    a: "Ja, wenn deine App einen PDF-Export hat. VoyageLog exportiert ein PDF pro Reise, pro Stadt oder pro Best-of-Liste, sodass aus zehn Tagen Italien eine Datei für Rom und eine für Amalfi werden kann. Das PDF ist so lang wie sein Inhalt, von einer Seite bis zu mehreren. Du druckst es zu Hause oder im Copyshop."
   - q: "Wie komme ich am einfachsten zu einem gedruckten Reise-Fotobuch?"
-    a: "Mit einer App, die das Buch für dich baut. Polarsteps, Journi Print und FindPenguins erzeugen aus deinen gespeicherten Inhalten ein Fotobuch und liefern es nach Hause. Dafür gibst du Kontrolle über das Layout ab. Willst du jede Seite selbst gestalten, exportiere ein PDF oder deine Fotos und arbeite in einem Fotobuch-Programm."
+    a: "Mit einer App, die das Buch für dich baut. Polarsteps und FindPenguins erzeugen aus deiner Reise ein Fotobuch und liefern es nach Hause, Journi Print setzt deine Fotos automatisch in ein Layout. Dafür gibst du Kontrolle über das Layout ab. Willst du jede Seite selbst gestalten, exportiere ein PDF oder deine Fotos und arbeite in einem Fotobuch-Programm."
   - q: "Welches Format eignet sich für ein ausgedrucktes Reisetagebuch?"
-    a: "DIN A4 ist der Standard für Drucker zu Hause und im Copyshop, DIN A5 ergibt ein handliches Heft. Bei Fotobuch-Diensten heißen die Formate meist anders, bei CEWE und Pixum entspricht das große Querformat ungefähr A4. Lege das Format fest, bevor du das Layout baust, sonst werden Fotos beschnitten."
+    a: "DIN A4 ist der Standard für Drucker zu Hause und im Copyshop, DIN A5 ergibt ein handliches Heft. Bei Fotobuch-Diensten heißen die Formate meist anders, bei CEWE und Pixum entspricht das große Format mit 21 × 28 cm ungefähr A4. Lege das Format fest, bevor du das Layout baust, sonst werden Fotos beschnitten."
   - q: "Welche Auflösung brauchen Fotos für den Druck?"
     a: "Nimm die Originalfotos aus der Handykamera, keine Screenshots und keine Bilder aus Messengern, denn die werden stark komprimiert. Für A4 und A5 reichen Handyfotos in aller Regel. Wer groß drucken will, exportiert das ZIP mit allen Medien und nimmt die Fotos von dort."
   - q: "Wie exportiere ich mein Reisetagebuch aus VoyageLog?"
-    a: "Öffne eine Reise oder Stadt und teile sie als PDF oder Bildkarte. Für das ganze Tagebuch exportierst du JSON, Excel oder ein ZIP mit Fotos und Videos. Die Exporte von allem, was du gespeichert hast, gehören zu VoyageLog Pro. JSON und ZIP lassen sich auf einem neuen Handy wieder importieren."
+    a: "In VoyageLog öffnest du eine Reise, eine Stadt oder eine Best-of-Liste und teilst sie als PDF oder Bild. Für das ganze Tagebuch exportierst du JSON, Excel oder ein ZIP mit Fotos und Videos. Die Exporte von allem, was du gespeichert hast, gehören zu VoyageLog Pro. JSON und ZIP lassen sich auf einem neuen Handy wieder importieren."
 ---
 
-Ein Reisetagebuch drucken geht auf drei Wegen: Eine App baut ein Fotobuch und schickt es dir, du exportierst ein PDF und druckst selbst oder im Copyshop, oder du exportierst die Rohdaten und gestaltest das Buch in einer Vorlage. Der erste Weg ist am schnellsten, der zweite am günstigsten und flexibelsten, der dritte ist für alle, die jede Seite selbst bestimmen wollen. Hier erkläre ich alle drei, was vom Bildschirm aufs Papier mitkommt und worauf du bei Format, Foto-Auflösung und Reihenfolge achten solltest.
+Ein Reisetagebuch drucken geht auf drei Wegen: Eine App baut ein Fotobuch und schickt es dir, du exportierst ein PDF und druckst selbst oder im Copyshop, oder du exportierst die Rohdaten und gestaltest das Buch in einer Vorlage. Der erste Weg ist am schnellsten, der zweite am günstigsten, der dritte ist für alle, die jede Seite selbst bestimmen wollen. Unten stehen alle drei, dazu, was vom Bildschirm aufs Papier mitkommt und worauf du bei Format, Foto-Auflösung und Reihenfolge achtest. VoyageLog, das in Weg 2 und 3 vorkommt, machen wir selbst.
 
 ## Warum ein Reisetagebuch überhaupt drucken?
 
@@ -40,33 +40,35 @@ Such dir den Weg nach der Frage aus, wie wichtig dir das Layout ist und wie viel
 
 ## Weg 1: Fotobuch direkt aus der App (Polarsteps, Journi Print, FindPenguins)
 
-Manche Reise-Apps sind genau dafür gebaut: Du führst die Reise in der App, tippst auf einen Knopf, und ein Buch kommt an. Ich habe die drei heute geprüft.
+Manche Reise-Apps sind genau dafür gebaut: Du führst die Reise in der App, tippst auf einen Knopf, und ein Buch kommt an. Die Angaben unten haben wir auf den Seiten der Anbieter und im deutschen App Store geprüft.
 
-**Polarsteps.** Polarsteps erstellt aus einer geloggten Reise ein Travel Book. Laut [Hilfecenter](https://support.polarsteps.com/hc/en-us/articles/24267055732114-How-do-I-create-a-Travel-Book-of-my-trip) braucht die Reise mindestens fünf Fotos, und die Stationen müssen veröffentlicht sein. Die Vorschau siehst du in der App unter "My Travel Books" oder auf der Website. Das Layout entsteht automatisch aus Fotos, Texten, Route und Statistiken. Druck und Versand übernimmt ein externer Druckpartner. Die Preisangaben in verschiedenen Quellen weichen voneinander ab, also schau den aktuellen Preis in der App nach.
+**Polarsteps.** Polarsteps macht aus einer aufgezeichneten Reise ein gebundenes Travel Book im Hardcover. Das Layout entsteht automatisch aus deinen Steps, Fotos und der Route, du startest es mit einem Tipp in der App. Mit dem Jahresabo von Polarsteps Plus gibt es 20 % Rabatt auf das Buch. Den aktuellen Preis siehst du in der App.
 
-**Journi Print.** Journi Print ist eine kostenlose App, mit der du Fotobücher auf dem Handy gestaltest. Du tippst auf "New Photo Book", wählst Fotos, und die App schlägt Designs vor. Laut [App-Store-Eintrag](https://apps.apple.com/app/id1359161090) wird digital auf 170 g/m2 Papier gedruckt. Journi nennt außerdem FSC-zertifiziertes Papier und Reise-Cover. Aktuelle Preise konnte ich nicht belegen, deshalb nenne ich keine.
+**Journi Print.** Journi Print ist die kostenlose Fotobuch-App des Wiener Anbieters Journi. Du wählst Fotos aus der Mediathek, aus iCloud oder ein vorgeschlagenes Album, die App setzt das Buch automatisch, und du passt es danach an. Gedruckt wird digital auf 170 g/m² schwerem, FSC-zertifiziertem Papier. Preise nennen wir nicht, du siehst sie in der App.
 
-**FindPenguins.** Auch FindPenguins bietet ein Reisebuch. Auf der [Seite zum Travel Book](https://www.findpenguins.com/travelbook) steht, dass das Buch aus deinem FindPenguins-Profil entsteht, mit Texten, Daten, Karten, Fotos und Statistiken, ohne dass du etwas ziehen oder formatieren musst. Genannt werden ein Hardcover und eine Lay-Flat-Ausgabe, jeweils in zwei quadratischen Größen, 21 x 21 cm und 30 x 30 cm. Preise stehen auf der Seite und ändern sich, deshalb lasse ich sie weg.
+**FindPenguins.** Auch FindPenguins bietet ein Reisebuch. Es entsteht aus deinem FindPenguins-Profil, mit Texten, Daten, Karten, Fotos und Statistiken, ohne dass du etwas ziehen oder formatieren musst. Es gibt ein Hardcover und eine Lay-Flat-Ausgabe, jeweils quadratisch in 21 × 21 cm oder 30 × 30 cm. Gedruckt wird nach Angabe von FindPenguins bei Druckereien in der Nähe der Kundschaft. Preise ändern sich, deshalb lassen wir sie weg.
 
 ### Ehrlich gesagt
 
-Wer ein glänzendes Buch mit möglichst wenig Aufwand will, ist bei diesen drei Apps richtig, nicht bei VoyageLog. VoyageLog druckt keine Bücher und zeichnet deine Route nicht auf, es gibt also keine Routenlinie für das Layout. Wenn ein gedrucktes Buch mit eingezeichneter Route dein Ziel ist, nimm eine der drei Apps. Wie sie sich im Alltag unterscheiden, steht in den [besten Reisetagebuch-Apps](/de/blog/beste-reisetagebuch-apps/) und in der [Polarsteps-Alternative](/de/blog/polarsteps-alternative/).
+Wer ein glänzendes Buch mit möglichst wenig Aufwand will, ist bei diesen drei Apps richtig, nicht bei VoyageLog. VoyageLog druckt keine Bücher und zeichnet deine Route nicht auf, es gibt also keine Routenlinie für das Layout. Wenn ein gedrucktes Buch mit eingezeichneter Route dein Ziel ist, nimm Polarsteps oder FindPenguins. Wie sie sich im Alltag unterscheiden, steht in unserem Vergleich der [besten Reisetagebuch-Apps](/de/blog/beste-reisetagebuch-apps/) und im Text über [Polarsteps-Alternativen](/de/blog/polarsteps-alternative/).
 
 Der Preis dafür: Diese Apps funktionieren, weil deine Reise auf ihrem Dienst liegt, damit das Buch daraus entstehen kann. Wenn du dich bewusst für ein privates, offline geführtes Tagebuch entschieden hast, passen die nächsten beiden Wege besser.
 
 ## Weg 2: Reisetagebuch als PDF exportieren und selbst drucken
 
-Das ist der günstigste und flexibelste Weg, und er funktioniert mit jedem Tagebuch, das ein PDF ausgeben kann.
+Das ist der günstigste Weg, und er funktioniert mit jedem Tagebuch, das ein PDF ausgeben kann.
 
 ### Was VoyageLog exportiert
 
-VoyageLog exportiert ein **PDF pro Reise oder pro Stadt**. Bei einer langen Reise, etwa Rom, Neapel und Amalfi am Stück, teilst du die Reise in Städte auf und exportierst jede als eigenes PDF. Kurze Dateien sind leichter zu drucken, zu korrigieren und kapitelweise zu verschenken. Eine Reise, eine Stadt oder eine Bestenliste kannst du außerdem als **Bildkarte** exportieren, die sich für ein einzelnes Blatt am Kühlschrank oder an der Wand eignet.
+VoyageLog exportiert ein **PDF pro Reise, pro Stadt oder pro Best-of-Liste**. Das PDF ist so lang wie sein Inhalt: Eine kurze Best-of-Liste passt als Karte auf eine Seite, eine Reise mit vielen Einträgen läuft über mehrere Seiten. Ein gestaltetes Fotobuch-Layout ist das nicht, und ein einziges PDF für das ganze Tagebuch gibt es auch nicht.
+
+Bei einer langen Reise, etwa Rom, Neapel und Amalfi am Stück, teilst du die Reise in Städte auf und exportierst jede als eigenes PDF. Kurze Dateien sind leichter zu drucken, zu korrigieren und kapitelweise zu verschenken. Eine Reise, eine Stadt oder eine Best-of-Liste kannst du außerdem als **Bild** exportieren, das sich für ein einzelnes Blatt am Kühlschrank oder an der Wand eignet.
 
 {{cta}}
 
 ### Zu Hause drucken
 
-Für ein paar Seiten reicht der Drucker zu Hause in DIN A4. Schalte "An Seite anpassen" aus, damit nichts skaliert wird, und drucke zuerst eine Testseite. Fotos wirken auf Fotopapier oder mattem, beschichtetem Papier am besten, für einen Entwurf genügt Normalpapier.
+Für ein paar Seiten reicht der Drucker zu Hause in DIN A4. Schalte „An Seite anpassen“ aus, damit nichts skaliert wird, und drucke zuerst eine Testseite. Fotos wirken auf Fotopapier oder mattem, beschichtetem Papier am besten, für einen Entwurf genügt Normalpapier.
 
 ### Im Copyshop drucken
 
@@ -80,7 +82,7 @@ Ein gedrucktes PDF mit Spiralbindung kostet viel weniger als ein individuelles F
 
 ### Bei einem Fotobuch-Dienst hochladen
 
-In Deutschland sind CEWE und Pixum die bekanntesten Anbieter, beide mit eigener kostenloser Gestaltungs-Software und App. Beide bieten Formate vom kleinen Heft bis zum XXL-Buch. Beim [CEWE Fotobuch](https://www.cewe.de/cewe-fotobuch.html) ist "Groß" mit etwa 21 x 28 cm als "ca. A4" ausgewiesen, "Compact Panorama" mit etwa 19 x 15 cm als "ca. A5". Pixum nennt ähnliche Größen, nämlich 28 x 21 cm Querformat als ungefähr A4 und 19 x 15 cm als ungefähr A5. Echtes DIN A4 (21 x 29,7 cm) ist das also nicht, plane das beim Layout ein. Preise hängen von Format, Papier, Einband und Seitenzahl ab und ändern sich, schau sie im Konfigurator nach.
+Fotobuch-Dienste wie CEWE und Pixum bieten eine kostenlose App zum Gestalten, Pixum dazu eine kostenlose Software für Windows und Mac. Beide haben Formate vom kleinen Heft bis zum XXL-Buch. Beim CEWE Fotobuch ist „Groß“ mit etwa 21 × 28 cm als „ca. A4“ ausgewiesen, „Compact Panorama“ mit etwa 19 × 15 cm als „ca. A5“. Pixum nennt dieselben Größen, 21 × 28 cm und 28 × 21 cm als ungefähr A4 und 19 × 15 cm als ungefähr A5. Echtes DIN A4 (21 × 29,7 cm) ist das also nicht, plane das beim Layout ein. Preise hängen von Format, Papier, Einband und Seitenzahl ab und ändern sich, schau sie im Konfigurator nach.
 
 Bei diesen Diensten legst du die Seiten in der Software selbst an und ziehst Fotos hinein, dein PDF ist dabei eher Textvorlage und Referenz. Prüfe bei jedem Dienst, ob und wie ein PDF-Upload überhaupt möglich ist. Sonst gestaltest du die Seiten direkt dort und nimmst Fotos aus dem ZIP.
 
@@ -96,12 +98,12 @@ Ein praktischer Ablauf: Excel nach Datum sortieren, jeden Eintrag in eine Vorlag
 
 ## Was beim Drucken erhalten bleibt
 
-Nicht alles vom Bildschirm funktioniert auf Papier. Das Eintragsformat, das ich empfehle, also Titel, Bewertung, eine Zeile und ein Foto, druckt sich aber sehr gut.
+Nicht alles vom Bildschirm funktioniert auf Papier. Das Eintragsformat, das wir empfehlen, also Titel, Bewertung, eine Zeile und ein Foto, druckt sich aber sehr gut.
 
 **Funktioniert gut:**
 
 - **Bewertungen.** Fünf Sterne neben einem Ort liest man auf Papier auf einen Blick.
-- **Einzeilige Notizen.** Sie werden zu Bildunterschriften. "Früh einen Slot buchen, die Fenster sind vor Mittag am schönsten" ist eine perfekte.
+- **Einzeilige Notizen.** Sie werden zu Bildunterschriften. „Den Vormittagstermin buchen, die bunten Fenster sind vor Mittag am schönsten“ ist eine gute.
 - **Ein Foto pro Eintrag.** Ein Foto in voller Breite mit Titel und Bewertung ist eine fertige Seite.
 - **Datum und Stadt.** Sie geben dem Buch seine Kapitel.
 
@@ -112,7 +114,7 @@ Nicht alles vom Bildschirm funktioniert auf Papier. Das Eintragsformat, das ich 
 - **Karten mit Pins.** Ein Kartenlink druckt sich nicht. Wenn der Ort wichtig ist, schreib Viertel oder Straße unter den Titel.
 - **Einträge ohne Foto.** Fasse sie auf einer Notizseite zusammen, statt jedem eine halbleere Seite zu geben.
 
-Hilfreich ist auch die Trennung von **Orten** (bewertet, wieder besuchbar) und **Momenten** (einmalig, ohne Bewertung). Orte werden hinten im Buch zur Empfehlungsliste, Momente in der Mitte zur Erzählung.
+Hilfreich ist auch die Trennung von **Orten** (bewertet, wieder besuchbar) und **Momenten** (einmalig, meist ohne Bewertung). Orte werden hinten im Buch zur Empfehlungsliste, Momente in der Mitte zur Erzählung.
 
 ## Praktische Tipps vor dem Druck
 
@@ -138,8 +140,8 @@ Drucke eine einzelne Seite, halte sie auf Armlänge und lies den kleinsten Text.
 
 ## Welcher Weg passt zu dir?
 
-- Du willst ein glänzendes Geschenk mit wenig Aufwand, und eine Routenkarte gehört dazu: Buch direkt aus Polarsteps, Journi Print oder FindPenguins.
+- Du willst ein glänzendes Geschenk mit wenig Aufwand, und eine Routenkarte gehört dazu: Buch direkt aus Polarsteps oder FindPenguins. Nur Fotos, schön gesetzt: Journi Print.
 - Du willst ein günstiges, ordentliches Heft: PDF pro Stadt exportieren und im Copyshop drucken.
 - Du willst ein gestaltetes Buch: ZIP und Excel exportieren und selbst layouten, zum Beispiel in der Software von CEWE oder Pixum.
 
-Was du auch wählst: Das gedruckte Buch ist nur so gut wie die Einträge dahinter. Eine Bewertung, eine Zeile und ein Foto pro Ort ergeben ein Buch, das sich gut liest. Wenn du für die nächste Reise ein Tagebuch anfängst: [VoyageLog](/de/) bleibt komplett auf deinem Handy und exportiert alles, wenn du drucken willst.
+Was du auch wählst: Das gedruckte Buch ist nur so gut wie die Einträge dahinter. Eine Bewertung, eine Zeile und ein Foto pro Ort ergeben ein Buch, das sich gut liest. Wenn du für die nächste Reise ein Tagebuch anfängst: [VoyageLog](/de/) bleibt komplett auf deinem Handy und teilt deine Reisen als PDF, wenn du drucken willst.
