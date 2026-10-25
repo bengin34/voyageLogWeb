@@ -321,6 +321,7 @@ function renderHead({ lang, title, description, canonical, alternates, image, st
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${escapeHtml(fullTitle)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
+    <meta http-equiv="content-language" content="${content.htmlLang}" />
     <meta name="theme-color" content="#ff6848" />
     <link rel="canonical" href="${escapeHtml(canonical)}" />
     ${renderAlternates(alternates)}

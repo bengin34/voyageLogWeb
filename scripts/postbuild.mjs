@@ -148,6 +148,8 @@ function localizeHtml(html, route) {
 
   let next = html;
   next = setTag(next, /<html lang="[^"]*"[^>]*>/, `<html lang="${meta.htmlLang}" dir="${meta.dir}">`);
+  // Bing reads content-language more than hreflang.
+  next = setTag(next, /<meta http-equiv="content-language" content="[^"]*" \/>/, `<meta http-equiv="content-language" content="${meta.htmlLang}" />`);
   next = setTag(next, /<title>.*?<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
   next = setTag(next, /<meta\s+name="description"[\s\S]*?\/>/, `<meta name="description" content="${escapeAttribute(meta.description)}" />`);
   next = setTag(next, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${escapeAttribute(canonical)}" />`);
