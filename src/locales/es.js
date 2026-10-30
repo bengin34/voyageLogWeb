@@ -2,7 +2,7 @@ export default {
   label: 'Español',
   shortLabel: 'ES',
   htmlLang: 'es',
-  assetLocale: 'en-US',
+  assetLocale: 'es-ES',
   ogLocale: 'es_ES',
   stage: { photoAlt: 'Luz del sol a través de las vidrieras de la Sagrada Família, en Barcelona.' },
   path: '/es/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Un viaje de dos ciudades dividido en Praga y Viena, con el número de entradas y botones para compartir.',
+      alt: 'La página de un viaje con sus fechas, etiquetas y un mapa de todos los lugares, y debajo la primera ciudad, Milán, con el número de entradas y el botón de compartir.',
       title: 'Viajes largos, ciudad por ciudad.',
       body: [
         'Añade cada parada de un viaje largo como una ciudad propia. Cada ciudad tiene sus fechas y sus entradas, se puede plegar y se puede compartir por separado como tarjeta, PDF o archivo.',

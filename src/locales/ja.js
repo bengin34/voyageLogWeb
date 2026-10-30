@@ -2,7 +2,7 @@ export default {
   label: '日本語',
   shortLabel: 'JA',
   htmlLang: 'ja',
-  assetLocale: 'en-US',
+  assetLocale: 'ja',
   ogLocale: 'ja_JP',
   stage: { photoAlt: 'バルセロナのサグラダ・ファミリアの内部で、ステンドグラスを通り抜ける日の光。' },
   path: '/ja/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'プラハとウィーンの2つの街に分かれた旅。記録の数と共有ボタンが表示されています。',
+      alt: '日付、タグ、すべての場所の地図が並ぶ旅のページ。その下に最初の街ミラノと記録の数、共有ボタンが表示されています。',
       title: '長い旅は、街ごとに。',
       body: [
         '長い旅の立ち寄り先は、ひとつずつ街として追加できます。街ごとに日程と記録がまとまり、折りたたむこともできます。カード、PDF、ファイルとして、街だけを単独で共有することもできます。',

@@ -2,7 +2,7 @@ export default {
   label: 'Polski',
   shortLabel: 'PL',
   htmlLang: 'pl',
-  assetLocale: 'en-US',
+  assetLocale: 'pl',
   ogLocale: 'pl_PL',
   stage: { photoAlt: 'Światło słoneczne przechodzące przez witraże w bazylice Sagrada Família w Barcelonie.' },
   path: '/pl/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Podróż podzielona na dwa miasta, Pragę i Wiedeń, z liczbą wpisów i przyciskami udostępniania.',
+      alt: 'Strona podróży z datami, tagami i mapą wszystkich miejsc, a pod nią pierwsze miasto, Mediolan, z liczbą wpisów i przyciskiem udostępniania.',
       title: 'Długie podróże, miasto po mieście.',
       body: [
         'Każdy przystanek dłuższej wyprawy dodaj jako osobne miasto. Każde miasto ma swoje daty i wpisy, można je zwinąć i udostępnić osobno jako kartę, plik PDF lub plik z danymi.',

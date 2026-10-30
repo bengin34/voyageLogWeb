@@ -2,7 +2,7 @@ export default {
   label: 'Nederlands',
   shortLabel: 'NL',
   htmlLang: 'nl',
-  assetLocale: 'en-US',
+  assetLocale: 'nl-NL',
   ogLocale: 'nl_NL',
   stage: { photoAlt: 'Zonlicht door het gebrandschilderde glas in de Sagrada Família in Barcelona.' },
   path: '/nl/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Een reis verdeeld in twee steden, Praag en Wenen, met het aantal items en deelknoppen.',
+      alt: 'Een reispagina met data, tags en een kaart van alle plekken, daaronder de eerste stad, Milaan, met het aantal items en een deelknop.',
       title: 'Lange reizen, stad voor stad.',
       body: [
         'Voeg elke halte van een langere reis toe als aparte stad. Elke stad heeft zijn eigen data en items, is in te klappen en los te delen als kaart, pdf of bestand.',

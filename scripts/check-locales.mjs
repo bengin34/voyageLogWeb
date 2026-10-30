@@ -3,7 +3,8 @@
 //   node scripts/check-locales.mjs es fr      # specific locales
 // Errors (exit 1): shape mismatch, empty strings, bad identity fields, search hints with no result.
 // Warnings: strings left identical to English, em dashes, meta lengths.
-import { readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 
 const en = (await import('../src/locales/en.js')).default;
 const requested = process.argv.slice(2);
@@ -57,8 +58,8 @@ for (const lang of langs) {
   const { label, shortLabel, htmlLang, ogLocale, path, dir, assetLocale, ...rest } = loc;
   const { label: _l, shortLabel: _s, htmlLang: _h, ogLocale: _o, path: _p, assetLocale: _a, ...enRest } = en;
   walk(enRest, rest, lang);
-  // Only en, de and tr have localized screenshots; every other locale reuses en-US.
-  if (!['de', 'tr'].includes(lang) && assetLocale !== 'en-US') errors.push('assetLocale must be "en-US"');
+  // Screens come from the app's per-locale captures (scripts/screens.mjs); the folder must exist.
+  if (!existsSync(join('public', 'assets', 'app', assetLocale))) errors.push(`no screenshots for assetLocale "${assetLocale}"`);
 
   // htmlLang doubles as the hreflang value; zh targets mainland readers (Simplified script).
   const expectedHtmlLang = lang === 'zh' ? 'zh-Hans' : lang;

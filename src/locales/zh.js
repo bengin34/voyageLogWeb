@@ -2,7 +2,7 @@ export default {
   label: '简体中文',
   shortLabel: 'ZH',
   htmlLang: 'zh-Hans',
-  assetLocale: 'en-US',
+  assetLocale: 'zh-Hans',
   ogLocale: 'zh_CN',
   stage: { photoAlt: '阳光透过巴塞罗那圣家堂内的彩色玻璃窗洒进来。' },
   path: '/zh/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: '一次分为布拉格和维也纳两座城市的旅行，显示记录数量和分享按钮。',
+      alt: '一次旅行的页面，显示日期、标签和所有地点的地图，下方是第一座城市米兰，附有记录数量和分享按钮。',
       title: '长途旅行，按城市来记。',
       body: [
         '一段较长的旅程，每一站都可以单独添加为一座城市。每座城市有自己的日期和记录，可以折叠，也可以单独分享为卡片、PDF 或文件。',

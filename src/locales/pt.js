@@ -2,7 +2,7 @@ export default {
   label: 'Português',
   shortLabel: 'PT',
   htmlLang: 'pt',
-  assetLocale: 'en-US',
+  assetLocale: 'pt-BR',
   ogLocale: 'pt_BR',
   stage: { photoAlt: 'Luz do sol atravessando os vitrais da Sagrada Família, em Barcelona.' },
   path: '/pt/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Uma viagem com duas cidades, Praga e Viena, mostrando o número de registros e botões de compartilhar.',
+      alt: 'A página de uma viagem com datas, tags e um mapa de todos os lugares, e abaixo a primeira cidade, Milão, com o número de registros e o botão de compartilhar.',
       title: 'Viagens longas, cidade por cidade.',
       body: [
         'Adicione cada parada de uma viagem longa como uma cidade. Cada cidade tem suas datas e seus registros, pode ser recolhida e pode ser compartilhada separadamente, como cartão, PDF ou arquivo.',
