@@ -2,7 +2,7 @@ export default {
   label: 'Italiano',
   shortLabel: 'IT',
   htmlLang: 'it',
-  assetLocale: 'en-US',
+  assetLocale: 'it',
   ogLocale: 'it_IT',
   stage: { photoAlt: 'La luce del sole attraverso le vetrate colorate della Sagrada Família a Barcellona.' },
   path: '/it/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Un viaggio in due città diviso in Praga e Vienna, con il numero di voci e i pulsanti di condivisione.',
+      alt: 'La pagina di un viaggio con date, tag e una mappa di tutti i luoghi, poi la prima città, Milano, con il numero di voci e il pulsante di condivisione.',
       title: 'Viaggi lunghi, città per città.',
       body: [
         'Ogni tappa di un viaggio più lungo può diventare una città a sé. Ogni città ha le sue date e le sue voci, si può comprimere e si può condividere da sola come scheda, PDF o file.',

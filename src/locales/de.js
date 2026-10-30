@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Eine Reise nach Städten gegliedert: Prag und Wien mit Anzahl der Einträge und Teilen-Buttons.',
+      alt: 'Eine Reiseseite mit Datum, Tags und einer Karte aller Orte, darunter die erste Stadt, Mailand, mit Anzahl der Einträge und Teilen-Button.',
       title: 'Lange Reisen, Stadt für Stadt.',
       body: [
         'Lege jeden Stopp einer längeren Reise als eigene Stadt an. Jede Stadt hat ihre Daten und Einträge, lässt sich einklappen und einzeln teilen, als Karte, PDF oder Datei.',

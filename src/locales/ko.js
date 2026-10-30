@@ -2,7 +2,7 @@ export default {
   label: '한국어',
   shortLabel: 'KO',
   htmlLang: 'ko',
-  assetLocale: 'en-US',
+  assetLocale: 'ko',
   ogLocale: 'ko_KR',
   stage: { photoAlt: '바르셀로나 사그라다 파밀리아 안쪽, 스테인드글라스를 통과한 햇빛.' },
   path: '/ko/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: '프라하와 빈, 두 도시로 나뉜 여행. 도시별 기록 수와 공유 버튼이 보여요.',
+      alt: '날짜, 태그, 모든 장소가 담긴 지도가 있는 여행 페이지. 아래에 첫 번째 도시 밀라노와 기록 수, 공유 버튼이 보여요.',
       title: '긴 여행은 도시별로.',
       body: [
         '긴 여행의 모든 일정을 각각 하나의 도시로 추가하세요. 도시마다 날짜와 기록이 담기고, 접어 둘 수 있고, 카드, PDF, 파일로 따로 공유할 수도 있어요.',

@@ -1,5 +1,5 @@
 export const DOMAIN = 'https://getvoyagelog.app';
-export const SUPPORT_EMAIL = 'support@qrodesk.com';
+export const SUPPORT_EMAIL = 'support@getvoyagelog.app';
 export const APP_STORE_URL = 'https://apps.apple.com/app/id6758159402';
 export const GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.voyagelog.app';
 

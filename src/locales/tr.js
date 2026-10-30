@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Şehirlere bölünmüş bir gezi: Prag ve Viyana, kayıt sayıları ve paylaş düğmeleriyle.',
+      alt: 'Tarihleri, etiketleri ve tüm yerlerin haritasıyla bir gezi sayfası; altında ilk şehir Milano, kayıt sayısı ve paylaş düğmesiyle.',
       title: 'Uzun geziler, şehir şehir.',
       body: [
         'Uzun bir yolculuğun her durağını ayrı bir şehir olarak ekleyin. Her şehrin kendi tarihleri ve kayıtları olur, kapatılıp açılabilir ve tek başına kart, PDF ya da dosya olarak paylaşılabilir.',

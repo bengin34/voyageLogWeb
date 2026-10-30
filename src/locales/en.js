@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'A two-city trip split into Prague and Vienna with entry counts and share buttons.',
+      alt: 'A trip page with its dates, tags and a map of every place, then its first city, Milano, with entry count and share button.',
       title: 'Long trips, city by city.',
       body: [
         'Add every stop of a longer journey as its own city. Each city carries its dates and entries, can be collapsed, and can be shared on its own as a card, a PDF or a file.',

@@ -2,7 +2,7 @@ export default {
   label: 'Français',
   shortLabel: 'FR',
   htmlLang: 'fr',
-  assetLocale: 'en-US',
+  assetLocale: 'fr-FR',
   ogLocale: 'fr_FR',
   stage: { photoAlt: 'La lumière du soleil traversant les vitraux de la Sagrada Família, à Barcelone.' },
   path: '/fr/',
@@ -40,7 +40,7 @@ export default {
     {
       id: 'cities',
       screen: 'cities',
-      alt: 'Un voyage en deux villes, Prague et Vienne, avec le nombre de fiches et des boutons de partage.',
+      alt: "La page d'un voyage avec ses dates, ses tags et une carte de tous les lieux, puis la première ville, Milan, avec le nombre de fiches et le bouton de partage.",
       title: 'Les longs voyages, ville par ville.',
       body: [
         'Ajoutez chaque étape d’un long voyage comme une ville à part. Chaque ville garde ses dates et ses fiches, peut être repliée et se partage seule, en carte, en PDF ou en fichier.',
