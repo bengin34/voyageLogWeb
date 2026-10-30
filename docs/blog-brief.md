@@ -51,6 +51,19 @@ faq:                    # exactly 5 items; answers 18-110 words (ja/ko/zh: 40-26
 | prompts | travel-journal-prompts | writing prompts and ideas before, during and after a trip |
 | google-timeline | google-maps-timeline-alternative | Google Maps Timeline moved to the phone: keeping your own travel history |
 | seasonal | cherry-blossom-spots-checklist | seasonal checklist article tied to VoyageLog's city lists (cherry blossom season) |
+| japan-spring | japan-in-spring | Japan spring travel: flexible Tokyo/Kyoto outline, blossom uncertainty, rainy-day alternatives |
+| italy-summer | italy-in-summer | Italy summer travel: choosing a city, coastal or lake base without excessive transfers |
+| turkey-autumn | turkey-in-autumn | Türkiye autumn travel: choosing between nature and city weekends; weather and access checks |
+| germany-winter | germany-in-winter-city-breaks | Germany winter city breaks without a snow guarantee; distinguish Advent from January/February |
+
+## Country and season guides (added 2026-10-30)
+- These are discovery articles, not app-comparison pages. Answer the destination question first with named places, realistic choices, a suggested pace, a weather alternative and a practical checklist.
+- Include a one-sentence information-gain statement in the planning notes: what decision or practical artifact makes this piece useful beyond an interchangeable destination list.
+- Research the reader's language and verify destination facts against national or local tourism bodies and official attraction/operator pages. Record source checks in `docs/marketing/seasonal-content-2026-10-30.md`; keep article bodies free of source links under the existing house rule. Record access failures honestly.
+- Do not invent firsthand visits, tested routes, live conditions, future bloom dates, admission prices, travel times or event schedules. A sample itinerary must be labeled as a proposed framework, not a verified tour.
+- A country/season guide does not mean the app has a ready-made list for that country, a route planner or offline navigation. The existing seasonal city lists and these editorial suggestions are different things.
+- Keep the product connection short and optional. Use the journal naturally for memories after giving practical travel value.
+- Reuse a topic key across languages only for real localizations of the same country/season intent. Do not connect different destination guides as translations.
 
 ## Finish
 Run `node scripts/check-blog.mjs <lang>/<slug>` for each article you wrote and fix every reported problem. Do not edit any file except your own `content/blog/<lang>/` articles. Final reply: max 5 lines in English (files written, check result, any competitor fact you left out because unverified).

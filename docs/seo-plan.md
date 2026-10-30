@@ -1,10 +1,12 @@
 # VoyageLog SEO Zafer Planı
 
-_Hazırlanma: 22 Ekim 2026. Site: getvoyagelog.app (Vite + React, GitHub Pages, EN/DE/TR)._
+_Hazırlanma: 22 Ekim 2026. Strateji güncellemesi: 30 Ekim 2026. Site: getvoyagelog.app (Vite + React, GitHub Pages, EN/DE/TR ve diğer yerelleştirmeler)._
 
 ## 0. Tek cümlelik strateji
 
-Genel destinasyon rehberleri ("Prag'da gezilecek yerler") yazmıyoruz; o SERP'lerde Lonely Planet, TripAdvisor ve yüz binlerce blog var, sıfır otoriteli bir domain oraya giremez. Bunun yerine **ürünün bizzat cevap olduğu** niyetleri hedefliyoruz: seyahat günlüğü tutma, gezileri hatırlama/belgeleme, rakip alternatifleri, gizlilik/offline, ülke sayacı, yıl özeti ve uygulamanın "şehir listeleri" özelliğine bağlanan mevsimlik kontrol listeleri. Her makale indirmeye giden bir yol.
+İki içerik hattı birlikte çalışır: **ülke + mevsim + somut gezi ihtiyacı** rehberleri yeni okuyucuyu getirir; seyahat günlüğü, gizlilik/offline, ülke sayacı ve yıl özeti içerikleri ürünü değerlendirmesine yardımcı olur. Destinasyon içeriklerini artık dışlamıyoruz. Her rehberin kendi başına gezi kararını cevaplamasını, kontrol listesi veya alternatif plan gibi özgün bir fayda sunmasını ve uygun yerde günlük tutmaya bağlanmasını istiyoruz. Trafik ya da indirme artışı varsayım değil, yayın sonrası ölçülecek sonuçtur.
+
+30 Ekim yön değişikliği: yalnızca uygulama sorgularıyla sınırlı kalmak yerine mevsimlik destinasyon keşfini ayrı bir editoryal küme olarak açıyoruz. Bölüm 9 bu hattın ilk serisini ve yayın takvimini tanımlar. Aşağıdaki 22 Ekim SERP notları tarihsel araştırmadır, güncel sıralama veya trafik kanıtı değildir.
 
 Arama ortamı kontrolü (22 Ekim 2026):
 - **EN** "best travel journal app": SERP'te dev siteler yok, orta boy bloglar (maketecheasier, frostandsun, travelchinacheaper) var. 6-12 ayda girilebilir.
@@ -199,7 +201,49 @@ Sırada:
 1. Deploy sonrası GSC/Bing doğrulama ve sitemap gönderimi.
 2. AlternativeTo kaydı, mağaza açıklamalarına site linki.
 3. İlk 12 makaleye dış kaynak linki ekle (`check:blog` 12 uyarı veriyor). Doğrulanmış kaynaklar yeni makalelerde var.
-3b. Eksik diller: prompts DE/TR, Journi vs Polarsteps DE/TR, Google Timeline DE/TR, offline TR, yer-an DE.
+3b. Eksik diller: prompts DE, Journi vs Polarsteps DE/TR, Google Timeline DE/TR. Offline TR, yer-an DE ve prompts TR taslakları 30 Ekim'de eklendi.
 4. Haftalık GSC kontrolü, 4-10. sıradaki sorguları güçlendirme.
 
 Yeni makale eklemek: `content/blog/<dil>/<slug>.md` dosyası oluştur, frontmatter anahtarları `title, description, date, updated, lang, key, faq`; gövdede bir kez `{{cta}}`; `key` aynı olan dosyalar birbirine hreflang ile bağlanır; `npm run og` ile OG görselini üret (yeni dosyalar için, mevcutları atlar), `npm run build` gerisini üretir.
+
+## 9. Ülke + mevsim içerikleri (30 Ekim 2026)
+
+### Niyet ve özgün fayda
+
+Hedef artık yalnızca uygulama arayan kişi değil; nereye gideceğini ve nasıl bir gezi yapacağını seçen kişi de. Geniş ülke sorgularını tek başına kovalamak yerine ülke, mevsim ve karar sorusunu birlikte ele alıyoruz: kar gerektirmeyen Almanya şehir gezisi, Japonya'da çiçeklenme gecikirse değişebilen ilkbahar planı, İtalya'da yaz için konaklama üssü seçimi, Türkiye'de sonbahar hafta sonu.
+
+- Gövdenin ana işi destinasyon sorusunu cevaplamak: somut yerler, süre, seçenekler, hava değişirse alternatif ve yola çıkış listesi.
+- Her makalenin bilgi katkısı editoryal notta bir cümleyle açıklanır; şehir adları değiştirilmiş aynı şablon yeterli sayılmaz.
+- Sezon, çiçeklenme veya etkinlik için kesin tarih uydurulmaz. Güncel tarih gerekiyorsa resmî kaynaktan doğrulanır; eski yıl bugünkü yıl gibi sunulmaz.
+- Ürüne geçiş kısa ve bağlama uygun olur. Rehberin tamamı uygulama reklamına dönmez; var olmayan hazır rota, otomatik takip veya navigasyon özelliği ima edilmez.
+- Ülke, mevsim ve okuyucunun dili ayrı seçimlerdir. İtalya içeriği yalnızca İtalyanca olmak zorunda değildir; EN, DE veya TR okuyucusunun seyahat sorusunu cevaplayabilir.
+- İlgili dilde en az iki mevcut yazıya bağlanılır. Aynı ülkenin sonraki rehberleri hazır olunca ilgili mevsim ve bölge yazıları arasında bağ kurulur; boş kategori sayfası açılmaz.
+- Hreflang yalnızca aynı seyahat niyetini karşılayan gerçek yerelleştirmeler arasında kurulur. Farklı ülke rehberleri aynı `key` ile birbirinin çevirisi gibi işaretlenmez.
+
+### İlk seri: dört mevsim, dört ülke
+
+| Mevsim | Dil / ülke | Ana sorgu | Dosya | Özgün fayda |
+|---|---|---|---|---|
+| İlkbahar | EN / Japonya | Japan in spring | `content/blog/en/japan-in-spring.md` | Tokyo ve Kyoto için yedi günlük çerçeve; çiçeklenme ve yağmur alternatifleri |
+| Yaz | EN / İtalya | Italy in summer | `content/blog/en/italy-in-summer.md` | Bologna, Cenova veya Garda arasında konaklama üssü seçimi; hepsini bir haftaya sıkıştırmayan plan |
+| Sonbahar | TR / Türkiye | Türkiye'de sonbaharda gezilecek yerler | `content/blog/tr/turkiyede-sonbaharda-gezilecek-yerler.md` | Yedigöller, Safranbolu, Kapadokya ve İstanbul'u gezi biçimine göre ayırma; hafta sonu ve hava planı |
+| Kış | DE / Almanya | Deutschland im Winter Städtereise | `content/blog/de/deutschland-im-winter-staedtereisen.md` | Nürnberg, Regensburg veya Bremen; Advent ile ocak/şubat ziyaretini ayıran, kar gerektirmeyen plan |
+
+Durum: kaynak dosyaları hazır; kullanıcı 30 Ekim 2026'da yayın talimatı verdi. Deploy sonucu GitHub Actions üzerinden doğrulanır; yayın talimatı tek başına başarılı deploy anlamına gelmez. Mevsimler Kuzey Yarımküre için kullanılıyor; bu takvim başka yarımkürelere otomatik uygulanmaz.
+
+### Sonraki yayın dalgaları
+
+Aşağıdaki tarihler çalışma takvimidir; indekslenme süresi, arama hacmi veya sıralama garantisi değildir. İlk seri yayına alındıktan sonra gerçek gösterim ve sorgulara göre değiştirilir.
+
+| Hedef dönem | Hazırlık / gözden geçirme | Bir sonraki konu | Koşul |
+|---|---|---|---|
+| Kasım 2026–Şubat 2027 | Kasım 2026 başı | Almanya kış rehberini TR/EN için yerelleştirme; Avusturya kış şehir gezisi | Önce mevcut kış serisini yayın kararı ve tarih kontrolü |
+| Mart–Mayıs 2027 | Aralık 2026–Ocak 2027 | Japonya ilkbaharını TR/DE/JA için yerelleştirme; Hollanda ilkbahar şehir gezisi | Çiçeklenme garantisi yok; etkinlik ve erişim bilgisi ayrıca doğrulanır |
+| Haziran–Ağustos 2027 | Mart–Nisan 2027 | İtalya yaz rehberini TR/DE için yerelleştirme; Yunanistan yazında tek üs seçimi | Ulaşım ve yerel erişim kontrolü; yinelenen genel listelerden kaçınma |
+| Eylül–Kasım 2027 | Haziran–Temmuz 2027 | Türkiye sonbaharını EN/DE için yerelleştirme; Japonya sonbaharında şehir ve doğa seçimi | Mevcut rehberdeki açığın gerçek sorgularla desteklenmesi |
+
+### Ölçüm ve genişletme kararı
+
+Her rehber için yayın tarihi, hedef dil/ülke, GSC gösterimleri, sorgular ve tıklamalar; Plausible'da girişler ve mağaza çıkış tıklamaları ayrı izlenir. Gösterim ile kurulum aynı şey değildir. Mağaza çıkış tıklaması kurulum olarak raporlanmaz.
+
+İlk kontrol, gerçek yayın tarihinden 28 gün sonra; ikinci kontrol 56 gün sonra yapılır. Mevsim nedeniyle henüz talep almayan bir sayfa yalnızca erken dönem tıklamasıyla başarısız sayılmaz. Önce indekslenme, sorgu eşleşmesi ve içerik kalitesi kontrol edilir. Sonra genişletme, yerelleştirme veya yeniden yazım kararı verilir. Ölçüm başlamadan trafik tahmini veya kazanılmış sıralama yazılmaz.
