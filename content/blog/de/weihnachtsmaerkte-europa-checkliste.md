@@ -78,7 +78,7 @@ Der Markt auf dem Hlavné námestie ist klein, günstig und entspannt, und eine 
 
 ### 13. Ljubljana
 
-Der Weihnachtsmarkt (Praznični sejem) steht nicht auf einem einzigen Platz, sondern verteilt sich entlang der Ljubljanica und über die Plätze der Altstadt: Glühweinstände am Fluss, Lichtinstallationen über den Gassen. Der Markt läuft bis in den Januar. Achte auf die Lichter vom Burghügel aus, zu Fuß oder mit der Standseilbahn.
+Der Weihnachtsmarkt (Praznični sejem) verteilt sich über mehrere Orte entlang der Ljubljanica und über die Plätze der Altstadt: Glühweinstände am Fluss, Lichtinstallationen über den Gassen. Der Markt läuft bis in den Januar. Achte auf die Lichter vom Burghügel aus, zu Fuß oder mit der Standseilbahn.
 
 {{cta}}
 

@@ -76,7 +76,7 @@ Pequeño, barato y tranquilo, a una hora en tren de Viena. Perfecto como segunda
 
 ### 12. Liubliana
 
-Su mercadillo navideño, la Feria Festiva (Praznični sejem), no ocupa una sola plaza: los puestos de vino caliente se reparten a lo largo del río Ljubljanica y por las plazas del casco antiguo, bajo calles iluminadas. Sube al castillo para ver las luces desde arriba.
+Su mercadillo navideño, la Feria Festiva (Praznični sejem), se reparte por varios puntos de la ciudad: los puestos de vino caliente están a lo largo del río Ljubljanica y por las plazas del casco antiguo, bajo calles iluminadas. Sube al castillo para ver las luces desde arriba.
 
 {{cta}}
 

@@ -90,7 +90,7 @@ Dwa jarmarki w zasięgu spaceru: przy Vörösmarty tér i przed bazyliką św. S
 
 ### 14. Lublana
 
-Jarmark świąteczny (Praznični sejem) nie zajmuje jednego placu, tylko ciągnie się wzdłuż Lublanicy i przez place starego miasta: budki z grzańcem stoją nad rzeką, a nad uliczkami wiszą instalacje świetlne. Zwróć uwagę na widok z Zamku, na który wjedziesz kolejką linową.
+Jarmark świąteczny (Praznični sejem) rozkłada się w kilku miejscach: ciągnie się wzdłuż Lublanicy i przez place starego miasta. Budki z grzańcem stoją nad rzeką, a nad uliczkami wiszą instalacje świetlne. Zwróć uwagę na widok z Zamku, na który wjedziesz kolejką linową.
 
 {{cta}}
 

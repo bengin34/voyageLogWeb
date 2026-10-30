@@ -102,7 +102,7 @@ Un marché petit et détendu sur la place principale, à environ une heure de tr
 
 ### 18. Ljubljana
 
-Son marché de Noël, la Foire festive (Praznični sejem), ne tient pas sur une seule place : les chalets de vin chaud s’égrènent le long de la rivière et sur les places de la vieille ville, sous des guirlandes lumineuses. À repérer : la vue sur les lumières depuis la colline du château.
+Son marché de Noël, la Foire festive (Praznični sejem), se répartit dans plusieurs coins de la ville : les chalets de vin chaud s’égrènent le long de la rivière et sur les places de la vieille ville, sous des guirlandes lumineuses. À repérer : la vue sur les lumières depuis la colline du château.
 
 {{cta}}
 
