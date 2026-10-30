@@ -102,7 +102,7 @@ Un marché petit et détendu sur la place principale, à environ une heure de tr
 
 ### 18. Ljubljana
 
-Pas de marché classique : c’est toute la ville qui s’illumine. Des stands de vin chaud bordent la rivière, des guirlandes lumineuses pendent au-dessus des ruelles. À repérer : la vue sur les lumières depuis la colline du château.
+Son marché de Noël, la Foire festive (Praznični sejem), se répartit dans plusieurs coins de la ville : les chalets de vin chaud s’égrènent le long de la rivière et sur les places de la vieille ville, sous des guirlandes lumineuses. À repérer : la vue sur les lumières depuis la colline du château.
 
 {{cta}}
 
