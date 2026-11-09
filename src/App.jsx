@@ -2,7 +2,6 @@ import { Globe } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   APP_STORE_URL,
-  GOOGLE_PLAY_URL,
   SUPPORT_EMAIL,
   absoluteUrl,
   appLanguages,
@@ -10,6 +9,7 @@ import {
   blogIndexPath,
   createHomeStructuredData,
   getRouteAlternates,
+  playStoreUrl,
   getRouteCanonical,
   getRouteFromPath,
   hasBlog,
@@ -159,13 +159,13 @@ function StagePhoto({ alt }) {
   );
 }
 
-function StoreLinks({ content, size = 'lg' }) {
+function StoreLinks({ content, lang, size = 'lg' }) {
   return (
     <div className={`actions actions-${size}`}>
       <a className="btn" href={APP_STORE_URL} target="_blank" rel="noreferrer">
         {content.hero.appStore}
       </a>
-      <a className="text-link" href={GOOGLE_PLAY_URL} target="_blank" rel="noreferrer">
+      <a className="text-link" href={playStoreUrl('site', `home-${lang}`)} target="_blank" rel="noreferrer">
         {content.hero.googlePlay}
       </a>
     </div>
@@ -341,7 +341,7 @@ export default function App() {
             <h1 className="rv">{content.hero.title}</h1>
             <p className="lead rv">{content.hero.lead}</p>
             <div className="rv">
-              <StoreLinks content={content} />
+              <StoreLinks content={content} lang={currentLang} />
             </div>
           </section>
 
@@ -393,7 +393,7 @@ export default function App() {
               <a href={APP_STORE_URL} target="_blank" rel="noreferrer">
                 App Store
               </a>
-              <a href={GOOGLE_PLAY_URL} target="_blank" rel="noreferrer">
+              <a href={playStoreUrl('site', `home-${currentLang}`)} target="_blank" rel="noreferrer">
                 Google Play
               </a>
             </span>
@@ -506,7 +506,7 @@ export default function App() {
         <div className="cta-copy">
           <p className="cta-sentence rv">{content.cta.sentence}</p>
           <div className="rv">
-            <StoreLinks content={content} size="sm" />
+            <StoreLinks content={content} lang={currentLang} size="sm" />
           </div>
         </div>
         <figure className="tile cta-fig">

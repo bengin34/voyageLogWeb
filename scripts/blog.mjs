@@ -6,7 +6,6 @@ import { Marked } from 'marked';
 import {
   APP_STORE_URL,
   DOMAIN,
-  GOOGLE_PLAY_URL,
   LANG_STORAGE_KEY,
   SUPPORT_EMAIL,
   absoluteUrl,
@@ -14,6 +13,7 @@ import {
   blogLocaleKeys,
   localeKeys,
   locales,
+  playStoreUrl,
 } from '../src/content.js';
 import { readingMinutes } from './text.mjs';
 
@@ -231,13 +231,13 @@ function renderFooter(lang) {
 function renderCta(lang, slug) {
   const content = locales[lang];
   const utm = `utm_source=blog&utm_medium=web&utm_campaign=${encodeURIComponent(slug)}`;
-  const join = (url) => `${url}${url.includes('?') ? '&' : '?'}${utm}`;
+  const appStoreUrl = `${APP_STORE_URL}?${utm}`;
   return `<aside class="cta">
   <p class="cta-title">${escapeHtml(content.blog.ctaTitle)}</p>
   <p>${escapeHtml(content.blog.ctaBody)}</p>
   <div class="actions">
-    <a class="btn" href="${escapeHtml(join(APP_STORE_URL))}" rel="noopener">${escapeHtml(content.hero.appStore)}</a>
-    <a class="text-link" href="${escapeHtml(join(GOOGLE_PLAY_URL))}" rel="noopener">${escapeHtml(content.hero.googlePlay)}</a>
+    <a class="btn" href="${escapeHtml(appStoreUrl)}" rel="noopener">${escapeHtml(content.hero.appStore)}</a>
+    <a class="text-link" href="${escapeHtml(playStoreUrl('blog', slug))}" rel="noopener">${escapeHtml(content.hero.googlePlay)}</a>
   </div>
 </aside>`;
 }
