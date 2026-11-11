@@ -1,0 +1,704 @@
+[
+  {
+    "coverage_id": ".agents%2B.claude%2Bappscreens%23non-runtime::repo%23not-shipped::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Wildcard",
+    "canonical_refs": {
+      "surface": ".agents+.claude+appscreens#non-runtime",
+      "boundary": "repo#not-shipped",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Wildcard"
+    },
+    "surface": "Agent skill docs and screenshot tooling",
+    "boundary": "Not part of dist output",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Wildcard",
+    "starting_paths": [
+      ".agents",
+      ".claude",
+      "appscreens"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Wildcard",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "out_of_scope",
+    "agent_id": null,
+    "reviewed_paths": [],
+    "local_checks": [],
+    "result_fingerprints": [],
+    "unresolved": [
+      "Ships no runtime code; secret scan only (covered by the secrets unit)"
+    ]
+  },
+  {
+    "coverage_id": ".github%2Fworkflows%2Fdeploy.yml%23build%2Cdeploy%2Cindexnow::deploy.yml%23permissions-and-triggers::profile%2Fquick%2Fall-in-scope-subsystems::SUPPLY-CHAIN-AND-RELEASE.md%23CI%20and%20automation%20attack%20classes",
+    "canonical_refs": {
+      "surface": ".github/workflows/deploy.yml#build,deploy,indexnow",
+      "boundary": "deploy.yml#permissions-and-triggers",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "SUPPLY-CHAIN-AND-RELEASE.md#CI and automation attack classes"
+    },
+    "surface": "GitHub Actions deploy workflow",
+    "boundary": "Token permissions and untrusted-code triggers",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "CI and automation attack classes",
+    "starting_paths": [
+      ".github/workflows/deploy.yml"
+    ],
+    "ordinary_attack_class_block": null,
+    "selected_companion_blocks": [
+      "SUPPLY-CHAIN-AND-RELEASE.md#CI and automation attack classes",
+      "SUPPLY-CHAIN-AND-RELEASE.md#Core discipline",
+      "SUPPLY-CHAIN-AND-RELEASE.md#Universal moves",
+      "SUPPLY-CHAIN-AND-RELEASE.md#Validation rules"
+    ],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-supply",
+    "reviewed_paths": [
+      ".github/workflows/deploy.yml"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-supply",
+        "reviewed_paths": [
+          ".github/workflows/deploy.yml"
+        ],
+        "invariant": "No untrusted code or input reaches a privileged job",
+        "method": "source",
+        "result": "Triggers push master and workflow_dispatch only; no github.event interpolation in run; tag-pinned first-party actions and workflow-level pages/id-token write are hardening only",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "content%2Fblog%23frontmatter-gray-matter::content%23contributor-pr-vs-build-runner::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Injection",
+    "canonical_refs": {
+      "surface": "content/blog#frontmatter-gray-matter",
+      "boundary": "content#contributor-pr-vs-build-runner",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Injection"
+    },
+    "surface": "Blog front matter parsed by gray-matter in build scripts",
+    "boundary": "Contributor markdown vs CI build runner",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Injection",
+    "starting_paths": [
+      "scripts/blog.mjs",
+      "scripts/og.mjs",
+      "scripts/check-blog.mjs",
+      "content/blog"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Injection",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 2,
+    "status": "deferred",
+    "agent_id": null,
+    "reviewed_paths": [],
+    "local_checks": [],
+    "result_fingerprints": [],
+    "unresolved": [
+      "quick_profile_final_critic"
+    ]
+  },
+  {
+    "coverage_id": "content%2Fblog%23markdown::content%2Fblog%23author-trusted-input::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Injection",
+    "canonical_refs": {
+      "surface": "content/blog#markdown",
+      "boundary": "content/blog#author-trusted-input",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Injection"
+    },
+    "surface": "Blog markdown source",
+    "boundary": "Author-trusted build input",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Injection",
+    "starting_paths": [
+      "content"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Injection",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "out_of_scope",
+    "agent_id": null,
+    "reviewed_paths": [],
+    "local_checks": [],
+    "result_fingerprints": [],
+    "unresolved": [
+      "Author-trusted input; pipeline covered by the build-time injection unit; grep found no script/iframe/javascript: strings"
+    ]
+  },
+  {
+    "coverage_id": "package-lock.json%23dependencies::registry%23integrity-and-advisories::profile%2Fquick%2Fall-in-scope-subsystems::SUPPLY-CHAIN-AND-RELEASE.md%23Dependency%20and%20build-input%20attack%20classes",
+    "canonical_refs": {
+      "surface": "package-lock.json#dependencies",
+      "boundary": "registry#integrity-and-advisories",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "SUPPLY-CHAIN-AND-RELEASE.md#Dependency and build-input attack classes"
+    },
+    "surface": "npm dependency graph",
+    "boundary": "Lockfile integrity hashes and advisory reachability",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Dependency and build-input attack classes",
+    "starting_paths": [
+      "package.json",
+      "package-lock.json"
+    ],
+    "ordinary_attack_class_block": null,
+    "selected_companion_blocks": [
+      "SUPPLY-CHAIN-AND-RELEASE.md#Dependency and build-input attack classes",
+      "SUPPLY-CHAIN-AND-RELEASE.md#Core discipline",
+      "SUPPLY-CHAIN-AND-RELEASE.md#Universal moves",
+      "SUPPLY-CHAIN-AND-RELEASE.md#Validation rules"
+    ],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-supply",
+    "reviewed_paths": [
+      "package.json",
+      "package-lock.json"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-supply",
+        "reviewed_paths": [
+          "package.json",
+          "package-lock.json"
+        ],
+        "invariant": "Locked deps verified by integrity from the official registry; advisories not reachable by outside input",
+        "method": "source",
+        "result": "245 resolved entries all registry.npmjs.org with integrity; 8 advisories all build/dev-only with trusted inputs",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "public%23handwritten-pages::public%23static-html::profile%2Fquick%2Fall-in-scope-subsystems::CLIENT-SIDE.md%23DOM%20and%20object-state%20attack%20classes",
+    "canonical_refs": {
+      "surface": "public#handwritten-pages",
+      "boundary": "public#static-html",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "CLIENT-SIDE.md#DOM and object-state attack classes"
+    },
+    "surface": "Handwritten legal and support pages",
+    "boundary": "Visitor vs static HTML",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "DOM and object-state attack classes",
+    "starting_paths": [
+      "public/privacy/index.html",
+      "public/terms/index.html",
+      "public/impressum/index.html",
+      "public/support/index.html",
+      "public/site.webmanifest"
+    ],
+    "ordinary_attack_class_block": null,
+    "selected_companion_blocks": [
+      "CLIENT-SIDE.md#DOM and object-state attack classes",
+      "CLIENT-SIDE.md#Core discipline",
+      "CLIENT-SIDE.md#Universal moves",
+      "CLIENT-SIDE.md#Validation rules"
+    ],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 2,
+    "status": "deferred",
+    "agent_id": null,
+    "reviewed_paths": [],
+    "local_checks": [],
+    "result_fingerprints": [],
+    "unresolved": [
+      "quick_profile_final_critic"
+    ]
+  },
+  {
+    "coverage_id": "public%23static-hosting::hosting%23github-pages-config::profile%2Fquick%2Fall-in-scope-subsystems::CLOUD-AND-DEPLOYMENT.md%23Ingress%2C%20network%2C%20and%20control-plane%20attack%20classes",
+    "canonical_refs": {
+      "surface": "public#static-hosting",
+      "boundary": "hosting#github-pages-config",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "CLOUD-AND-DEPLOYMENT.md#Ingress, network, and control-plane attack classes"
+    },
+    "surface": "GitHub Pages static assets, headers and third-party loads",
+    "boundary": "Headers/CSP not configurable in source",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Ingress, network, and control-plane attack classes",
+    "starting_paths": [
+      "public",
+      "index.html",
+      "src/App.jsx",
+      "scripts/blog.mjs"
+    ],
+    "ordinary_attack_class_block": null,
+    "selected_companion_blocks": [
+      "CLOUD-AND-DEPLOYMENT.md#Ingress, network, and control-plane attack classes",
+      "CLOUD-AND-DEPLOYMENT.md#Core discipline",
+      "CLOUD-AND-DEPLOYMENT.md#Universal moves",
+      "CLOUD-AND-DEPLOYMENT.md#Validation rules"
+    ],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-secrets",
+    "reviewed_paths": [
+      "public",
+      "index.html",
+      "src/App.jsx",
+      "scripts/blog.mjs"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-secrets",
+        "reviewed_paths": [
+          "public",
+          "index.html",
+          "src/App.jsx",
+          "scripts/blog.mjs"
+        ],
+        "invariant": "No third-party loads, debug files or forms shipped; header absence assessed",
+        "method": "source",
+        "result": "Only first-party and store links; no CSP or _headers possible on Pages; live headers and Pages settings are outside source",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "repo%23history-and-tree::git%23repository-visibility::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Cryptography%20and%20secrets",
+    "canonical_refs": {
+      "surface": "repo#history-and-tree",
+      "boundary": "git#repository-visibility",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Cryptography and secrets"
+    },
+    "surface": "Secrets in tree, git history and build output",
+    "boundary": "Credentials must never be committed",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Cryptography and secrets",
+    "starting_paths": [
+      "src",
+      "scripts",
+      "public",
+      "index.html",
+      "vite.config.js",
+      ".github/workflows/deploy.yml",
+      ".gitignore",
+      "content",
+      "docs"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Cryptography and secrets",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-secrets",
+    "reviewed_paths": [
+      "src",
+      "scripts",
+      "public",
+      "index.html",
+      "vite.config.js",
+      ".github/workflows/deploy.yml",
+      ".gitignore",
+      "content",
+      "docs"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-secrets",
+        "reviewed_paths": [
+          "src",
+          "scripts",
+          "public",
+          "index.html",
+          "vite.config.js",
+          ".github/workflows/deploy.yml",
+          ".gitignore",
+          "content",
+          "docs"
+        ],
+        "invariant": "No credentials in any of 25 commits or the working tree",
+        "method": "source",
+        "result": "git grep over all commits for key patterns and sensitive file names returned 0 hits; no env vars read; no dist or maps committed",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "scripts%23dev-cli-argv::scripts%23local-developer-args::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Resource%20and%20file%20handling",
+    "canonical_refs": {
+      "surface": "scripts#dev-cli-argv",
+      "boundary": "scripts#local-developer-args",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Resource and file handling"
+    },
+    "surface": "Dev-time CLIs and blog-editor guard script",
+    "boundary": "Local CLI args vs filesystem",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Resource and file handling",
+    "starting_paths": [
+      "scripts/og.mjs",
+      "scripts/screens.mjs",
+      "scripts/check-locales.mjs",
+      ".claude/skills/blog-editor-core/guard.mjs"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Resource and file handling",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 2,
+    "status": "deferred",
+    "agent_id": null,
+    "reviewed_paths": [],
+    "local_checks": [],
+    "result_fingerprints": [],
+    "unresolved": [
+      "quick_profile_final_critic"
+    ]
+  },
+  {
+    "coverage_id": "scripts%2Fblog.mjs%23marked%20render::content%2Fblog%23author-trusted-input::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Injection",
+    "canonical_refs": {
+      "surface": "scripts/blog.mjs#marked render",
+      "boundary": "content/blog#author-trusted-input",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Injection"
+    },
+    "surface": "Build-time markdown and HTML templating",
+    "boundary": "Only repo authors and PR contributors write content",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Injection",
+    "starting_paths": [
+      "scripts/blog.mjs",
+      "scripts/postbuild.mjs",
+      "scripts/text.mjs",
+      "vite.config.js"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Injection",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-client",
+    "reviewed_paths": [
+      "scripts/blog.mjs",
+      "scripts/postbuild.mjs",
+      "scripts/text.mjs",
+      "vite.config.js"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-client",
+        "reviewed_paths": [
+          "scripts/blog.mjs",
+          "scripts/postbuild.mjs",
+          "scripts/text.mjs",
+          "vite.config.js"
+        ],
+        "invariant": "Front matter escaped; no untrusted input reaches templates or execSync",
+        "method": "source",
+        "result": "Escapers applied; marked unsanitized and JSON-LD not </script>-safe but fed only by repo-author content (hardening); execSync uses fixed paths",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "scripts%2Findexnow.mjs%23submit::indexnow.mjs%23public-key::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Cryptography%20and%20secrets",
+    "canonical_refs": {
+      "surface": "scripts/indexnow.mjs#submit",
+      "boundary": "indexnow.mjs#public-key",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Cryptography and secrets"
+    },
+    "surface": "IndexNow submission script",
+    "boundary": "Key is public by design; sitemap source fixed in CI",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Cryptography and secrets",
+    "starting_paths": [
+      "scripts/indexnow.mjs",
+      "public/96211eef77ed11796b5639675464d814.txt"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Cryptography and secrets",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-supply",
+    "reviewed_paths": [
+      "scripts/indexnow.mjs",
+      "public/96211eef77ed11796b5639675464d814.txt"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-supply",
+        "reviewed_paths": [
+          "scripts/indexnow.mjs",
+          "public/96211eef77ed11796b5639675464d814.txt"
+        ],
+        "invariant": "No SSRF or arg injection; key not a secret",
+        "method": "source",
+        "result": "Fetch URL hardcoded in workflow; JSON.stringify body to fixed host; key is public by design (informational)",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "src%2Bpublic%2Bscripts%23network-and-routes::repo%23no-server-side::profile%2Fquick%2Fall-in-scope-subsystems::ATTACK-CLASSES.md%23Feature%20abuse%20and%20data%20leakage",
+    "canonical_refs": {
+      "surface": "src+public+scripts#network-and-routes",
+      "boundary": "repo#no-server-side",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "ATTACK-CLASSES.md#Feature abuse and data leakage"
+    },
+    "surface": "Forms, contact endpoints, admin and preview routes",
+    "boundary": "No server-side code exists in source",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "Feature abuse and data leakage",
+    "starting_paths": [
+      "src",
+      "public",
+      "scripts",
+      "index.html",
+      "vite.config.js"
+    ],
+    "ordinary_attack_class_block": "ATTACK-CLASSES.md#Feature abuse and data leakage",
+    "selected_companion_blocks": [],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-client",
+    "reviewed_paths": [
+      "src",
+      "public",
+      "scripts",
+      "index.html",
+      "vite.config.js"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-client",
+        "reviewed_paths": [
+          "src",
+          "public",
+          "scripts",
+          "index.html",
+          "vite.config.js"
+        ],
+        "invariant": "No forms, runtime fetch, postMessage, admin or preview routes",
+        "method": "source",
+        "result": "grep found none; only fetch is the build-side IndexNow script",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "src%2FApp.jsx%23render::src%2Fcontent.js%23static-strings::profile%2Fquick%2Fall-in-scope-subsystems::CLIENT-SIDE.md%23DOM%20and%20object-state%20attack%20classes",
+    "canonical_refs": {
+      "surface": "src/App.jsx#render",
+      "boundary": "src/content.js#static-strings",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "CLIENT-SIDE.md#DOM and object-state attack classes"
+    },
+    "surface": "React render of static locale content",
+    "boundary": "No runtime user input reaches the DOM",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "DOM and object-state attack classes",
+    "starting_paths": [
+      "src/App.jsx",
+      "src/main.jsx",
+      "src/content.js"
+    ],
+    "ordinary_attack_class_block": null,
+    "selected_companion_blocks": [
+      "CLIENT-SIDE.md#DOM and object-state attack classes",
+      "CLIENT-SIDE.md#Core discipline",
+      "CLIENT-SIDE.md#Universal moves",
+      "CLIENT-SIDE.md#Validation rules"
+    ],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-client",
+    "reviewed_paths": [
+      "src/App.jsx",
+      "src/main.jsx",
+      "src/content.js"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-client",
+        "reviewed_paths": [
+          "src/App.jsx",
+          "src/main.jsx",
+          "src/content.js"
+        ],
+        "invariant": "No raw-HTML sinks; hrefs from constants",
+        "method": "source",
+        "result": "No innerHTML/dangerouslySetInnerHTML/eval; links use constants and encodeURIComponent; _blank links carry rel=noreferrer",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  },
+  {
+    "coverage_id": "src%2Flang.js%23redirectToPreferredLang::src%2Fcontent.js%23locales::profile%2Fquick%2Fall-in-scope-subsystems::CLIENT-SIDE.md%23UI-redress%20and%20navigation%20attack%20classes",
+    "canonical_refs": {
+      "surface": "src/lang.js#redirectToPreferredLang",
+      "boundary": "src/content.js#locales",
+      "subsystem": "profile/quick/all-in-scope-subsystems",
+      "attack_class": "CLIENT-SIDE.md#UI-redress and navigation attack classes"
+    },
+    "surface": "Root-URL locale redirect and 404 page",
+    "boundary": "Fixed locale path allowlist",
+    "subsystem": "All in-scope subsystems (quick profile)",
+    "attack_class": "UI-redress and navigation attack classes",
+    "starting_paths": [
+      "src/lang.js",
+      "public/404.html"
+    ],
+    "ordinary_attack_class_block": null,
+    "selected_companion_blocks": [
+      "CLIENT-SIDE.md#UI-redress and navigation attack classes",
+      "CLIENT-SIDE.md#Core discipline",
+      "CLIENT-SIDE.md#Universal moves",
+      "CLIENT-SIDE.md#Validation rules"
+    ],
+    "excluded_blocks": [
+      {
+        "block": "ATTACK-CLASSES.md#Access control",
+        "reason": "No authentication or accounts exist in this static site"
+      }
+    ],
+    "prior_status": "none",
+    "attempts": [],
+    "wave": 1,
+    "status": "covered",
+    "agent_id": "hunter-client",
+    "reviewed_paths": [
+      "src/lang.js",
+      "src/content.js",
+      "public/404.html"
+    ],
+    "local_checks": [
+      {
+        "agent_id": "hunter-client",
+        "reviewed_paths": [
+          "src/lang.js",
+          "src/content.js",
+          "public/404.html"
+        ],
+        "invariant": "Redirect target cannot leave the origin",
+        "method": "source",
+        "result": "Target is a fixed locales[key].path plus same-origin search/hash; pathname must be /",
+        "artifact": null
+      }
+    ],
+    "result_fingerprints": [],
+    "unresolved": []
+  }
+]

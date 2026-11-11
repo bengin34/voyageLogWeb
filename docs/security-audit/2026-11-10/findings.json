@@ -1,0 +1,254 @@
+[
+  {
+    "verdict": "needs_validation",
+    "fingerprint": "voyagelog.build.gray-matter-js-engine-enabled",
+    "title": "Blog front matter is parsed by gray-matter with its executable js engine left enabled",
+    "description": "gray-matter 4 evaluates front matter that opens with a js or javascript language tag. A markdown file in content/blog with such front matter would run code on the build machine, which in CI runs with Pages deploy rights.",
+    "claimed_root_cause": "matter() is called with default options, so the eval-based js engine is not disabled.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": "content/blog",
+        "line": 1,
+        "scope": "blog markdown files",
+        "description": "Contributor-supplied markdown via pull request"
+      },
+      {
+        "kind": "propagation",
+        "file": "scripts/blog.mjs",
+        "line": 95,
+        "scope": "loadPosts",
+        "description": "matter(raw) parses front matter with default engines"
+      },
+      {
+        "kind": "sink",
+        "file": "vite.config.js",
+        "line": 17,
+        "scope": "featuredPosts",
+        "description": "The same default parse runs in the Vite config during build"
+      }
+    ],
+    "evidence": [
+      {
+        "file": "scripts/blog.mjs",
+        "line": 95,
+        "description": "matter(raw) without an engines override"
+      },
+      {
+        "file": "scripts/og.mjs",
+        "line": 104,
+        "description": "Same default call"
+      },
+      {
+        "file": "scripts/check-blog.mjs",
+        "line": 35,
+        "description": "Same default call"
+      }
+    ],
+    "blockers": [
+      "Exploitation needs a merged contributor change, and the deploy workflow only runs on push to master, so impact depends on review and branch-protection policy that source does not show",
+      "No local execution was run because the sandbox rules cannot be enforced here"
+    ],
+    "validation_plan": {
+      "local": "In an isolated sandbox with no network and a scratch copy, run matter() on a fixture whose front matter starts with a js tag that writes a marker file in scratch, and confirm whether it executes.",
+      "deployment": "Owner confirms master requires reviewed PRs. Fix: pass an engines option that throws for js and javascript, or reject non-yaml front matter, in all four call sites."
+    }
+  },
+  {
+    "verdict": "rejected",
+    "fingerprint": "voyagelog.build.jsonld-script-breakout",
+    "title": "JSON-LD built with JSON.stringify does not escape the script terminator",
+    "description": "A front matter value containing a closing script tag would end the JSON-LD block early.",
+    "claimed_root_cause": "JSON.stringify output is placed in a script tag without escaping angle brackets.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": "content/blog",
+        "line": 1,
+        "scope": "front matter",
+        "description": "Repo-authored title, description and FAQ text"
+      },
+      {
+        "kind": "sink",
+        "file": "scripts/blog.mjs",
+        "line": 347,
+        "scope": "page template",
+        "description": "JSON.stringify output embedded in a script element"
+      }
+    ],
+    "evidence": [
+      {
+        "file": "scripts/postbuild.mjs",
+        "line": 146,
+        "description": "Same pattern for locale data"
+      }
+    ],
+    "reason": "Inputs are repo-authored front matter and locale data only, so no lower-trust principal reaches the sink. Kept as hardening."
+  },
+  {
+    "verdict": "rejected",
+    "fingerprint": "voyagelog.build.marked-raw-html-passthrough",
+    "title": "Blog markdown renders raw HTML without sanitizing",
+    "description": "marked runs with gfm only, so raw HTML and javascript: links in a post body reach the output.",
+    "claimed_root_cause": "No sanitizer or html renderer override on the Marked instance.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": "content/blog",
+        "line": 1,
+        "scope": "blog markdown",
+        "description": "Repo-authored markdown body"
+      },
+      {
+        "kind": "sink",
+        "file": "scripts/blog.mjs",
+        "line": 100,
+        "scope": "buildBlog",
+        "description": "marked.parse output is embedded in the generated page"
+      }
+    ],
+    "evidence": [
+      {
+        "file": "scripts/blog.mjs",
+        "line": 57,
+        "description": "new Marked({ gfm: true }) with no sanitizer"
+      }
+    ],
+    "reason": "Only repository authors write this content, so there is no lower-trust principal and a review gate exists. A search of content found no script, iframe or javascript: strings. Kept as hardening."
+  },
+  {
+    "verdict": "rejected",
+    "fingerprint": "voyagelog.ci.actions-tag-pinning",
+    "title": "GitHub Actions pinned by major tag with workflow-level pages and id-token write",
+    "description": "First-party actions use floating v3 and v4 tags and every job inherits pages and id-token write.",
+    "claimed_root_cause": "No SHA pinning and no job-level permission scoping.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": ".github/workflows/deploy.yml",
+        "line": 3,
+        "scope": "triggers",
+        "description": "push to master and workflow_dispatch only"
+      },
+      {
+        "kind": "sink",
+        "file": ".github/workflows/deploy.yml",
+        "line": 8,
+        "scope": "permissions",
+        "description": "Workflow-level token scopes"
+      }
+    ],
+    "evidence": [
+      {
+        "file": ".github/workflows/deploy.yml",
+        "line": 19,
+        "description": "actions/checkout@v4 tag pin"
+      }
+    ],
+    "reason": "Checklist deviation: only first-party actions, no pull_request trigger, no secrets and no attacker input crossing a boundary. Kept as hardening."
+  },
+  {
+    "verdict": "rejected",
+    "fingerprint": "voyagelog.client.lang-redirect-open-redirect",
+    "title": "Root-URL locale redirect could be an open redirect",
+    "description": "redirectToPreferredLang appends the current search and hash to a redirect target.",
+    "claimed_root_cause": "URL-derived values flow into window.location.replace.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": "src/lang.js",
+        "line": 22,
+        "scope": "redirectToPreferredLang",
+        "description": "Runs only when pathname is /"
+      },
+      {
+        "kind": "sink",
+        "file": "src/lang.js",
+        "line": 26,
+        "scope": "location.replace",
+        "description": "Target is a fixed locale path plus search and hash"
+      }
+    ],
+    "evidence": [
+      {
+        "file": "src/content.js",
+        "line": 28,
+        "description": "locales map supplies fixed path values; unknown saved values are ignored"
+      }
+    ],
+    "reason": "The target always begins with a fixed relative locale path, so the origin cannot change; search and hash stay on the same origin."
+  },
+  {
+    "verdict": "rejected",
+    "fingerprint": "voyagelog.deps.vite-devserver-advisories",
+    "title": "Vite dev-server advisories with a dev script bound to all interfaces",
+    "description": "npm audit reports high advisories for vite and transitive build tools while the dev script uses --host 0.0.0.0.",
+    "claimed_root_cause": "Vulnerable dev-server code reachable from the local network.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": "package.json",
+        "line": 7,
+        "scope": "dev script",
+        "description": "vite --host 0.0.0.0 run by a developer"
+      },
+      {
+        "kind": "sink",
+        "file": "package-lock.json",
+        "line": 1,
+        "scope": "vite entry",
+        "description": "Locked vite version with advisories"
+      }
+    ],
+    "evidence": [
+      {
+        "file": "package.json",
+        "line": 7,
+        "description": "dev script binds all interfaces"
+      }
+    ],
+    "reason": "The dev server is run only by the owner on a local machine, CI runs only the build, and no advisory covers code shipped to the browser. Transitive build-tool advisories need attacker-controlled inputs the build never receives. Fix by updating dependencies; filed as hardening."
+  },
+  {
+    "verdict": "needs_validation",
+    "fingerprint": "voyagelog.hosting.pages-headers-and-settings",
+    "title": "Live GitHub Pages headers, HTTPS enforcement and repo settings are not visible in source",
+    "description": "The site is served from GitHub Pages with a custom domain. Response headers (no CSP, no X-Content-Type-Options or Referrer-Policy), HTTPS enforcement and branch protection are platform settings that source does not show.",
+    "claimed_root_cause": "Hosting-level controls live outside the repository, so their presence or absence cannot be established from source.",
+    "trace": [
+      {
+        "kind": "entrypoint",
+        "file": "public/CNAME",
+        "line": 1,
+        "scope": "custom domain",
+        "description": "Visitors reach getvoyagelog.app served by GitHub Pages"
+      },
+      {
+        "kind": "sink",
+        "file": ".github/workflows/deploy.yml",
+        "line": 47,
+        "scope": "deploy job",
+        "description": "deploy-pages publishes dist with platform default headers"
+      }
+    ],
+    "evidence": [
+      {
+        "file": "index.html",
+        "line": 1,
+        "description": "No CSP meta tag and no third-party loads; only first-party assets, so no injection sink is shown that a CSP would contain"
+      },
+      {
+        "file": "public/CNAME",
+        "line": 1,
+        "description": "Single custom host getvoyagelog.app"
+      }
+    ],
+    "blockers": [
+      "GitHub Pages repository settings (Enforce HTTPS) and live response headers are outside source",
+      "No source-visible injection sink makes a missing CSP exploitable, so impact is unproven"
+    ],
+    "validation_plan": {
+      "deployment": "Owner checks Settings > Pages shows Enforce HTTPS enabled and runs a HEAD request against the production host to record the headers; confirm branch protection on master. Treat the absence of CSP as hardening unless an injection sink is later added."
+    }
+  }
+]
