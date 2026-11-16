@@ -55,6 +55,7 @@ faq:                    # exactly 5 items; answers 18-110 words (ja/ko/zh: 40-26
 | italy-summer | italy-in-summer | Italy summer travel: choosing a city, coastal or lake base without excessive transfers |
 | turkey-autumn | turkey-in-autumn | Türkiye autumn travel: choosing between nature and city weekends; weather and access checks |
 | germany-winter | germany-in-winter-city-breaks | Germany winter city breaks without a snow guarantee; distinguish Advent from January/February |
+| dayone-vs-polarsteps | day-one-vs-polarsteps | Day One vs Polarsteps head-to-head (journal vs tracker), plus where VoyageLog fits |
 
 ## Country and season guides (added 2026-10-30)
 - These are discovery articles, not app-comparison pages. Answer the destination question first with named places, realistic choices, a suggested pace, a weather alternative and a practical checklist.
