@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import matter from 'gray-matter';
+import matter from './scripts/matter.mjs';
 import { defineConfig } from 'vite';
 
 // Home page "from the blog" links: a few articles per language, read from content/blog at build time.
