@@ -2,7 +2,7 @@
 title: "Czechia in winter: Prague, Brno or Cesky Krumlov"
 description: "Czechia in winter city breaks: how to choose between Prague, Brno and Cesky Krumlov, a no-snow fallback day, an Advent versus January note and a checklist."
 date: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-20
 lang: en
 key: czechia-winter-city-breaks
 faq:
@@ -108,6 +108,8 @@ Work through this a few days ahead, then again briefly on the morning of each ou
 It cannot tell you whether it will snow, which sights will be busy on your dates or whether a particular visit is open. It does not replace current information from the tourism offices and operators responsible for each place. It also leaves out ski areas and spa towns, which are different trips with their own planning.
 
 It deliberately keeps the number of places low. If you prefer a faster pace, you may fit more, but test that against a bad-weather day first.
+
+Comparing other destinations for the same season? See [where to travel in Europe in winter](/en/blog/where-to-travel-in-winter-europe/) for a pick by trip type.
 
 ## Keep a winter city-break journal
 

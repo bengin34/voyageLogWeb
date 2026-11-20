@@ -2,7 +2,7 @@
 title: "Portugal in winter: Lisbon or Porto for a city break"
 description: "Compare Lisbon and Porto for a winter city break, with a neighbourhood day for each, rain plans and the accommodation questions worth asking before you book."
 date: 2026-10-30
-updated: 2026-10-30
+updated: 2026-11-20
 lang: en
 key: portugal-winter-city-breaks
 faq:
@@ -103,6 +103,8 @@ Do not assume that a famous district is automatically the right base for you. Ch
 It cannot promise sun, tell you which streets will be busy on your dates or confirm that any attraction will be open. It also treats Lisbon and Porto as separate bases, so it does not cover a route between them or the wider country. If you want the coast, the Algarve or a different region, that is another trip with its own questions.
 
 It is also written with a general reader in mind. If you are flying in, driving or coming overland, your arrival day will differ, and you should plan around your real journey.
+
+Comparing other destinations for the same season? See [where to travel in Europe in winter](/en/blog/where-to-travel-in-winter-europe/) for a pick by trip type.
 
 ## Keeping a Lisbon or Porto winter journal
 

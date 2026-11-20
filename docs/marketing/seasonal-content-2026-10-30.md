@@ -53,3 +53,15 @@ Attempted Kultur Portal deep links redirected to the homepage and were not used 
 Each article must pass `scripts/check-blog.mjs`, include exactly five FAQ entries, at least six H2 sections, one in-body CTA, same-language internal links and a dedicated 1200×630 OG image. Build outputs must contain the canonical URL, parseable BlogPosting/BreadcrumbList/FAQPage data, index/RSS/sitemap entries and no unresolved CTA marker. Country guides must use distinct topic keys rather than pointing hreflang at unrelated countries.
 
 Completed locally on 2026-10-30: all 121 repository articles passed `npm run check:blog`; `npm run build` passed; all four new OG images were generated; generated-page assertions passed for canonical URLs, parsed schema and five FAQ entities, index/RSS/sitemap inclusion, resolved CTA markers, image dimensions and distinct destination topic keys. `git diff --check` passed. No browser or production validation was performed, and no publication occurred.
+
+## 2026-11-20 (MEN-1039): six EN winter articles
+
+New EN articles: `where-to-travel-in-winter-europe` (hub, key `winter-europe-hub`), `germany-in-winter-city-breaks` (localization of the DE guide, key `germany-winter`), `japan-in-winter-where-to-go`, `spain-in-winter-where-to-go`, `italy-in-winter-city-breaks`, `finland-in-winter-helsinki-or-lapland`. Six existing EN winter articles got one hub link.
+
+Information gain: the hub sorts winter destinations by trip type (city break, mild south, snow and lights, Christmas) and links all 11 EN winter guides, which had no shared parent page; each guide adds a weather-dependence ranking, a one-anchor-one-extra day shape and a rain fallback.
+
+**Source checks: not performed.** This run was unattended and ran no web searches or official-page fetches. Instead, article bodies name only long-standing landmarks and institutions (Germany: Nuremberg castle, Regensburg Stone Bridge, Bremen Schnoor and Kunsthalle, reused from the already-checked GNTB pages above; Japan: Senso-ji, Meiji Jingu, Kinkaku-ji, Fushimi Inari, Sapporo and Otaru, the Sapporo winter festival without dates; Spain: Seville Alcazar and cathedral, Malaga Alcazaba and Picasso museum, Teide; Italy: Colosseum, Forum, Vatican Museums, Uffizi, cathedral dome, St Mark's, Doge's Palace; Finland: Helsinki Cathedral, Suomenlinna, Rovaniemi and the Arctic Circle). No hours, prices, travel times, event dates, weather statistics or activity availability are stated; every article tells the reader to confirm with the operator. Germany reuses the Nuremberg/Regensburg/Bremen checks recorded above. Left out as unverified: all admission rules, festival dates, aurora statistics, Canary Islands microclimate data, rail connections.
+
+**Follow-up (owner or next agent):** verify the named landmarks and the Teide, Suomenlinna-in-winter and Sapporo festival statements against official tourism pages before promoting these pages.
+
+Measurement: GSC clicks/impressions for the six URLs and Play referrer `utm_campaign=<slug>` acquisitions; check by 2026-12-18. GSC export still unavailable (MEN-190).

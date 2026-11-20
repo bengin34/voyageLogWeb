@@ -2,7 +2,7 @@
 title: "Thailand in winter: Bangkok or Chiang Mai for a city break"
 description: "Thailand in winter, the cool season: choose Bangkok or Chiang Mai by the kind of days you want, with a sample day for each and a departure checklist."
 date: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-20
 lang: en
 key: thailand-winter-city-guide
 faq:
@@ -97,6 +97,8 @@ Work through this list a few days ahead, then again briefly on the morning of ea
 It cannot tell you what the weather will do, which sights will be busy on your dates or whether a particular outing is open. It does not replace current information from the operators and tourism offices responsible for each place. It also leaves out islands, beaches and trekking, which are different trips with their own planning.
 
 It deliberately keeps the number of places low. If you prefer a faster pace, you may fit more, but test that choice against a hot, tiring day first. If you want a different time of year, the [Japan in autumn guide](/en/blog/japan-in-autumn-where-to-go/) shows the same one-anchor approach applied to another region.
+
+Comparing other destinations for the same season? See [where to travel in Europe in winter](/en/blog/where-to-travel-in-winter-europe/) for a pick by trip type.
 
 ## Keep a cool-season city-break journal
 
