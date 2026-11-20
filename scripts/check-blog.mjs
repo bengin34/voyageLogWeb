@@ -4,7 +4,7 @@
 import { existsSync } from 'node:fs';
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import matter from 'gray-matter';
+import matter from './matter.mjs';
 import { localeKeys } from '../src/content.js';
 import { CJK_LANGS, textLength, wordCount } from './text.mjs';
 

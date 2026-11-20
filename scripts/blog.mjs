@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import matter from 'gray-matter';
+import matter from './matter.mjs';
 import { Marked } from 'marked';
 import {
   APP_STORE_URL,
