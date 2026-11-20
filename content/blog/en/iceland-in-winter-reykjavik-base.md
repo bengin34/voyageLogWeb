@@ -2,7 +2,7 @@
 title: "Iceland in winter: a Reykjavik base without a lights bet"
 description: "Plan Iceland in winter from Reykjavik: what works in any weather, how to treat the northern lights as a bonus, and a weather-day fallback plan."
 date: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-20
 lang: en
 key: iceland-winter-reykjavik-base
 faq:
@@ -106,6 +106,8 @@ Work through this a few days ahead, then briefly each morning.
 It cannot tell you whether the aurora will appear, whether a road will be open or which sights will be busy. It does not replace current information from the operators and national bodies responsible for each place. It also does not cover self-drive trips around the island, which are a different kind of planning with their own risks.
 
 It deliberately keeps the number of places low. If you prefer a faster pace you may fit more in, but test that choice against a bad-weather day first.
+
+Comparing other destinations for the same season? See [where to travel in Europe in winter](/en/blog/where-to-travel-in-winter-europe/) for a pick by trip type.
 
 ## Keep an Iceland winter journal
 

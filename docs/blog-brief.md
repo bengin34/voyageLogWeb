@@ -56,6 +56,11 @@ faq:                    # exactly 5 items; answers 18-110 words (ja/ko/zh: 40-26
 | turkey-autumn | turkey-in-autumn | Türkiye autumn travel: choosing between nature and city weekends; weather and access checks |
 | germany-winter | germany-in-winter-city-breaks | Germany winter city breaks without a snow guarantee; distinguish Advent from January/February |
 | dayone-vs-polarsteps | day-one-vs-polarsteps | Day One vs Polarsteps head-to-head (journal vs tracker), plus where VoyageLog fits |
+| winter-europe-hub | where-to-travel-in-winter-europe | Where to travel in Europe in winter, by trip type; hub linking every EN winter guide |
+| japan-winter-guide | japan-in-winter-where-to-go | Japan winter: Tokyo/Kyoto city trip vs Sapporo/Hokkaido snow trip |
+| spain-winter-guide | spain-in-winter-where-to-go | Spain winter: Seville, Málaga, Canary Islands; mild-winter intent with honest limits |
+| italy-winter-city-guide | italy-in-winter-city-breaks | Italy winter city breaks: Rome, Florence, Venice off-season |
+| finland-winter-guide | finland-in-winter-helsinki-or-lapland | Finland winter: Helsinki vs Rovaniemi/Lapland; northern lights without a promise |
 
 ## Country and season guides (added 2026-10-30)
 - These are discovery articles, not app-comparison pages. Answer the destination question first with named places, realistic choices, a suggested pace, a weather alternative and a practical checklist.

@@ -2,7 +2,7 @@
 title: "Christmas markets in Europe: a 25-city checklist to tick off"
 description: "Christmas markets in Europe, 25 cities on one checklist grouped by region, with what makes each market distinct and how to journal the visit so you remember it."
 date: 2026-10-22
-updated: 2026-10-24
+updated: 2026-11-20
 lang: en
 key: christmas-markets
 faq:
@@ -150,6 +150,8 @@ Twenty-five cities is a decade of winters for most people, and that is the point
 - **Rate each market.** A rating out of five after each visit turns a list into an opinion, and an opinion is what friends ask for.
 
 [VoyageLog](/), the app we make, ships a ready-made Christmas markets city list, so you can tick cities off as you go and see at a glance which regions you have covered. Each market you visit becomes a place entry on the trip, with a photo, a rating and a note, and after a few winters you have a ranked best-of list of markets that is entirely your own.
+
+Comparing other destinations for the same season? See [where to travel in Europe in winter](/en/blog/where-to-travel-in-winter-europe/) for a pick by trip type.
 
 ## How to journal a market visit
 

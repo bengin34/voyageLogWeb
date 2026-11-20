@@ -2,7 +2,7 @@
 title: "Austria in winter: city breaks without skiing"
 description: "Choose between Vienna, Salzburg and Innsbruck for an Austria winter city break without skiing, with a no-snow fallback day and a departure checklist."
 date: 2026-10-30
-updated: 2026-10-30
+updated: 2026-11-20
 lang: en
 key: austria-winter-city-breaks
 faq:
@@ -108,6 +108,8 @@ Work through this list a few days ahead, then again briefly on the morning of ea
 It cannot tell you whether it will snow, which sights will be busy on your dates or whether a particular route is open. It does not replace current information from the operators and local tourism offices responsible for each place. It also does not cover skiing, because that is a different trip with its own planning.
 
 It deliberately keeps the number of places low. If you prefer a faster pace, you may fit more, but test that choice against a bad-weather day first.
+
+Comparing other destinations for the same season? See [where to travel in Europe in winter](/en/blog/where-to-travel-in-winter-europe/) for a pick by trip type.
 
 ## Keep a winter city-break journal
 
