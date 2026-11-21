@@ -61,6 +61,8 @@ faq:                    # exactly 5 items; answers 18-110 words (ja/ko/zh: 40-26
 | spain-winter-guide | spain-in-winter-where-to-go | Spain winter: Seville, Málaga, Canary Islands; mild-winter intent with honest limits |
 | italy-winter-city-guide | italy-in-winter-city-breaks | Italy winter city breaks: Rome, Florence, Venice off-season |
 | finland-winter-guide | finland-in-winter-helsinki-or-lapland | Finland winter: Helsinki vs Rovaniemi/Lapland; northern lights without a promise |
+| hungary-winter | hungary-in-winter-budapest-or-beyond | Hungary winter: Budapest baths/museums city break, optional Szentendre/Eger day trip |
+| denmark-winter | denmark-in-winter-copenhagen-or-aarhus | Denmark winter: Copenhagen or Aarhus museum-led city break |
 
 ## Country and season guides (added 2026-10-30)
 - These are discovery articles, not app-comparison pages. Answer the destination question first with named places, realistic choices, a suggested pace, a weather alternative and a practical checklist.
