@@ -49,6 +49,10 @@ If you want a trip that works whatever the sky does, choose a city with strong i
 
 **Italy.** Rome, Florence and Venice are quieter off-season, and Rome copes best with rain. See [Italy in winter](/en/blog/italy-in-winter-city-breaks/).
 
+**Hungary.** Budapest suits a baths-and-museums weekend, with an optional day trip. See [Hungary in winter](/en/blog/hungary-in-winter-budapest-or-beyond/).
+
+**Denmark.** Copenhagen or Aarhus for a calm, museum-led weekend. See [Denmark in winter](/en/blog/denmark-in-winter-copenhagen-or-aarhus/).
+
 ## Milder winters in the south
 
 If you want a softer winter, go south, but keep expectations honest. Milder does not mean warm, and cool mornings and wet days still happen.

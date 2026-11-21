@@ -65,3 +65,8 @@ Information gain: the hub sorts winter destinations by trip type (city break, mi
 **Follow-up (owner or next agent):** verify the named landmarks and the Teide, Suomenlinna-in-winter and Sapporo festival statements against official tourism pages before promoting these pages.
 
 Measurement: GSC clicks/impressions for the six URLs and Play referrer `utm_campaign=<slug>` acquisitions; check by 2026-12-18. GSC export still unavailable (MEN-190).
+
+## 2026-11-21 (MEN-1053): Hungary and Denmark winter guides, 14 locales
+**Information gain:** one-city-base framework per guide (Budapest: bath + museum + optional day trip; Copenhagen vs Aarhus: pick one base) with a rainy-day order and a checklist; fills Hungary and Denmark gaps in the winter hub.
+**Source checks: not performed (unattended, no web fetches).** Bodies name only long-standing landmarks (Széchenyi, Gellért, Castle Hill, Parliament, Great Market Hall, Szentendre, Eger; Nyhavn, Rosenborg, National Museum, Louisiana, Tivoli seasonal opening as "check", ARoS, Den Gamle By). No hours, prices, dates or travel times. **Follow-up:** verify landmarks and the Tivoli/Den Gamle By winter statements against official pages before promoting.
+Measurement: GSC clicks/impressions for the 28 URLs and Play referrer `utm_campaign=<slug>`; check by 2027-01-20 (Outcome check-by 2027-01-20 = +60 days).
