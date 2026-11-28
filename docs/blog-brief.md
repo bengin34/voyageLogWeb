@@ -63,6 +63,11 @@ faq:                    # exactly 5 items; answers 18-110 words (ja/ko/zh: 40-26
 | finland-winter-guide | finland-in-winter-helsinki-or-lapland | Finland winter: Helsinki vs Rovaniemi/Lapland; northern lights without a promise |
 | hungary-winter | hungary-in-winter-budapest-or-beyond | Hungary winter: Budapest baths/museums city break, optional Szentendre/Eger day trip |
 | denmark-winter | denmark-in-winter-copenhagen-or-aarhus | Denmark winter: Copenhagen or Aarhus museum-led city break |
+| estonia-winter | estonia-in-winter-tallinn-or-tartu | Estonia winter: Tallinn or Tartu city break |
+| malta-winter | malta-in-winter-valletta-or-gozo | Malta winter: Valletta or Gozo |
+| morocco-winter | morocco-in-winter-marrakech-or-agadir | Morocco winter: Marrakech or Agadir |
+| netherlands-winter | netherlands-in-winter-city-breaks | Netherlands winter city breaks |
+| switzerland-winter | switzerland-in-winter-city-or-mountains | Switzerland winter without skiing: city or mountains |
 
 ## Country and season guides (added 2026-10-30)
 - These are discovery articles, not app-comparison pages. Answer the destination question first with named places, realistic choices, a suggested pace, a weather alternative and a practical checklist.
